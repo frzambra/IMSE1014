@@ -14,6 +14,9 @@ format:
     html-math-method: katex
 ---
 
+![](logo_medioambiente.jpeg){width=10%}
+![](logo_hemera.jpg){width=30%}
+
 ## Reseña
 
 En este repositorio se pone a disposición de los alumnos de la carrera de `Ingeniería en Medio Ambiente` de la Universidad Mayor, las clases, laboratorios y material que se utilizará en la asignatura de `Introducción a la Tecnología de Información Geográfica`. Este repositorio está creado con [quarto](https://quarto.org/) por medio del software `R`.
