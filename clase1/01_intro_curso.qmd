@@ -211,4 +211,4 @@ Que los `estudiantes aprendan` los `conceptos` para el `manejo` de sistemas de i
 
 ## Link a las diapositivas de las clases {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
-[https://frzambra.github.io/IMSE1014/](https://frzambra.github.io/IMSE1014/)
+[https://frzambra.github.io/IMSE1014/IMSE1014.html](https://frzambra.github.io/IMSE1014/IMSE1014.html)
