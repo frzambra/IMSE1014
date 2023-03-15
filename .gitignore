@@ -1,0 +1,6 @@
+/.quarto/
+.Rproj.user
+Talleres/**/*.rds
+Clase11/data_estaciones_agrometAPI.csv
+data/
+Evaluaciones/data/
