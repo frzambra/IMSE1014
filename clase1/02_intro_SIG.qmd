@@ -277,8 +277,11 @@ cualquiera que utiliza un SIG.
 
 Ejemplo de uso de la tecnología geoespacial 
 
-[https://www.youtube.com/watch?v=poMGRbfgp38&feature=youtu.be](https://www.youtube.com/watch?v=poMGRbfgp38&feature=youtu.be)
+[Revolución geoespacial](https://www.youtube.com/watch?v=ZdQjc30YPOk&t=27s)
 
+[climate change](https://www.youtube.com/watch?v=9F7z9LLYxf8&t=128s)
+
+[Panemia](https://www.youtube.com/watch?v=CjAuDfnVKi4)
 # 4. Conceptos del espacio {background-color='orange'}
 
 ## Conceptos Fundamentales de Análisis Espacial {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
