@@ -26,6 +26,7 @@ En este repositorio se pone a disposición de los alumnos de la carrera de `Inge
 1. 15 marzo 2023. [Presentación curso](clase1/01_intro_curso.html)
 2. 15 marzo 2023.  [Introducción a los SIG](clase1/02_intro_SIG.html)
 3. 15 marzo 2023.  [Introducción a QGIS](clase1/03_intro_qgis.html)\
+4. 22 marzo 2023. [Modelos de datos geoespaciales](clase2/04_modelos_datos_SIG.html)
 
 ## Software SIG
 
