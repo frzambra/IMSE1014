@@ -7,7 +7,7 @@
 <link href="04_modelos_datos_SIG_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="04_modelos_datos_SIG_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="04_modelos_datos_SIG_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.2.335">
+  <meta name="generator" content="quarto-1.1.189">
 
   <meta name="author" content="Dr.&nbsp;Francisco Zambrano">
   <title>Modelos de datos geoespaciales (IMSE1014)</title>
@@ -318,7 +318,7 @@
       margin-right: 0; 
     }
   </style>
-  <script src="04_modelos_datos_SIG_files/libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
+  <script src="04_modelos_datos_SIG_files/libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
   <script src="04_modelos_datos_SIG_files/libs/jquery-1.12.4/jquery.min.js"></script>
   <link href="04_modelos_datos_SIG_files/libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
   <script src="04_modelos_datos_SIG_files/libs/leaflet-1.3.1/leaflet.js"></script>
@@ -334,28 +334,21 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
+<section id="title-slide" class="center">
   <h1 class="title">Modelos de datos geoespaciales (IMSE1014)</h1>
   <p class="subtitle">Introducción a la Tecnología de Información Geográfica (IMSE1014)</p>
-
-<div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-Dr.&nbsp;Francisco Zambrano 
-</div>
-</div>
-</div>
-
-  <p class="date">3/22/23</p>
+  <p class="author">Dr.&nbsp;Francisco Zambrano</p>
+  <p class="date">22 marzo 2023</p>
 </section>
+
 <section id="contenidos" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
 <h2>Contenidos</h2>
 <ol type="1">
 <li>¿Qué hemos visto?</li>
 <li>Conceptos del espacio</li>
 <li>Modelos de datos geoespaciales</li>
-<li>Atributos</li>
 <li>Tipos de modelos de datos geoespaciales</li>
+<li>Atributos</li>
 </ol>
 </section>
 <section>
@@ -542,8 +535,8 @@ Dr.&nbsp;Francisco Zambrano
 <h2>Ejemplo 1</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-44eddbf05e3c03dfba07" style="width:960px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-44eddbf05e3c03dfba07">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Esri.WorldImagery",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]}],"setView":[[-33.5,-70.7],6,[]]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-077068e443cb3fd57b76" style="width:960px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-077068e443cb3fd57b76">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Esri.WorldImagery",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]}],"setView":[[-33.5,-70.7],6,[]]},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -551,8 +544,8 @@ Dr.&nbsp;Francisco Zambrano
 <h2>Ejemplo 2</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-c1a1d37af4a521fad45a" style="width:960px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-c1a1d37af4a521fad45a">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["OpenStreetMap.Mapnik",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]}],"setView":[[-33.5,-70.7],6,[]]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b152af1ac7949c86e5e2" style="width:960px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b152af1ac7949c86e5e2">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["OpenStreetMap.Mapnik",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]}],"setView":[[-33.5,-70.7],6,[]]},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -599,8 +592,8 @@ Dr.&nbsp;Francisco Zambrano
 <h2>Fenómenos espaciales continuos</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-9a8ced4fae06520c2975" style="width:960px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-9a8ced4fae06520c2975">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["OpenTopoMap",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]}],"setView":[[-33.5,-70.7],6,[]]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-7fc8f5c4a965d7456edf" style="width:960px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7fc8f5c4a965d7456edf">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["OpenTopoMap",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]}],"setView":[[-33.5,-70.7],6,[]]},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -622,8 +615,204 @@ Dr.&nbsp;Francisco Zambrano
 
 <img data-src="img/sig_capas_2.png" class="r-stretch quarto-figure-center"></section></section>
 <section>
+<section id="tipos-de-modelos-de-datos-espaciales" class="title-slide slide level1 center" data-background-color="orange">
+<h1>4. Tipos de modelos de datos espaciales</h1>
+
+</section>
+<section id="tipos-de-modelos-de-datos-espaciales-1" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
+<h2>Tipos de modelos de datos espaciales</h2>
+<ul>
+<li>Dos modelos de datos espaciales</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Vectorial</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Raster</li>
+</ul>
+</div>
+</section>
+<section id="datos-vectorial" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
+<h2>Datos Vectorial</h2>
+<ul>
+<li><p>Define objetos discretos</p>
+<ul>
+<li>Ej. hidrante, caminos, rios,</li>
+</ul></li>
+<li><p>Hay tres tipos de datos vectorial</p>
+<ul>
+<li><p>Punto</p></li>
+<li><p>Linea</p></li>
+<li><p>Polígono</p></li>
+</ul></li>
+<li><p>están compuestos de coordenadas y atributos.</p></li>
+</ul>
+</section>
+<section id="datos-vectorial-1" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
+<h2>Datos Vectorial</h2>
+<ul>
+<li><p><code>Punto</code></p>
+<ul>
+<li><p>usa un par de coordenadas para definir la ubicación</p></li>
+<li><p>se consiera que no tiene dimensión (puede tener dimensión real, pero para el propóstio del SIG se considera dimención cero)</p></li>
+<li><p>la información de atributos se adjuna al punto</p></li>
+<li><p>Ej. postes de luz, estación agroclimática, ubicación de un crimen</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="datos-vectorial-2" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
+<h2>Datos Vectorial</h2>
+<ul>
+<li><code>Punto</code></li>
+</ul>
+
+<img data-src="img/puntos.png" class="r-stretch quarto-figure-center"></section>
+<section id="datos-vectorial-3" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
+<h2>Datos Vectorial</h2>
+<ul>
+<li><p><code>Linea</code></p>
+<ul>
+<li><p>se define por un conjunto ordenado de coordenadas.</p></li>
+<li><p>cada linea (y curva) están formadas de múltiples segmentos de linea</p></li>
+<li><p>Ocasionalemnte, lineas curvas se representan matemáticamente</p></li>
+<li><p>el punto de partida de una linea es un <code>nodo</code></p></li>
+<li><p>puntos intermedios de la linea son <code>vertices</code></p></li>
+<li><p>los atributos pueden estar adjuntos a toda la linea, un nodo o vertice.</p></li>
+<li><p>Ej: caminos, tuberias, linea eléctrica</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="datos-vectoriales" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
+<h2>Datos vectoriales</h2>
+<p>Red de drenaje representada por lineas</p>
+
+<img data-src="img/stream.png" class="r-stretch quarto-figure-center"></section>
+<section id="datos-vectorial-4" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
+<h2>Datos Vectorial</h2>
+<ul>
+<li><p><code>Polígono</code></p>
+<ul>
+<li><p>formado por un grupo de lineas conectadas</p></li>
+<li><p>polígonos deben ser cerrados. El punto de partida y de término debe ser el mismo.</p></li>
+<li><p>los polígonos tienen una región interior</p></li>
+<li><p>información de atributos se adjunta al polígono</p></li>
+<li><p>Ej. lagos, ciudad, límites administrativos</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="datos-vectorial-5" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
+<h2>Datos Vectorial</h2>
+<ul>
+<li><code>Polígono</code></li>
+</ul>
+
+<img data-src="img/poligono.png" class="r-stretch quarto-figure-center"></section>
+<section id="modelos-de-datos-espaciales" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
+<h2>Modelos de datos espaciales</h2>
+<ul>
+<li><p>Dos modelos de datos espaciales</p>
+<ul>
+<li><p>Vectorial</p></li>
+<li><p><code>Raster</code></p></li>
+</ul></li>
+</ul>
+</section>
+<section id="datos-raster" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
+<h2>Datos Raster</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>Representa objetos continuos Ej. temperatura, elevación</p></li>
+<li><p>conjunto regular de celdas (matriz) en un patrón cuadrículado</p></li>
+<li><p>objetos del mundo real son representados por valores en las celdas</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="img/raster_dataset.png"></p>
+</div>
+</div>
+</section>
+<section id="datos-raster-1" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
+<h2>Datos Raster</h2>
+
+<img data-src="img/Elementos_capa_raster.png" style="width:60.0%" class="r-stretch quarto-figure-center"></section>
+<section id="datos-raster-2" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
+<h2>Datos Raster</h2>
+
+<img data-src="04_modelos_datos_SIG_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section id="datos-raster-3" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
+<h2>Datos Raster</h2>
+
+<img data-src="04_modelos_datos_SIG_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section id="datos-raster-4" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
+<h2>Datos Raster</h2>
+
+<img data-src="04_modelos_datos_SIG_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section id="datos-raster-5" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
+<h2>Datos Raster</h2>
+
+<img data-src="img/raster_image.png" class="r-stretch quarto-figure-center"></section>
+<section id="resolución-datos-raster" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
+<h2>Resolución datos Raster</h2>
+<ul>
+<li><p>El tamaño de la celda (pixel) corresponde a la resolución</p></li>
+<li><p>hay una compensación entre la resolución y el tamaño del archivo raster</p></li>
+<li><p>la coordenada de la celda corresponde al punto central del pixel</p></li>
+<li><p>la coordenada aplica al área total de la celda</p></li>
+</ul>
+</section>
+<section id="resolución-datos-raster-1" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
+<h2>Resolución datos Raster</h2>
+<ul>
+<li><p>Cada celda raster representa una determinada área y el valor asignado representa toda esta área.</p></li>
+<li><p>el valor de la celda raster representa el valor promedio, más común, o el único valor cubierto por la celda.</p></li>
+</ul>
+</section>
+<section id="resolución-datos-raster-2" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
+<h2>Resolución datos Raster</h2>
+
+<img data-src="img/raster_image-2.png" class="r-stretch quarto-figure-center"></section>
+<section id="resolución-datos-raster-3" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
+<h2>Resolución datos Raster</h2>
+
+<img data-src="img/raster_image-3.png" class="r-stretch quarto-figure-center"></section>
+<section id="datos-raster-6" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
+<h2>Datos Raster</h2>
+
+<img data-src="img/raster_image-4.png" class="r-stretch quarto-figure-center"></section>
+<section id="datos-raster-7" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
+<h2>Datos Raster</h2>
+<p>Ejemplo: uso de suelo (landcover)</p>
+
+<img data-src="img/landcover-biobio.png" class="r-stretch quarto-figure-center"><p>Zambrano et al.&nbsp;(2016)</p>
+</section>
+<section id="raster-vs-vectorial" class="slide level2">
+<h2>Raster vs Vectorial</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Raster</strong></p>
+<ul>
+<li><p>buenos para cambios frecuentes</p></li>
+<li><p>modelo de datos simple</p></li>
+<li><p>fáciles superposiciones</p></li>
+<li><p>mejores para imágenes digitales</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Vectorial</strong></p>
+<ul>
+<li><p>almacenamiento de datos compacto</p></li>
+<li><p>ideal para representaciones lineales y de redes</p></li>
+<li><p>seres humanos más familiarizados con datos vectoriales</p></li>
+<li><p>puede contener topología</p></li>
+</ul>
+</div>
+</div>
+</section></section>
+<section>
 <section id="atributos" class="title-slide slide level1 center" data-background-color="red">
-<h1>4. Atributos</h1>
+<h1>5. Atributos</h1>
 
 </section>
 <section id="atributos-1" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
@@ -822,204 +1011,8 @@ Dr.&nbsp;Francisco Zambrano
 <li><p>12/12/80</p></li>
 </ul></li>
 </ul>
-</section></section>
-<section>
-<section id="tipos-de-modelos-de-datos-espaciales" class="title-slide slide level1 center" data-background-color="orange">
-<h1>5. Tipos de modelos de datos espaciales</h1>
 
-</section>
-<section id="tipos-de-modelos-de-datos-espaciales-1" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Tipos de modelos de datos espaciales</h2>
-<ul>
-<li>Dos modelos de datos espaciales</li>
-</ul>
-<div class="fragment">
-<ul>
-<li>Vectorial</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Raster</li>
-</ul>
-</div>
-</section>
-<section id="datos-vectorial" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Datos Vectorial</h2>
-<ul>
-<li><p>Define objetos discretos</p>
-<ul>
-<li>Ej. hidrante, caminos, rios,</li>
-</ul></li>
-<li><p>Hay tres tipos de datos vectorial</p>
-<ul>
-<li><p>Punto</p></li>
-<li><p>Linea</p></li>
-<li><p>Polígono</p></li>
-</ul></li>
-<li><p>están compuestos de coordenadas y atributos.</p></li>
-</ul>
-</section>
-<section id="datos-vectorial-1" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Datos Vectorial</h2>
-<ul>
-<li><p><code>Punto</code></p>
-<ul>
-<li><p>usa un par de coordenadas para definir la ubicación</p></li>
-<li><p>se consiera que no tiene dimensión (puede tener dimensión real, pero para el propóstio del SIG se considera dimención cero)</p></li>
-<li><p>la información de atributos se adjuna al punto</p></li>
-<li><p>Ej. postes de luz, estación agroclimática, ubicación de un crimen</p></li>
-</ul></li>
-</ul>
-</section>
-<section id="datos-vectorial-2" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Datos Vectorial</h2>
-<ul>
-<li><code>Punto</code></li>
-</ul>
-
-<img data-src="img/puntos.png" class="r-stretch quarto-figure-center"></section>
-<section id="datos-vectorial-3" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Datos Vectorial</h2>
-<ul>
-<li><p><code>Linea</code></p>
-<ul>
-<li><p>se define por un conjunto ordenado de coordenadas.</p></li>
-<li><p>cada linea (y curva) están formadas de múltiples segmentos de linea</p></li>
-<li><p>Ocasionalemnte, lineas curvas se representan matemáticamente</p></li>
-<li><p>el punto de partida de una linea es un <code>nodo</code></p></li>
-<li><p>puntos intermedios de la linea son <code>vertices</code></p></li>
-<li><p>los atributos pueden estar adjuntos a toda la linea, un nodo o vertice.</p></li>
-<li><p>Ej: caminos, tuberias, linea eléctrica</p></li>
-</ul></li>
-</ul>
-</section>
-<section id="datos-vectoriales" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Datos vectoriales</h2>
-<p>Red de drenaje representada por lineas</p>
-
-<img data-src="img/stream.png" class="r-stretch quarto-figure-center"></section>
-<section id="datos-vectorial-4" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Datos Vectorial</h2>
-<ul>
-<li><p><code>Polígono</code></p>
-<ul>
-<li><p>formado por un grupo de lineas conectadas</p></li>
-<li><p>polígonos deben ser cerrados. El punto de partida y de término debe ser el mismo.</p></li>
-<li><p>los polígonos tienen una región interior</p></li>
-<li><p>información de atributos se adjunta al polígono</p></li>
-<li><p>Ej. lagos, ciudad, límites administrativos</p></li>
-</ul></li>
-</ul>
-</section>
-<section id="datos-vectorial-5" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Datos Vectorial</h2>
-<ul>
-<li><code>Polígono</code></li>
-</ul>
-
-<img data-src="img/poligono.png" class="r-stretch quarto-figure-center"></section>
-<section id="modelos-de-datos-espaciales" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Modelos de datos espaciales</h2>
-<ul>
-<li><p>Dos modelos de datos espaciales</p>
-<ul>
-<li><p>Vectorial</p></li>
-<li><p><code>Raster</code></p></li>
-</ul></li>
-</ul>
-</section>
-<section id="datos-raster" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Datos Raster</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li><p>Representa objetos continuos Ej. temperatura, elevación</p></li>
-<li><p>conjunto regular de celdas (matriz) en un patrón cuadrículado</p></li>
-<li><p>objetos del mundo real son representados por valores en las celdas</p></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><img data-src="img/raster_dataset.png"></p>
-</div>
-</div>
-</section>
-<section id="datos-raster-1" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Datos Raster</h2>
-
-<img data-src="img/Elementos_capa_raster.png" style="width:60.0%" class="r-stretch quarto-figure-center"></section>
-<section id="datos-raster-2" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Datos Raster</h2>
-
-<img data-src="04_modelos_datos_SIG_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch quarto-figure-center"></section>
-<section id="datos-raster-3" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Datos Raster</h2>
-
-<img data-src="04_modelos_datos_SIG_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch quarto-figure-center"></section>
-<section id="datos-raster-4" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Datos Raster</h2>
-
-<img data-src="04_modelos_datos_SIG_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch quarto-figure-center"></section>
-<section id="datos-raster-5" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Datos Raster</h2>
-
-<img data-src="img/raster_image.png" class="r-stretch quarto-figure-center"></section>
-<section id="resolución-datos-raster" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Resolución datos Raster</h2>
-<ul>
-<li><p>El tamaño de la celda (pixel) corresponde a la resolución</p></li>
-<li><p>hay una compensación entre la resolución y el tamaño del archivo raster</p></li>
-<li><p>la coordenada de la celda corresponde al punto central del pixel</p></li>
-<li><p>la coordenada aplica al área total de la celda</p></li>
-</ul>
-</section>
-<section id="resolución-datos-raster-1" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Resolución datos Raster</h2>
-<ul>
-<li><p>Cada celda raster representa una determinada área y el valor asignado representa toda esta área.</p></li>
-<li><p>el valor de la celda raster representa el valor promedio, más común, o el único valor cubierto por la celda.</p></li>
-</ul>
-</section>
-<section id="resolución-datos-raster-2" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Resolución datos Raster</h2>
-
-<img data-src="img/raster_image-2.png" class="r-stretch quarto-figure-center"></section>
-<section id="resolución-datos-raster-3" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Resolución datos Raster</h2>
-
-<img data-src="img/raster_image-3.png" class="r-stretch quarto-figure-center"></section>
-<section id="datos-raster-6" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Datos Raster</h2>
-
-<img data-src="img/raster_image-4.png" class="r-stretch quarto-figure-center"></section>
-<section id="datos-raster-7" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Datos Raster</h2>
-<p>Ejemplo: uso de suelo (landcover)</p>
-
-<img data-src="img/landcover-biobio.png" class="r-stretch quarto-figure-center"><p>Zambrano et al.&nbsp;(2016)</p>
-</section>
-<section id="raster-vs-vectorial" class="slide level2">
-<h2>Raster vs Vectorial</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Raster</strong></p>
-<ul>
-<li><p>buenos para cambios frecuentes</p></li>
-<li><p>modelo de datos simple</p></li>
-<li><p>fáciles superposiciones</p></li>
-<li><p>mejores para imágenes digitales</p></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><strong>Vectorial</strong></p>
-<ul>
-<li><p>almacenamiento de datos compacto</p></li>
-<li><p>ideal para representaciones lineales y de redes</p></li>
-<li><p>seres humanos más familiarizados con datos vectoriales</p></li>
-<li><p>puede contener topología</p></li>
-</ul>
-</div>
-</div>
-
-<img src="logo_hemera.jpg" class="slide-logo r-stretch"><div class="footer footer-default">
+<img src="../logo_hemera.jpg" class="slide-logo r-stretch"><div class="footer footer-default">
 <p>IMSE1014|1-2023</p>
 </div>
 </section></section>
@@ -1240,15 +1233,12 @@ Dr.&nbsp;Francisco Zambrano
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
       (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          // dispatch for htmlwidgets
           const event = window.document.createEvent("Event");
           event.initEvent("slideenter", true, true);
           window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
 
           // dispatch for shiny
           if (window.jQuery) {
@@ -1259,6 +1249,13 @@ Dr.&nbsp;Francisco Zambrano
               window.jQuery(currentSlide).trigger("shown");
             }
           }
+        }
+
+        // hookup for reveal
+        if (window.Reveal) {
+          window.Reveal.addEventListener("slidechanged", function(event) {
+            fireSlideChanged(event.previousSlide, event.currentSlide);
+          });
         }
 
         // hookup for slidy
@@ -1310,24 +1307,7 @@ Dr.&nbsp;Francisco Zambrano
         button.classList.add('code-copy-button-checked');
         var currentTitle = button.getAttribute("title");
         button.setAttribute("title", "Copied!");
-        let tooltip;
-        if (window.bootstrap) {
-          button.setAttribute("data-bs-toggle", "tooltip");
-          button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "Copied!");
-          tooltip = new bootstrap.Tooltip(button, 
-            { trigger: "manual", 
-              customClass: "code-copy-button-tooltip",
-              offset: [0, -8]});
-          tooltip.show();    
-        }
         setTimeout(function() {
-          if (tooltip) {
-            tooltip.hide();
-            button.removeAttribute("data-bs-title");
-            button.removeAttribute("data-bs-toggle");
-            button.removeAttribute("data-bs-placement");
-          }
           button.setAttribute("title", currentTitle);
           button.classList.remove('code-copy-button-checked');
         }, 1000);
@@ -1365,42 +1345,24 @@ Dr.&nbsp;Francisco Zambrano
           return note.innerHTML;
         });
       }
-      const findCites = (el) => {
-        const parentEl = el.parentElement;
-        if (parentEl) {
-          const cites = parentEl.dataset.cites;
-          if (cites) {
-            return {
-              el,
-              cites: cites.split(' ')
-            };
-          } else {
-            return findCites(el.parentElement)
-          }
-        } else {
-          return undefined;
-        }
-      };
       var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
       for (var i=0; i<bibliorefs.length; i++) {
         const ref = bibliorefs[i];
-        const citeInfo = findCites(ref);
-        if (citeInfo) {
-          tippyHover(citeInfo.el, function() {
-            var popup = window.document.createElement('div');
-            citeInfo.cites.forEach(function(cite) {
-              var citeDiv = window.document.createElement('div');
-              citeDiv.classList.add('hanging-indent');
-              citeDiv.classList.add('csl-entry');
-              var biblioDiv = window.document.getElementById('ref-' + cite);
-              if (biblioDiv) {
-                citeDiv.innerHTML = biblioDiv.innerHTML;
-              }
-              popup.appendChild(citeDiv);
-            });
-            return popup.innerHTML;
+        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+        tippyHover(ref, function() {
+          var popup = window.document.createElement('div');
+          cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
           });
-        }
+          return popup.innerHTML;
+        });
       }
     });
     </script>

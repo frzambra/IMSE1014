@@ -7,7 +7,7 @@ format:
   revealjs:
     slide-number: true
     title-block-banner: true
-    logo: "logo_hemera.jpg"
+    logo: "../logo_hemera.jpg"
     footer: "IMSE1014|1-2023"
     theme: simple
     echo: true
@@ -18,8 +18,8 @@ format:
 1. ¿Qué hemos visto?
 2. Conceptos del espacio
 3. Modelos de datos geoespaciales
-4. Atributos
-5. Tipos de modelos de datos geoespaciales
+4. Tipos de modelos de datos geoespaciales
+5. Atributos
 
 # ¿Qué hemos visto? {background-color='orange'}
 
@@ -310,199 +310,7 @@ Típicamente, el fenómeno espacial se organiza en modelos de datos geoespaciale
 
 ![](img/sig_capas_2.png){fig-align='center'}
 
-# 4. Atributos {background-color='red'}
-## Atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
-
-## Atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
-
-- Registrar características `no espaciales` que describen entidades espaciales
-
-::: {.columns}
-::: {.column width="50%"}
-- Dispuestos en tablas :
-
-  - Fila: `entidad`
-  
-  - Columna: `atributo`
-:::
-::: {.column width="50%"}
-![](img/tabla.png)
-:::
-:::
-
-- se puede almacenar como un formato de archivo plano, o en un sistema de gestión de base de datos (SGBD).
-  
-## Atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
-
-![](img/hidrante.png){fig-align='center'}
-
-## Categorias de atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
-
-- Nominal
-
-- Ordinal
-
-- Intervalo
-
-- Razón
-
-## Categorias de atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
-
-- `Nominal`
-
-  - Entrega información `descriptiva`
-    Ej. color, nombre de ciudad, tipo de planta
-      
-  - `no` implica ningún `orden`
-  
-  - Tambien pueden ser imágenes, sonidos o peliculas
-  
-## Categorias de atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
-
-- `Ordinal`
-
-  - `implican` un ranking u `orden` basado en sus valores.
-
-  - los valores pueden ser texto descriptivo o numérico
-  
-    - Ej. alto/mediano/bajo o 1/50/100
-
-  - especifiqua `solo rango`, y no escala
-  
-    - Ej. alto/50 es mayor que bajo/1 pero no sabemos por cuanto
-
-## Categorias de atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
-
-- `Intervalo`
-
-  - orden de rango y magnitud está implícito
-  
-  - `No` tiene un cero natural
-    - Usa un cero arbitrario
-  
-  - Usa atributos númericos
-    - Ej: 30° C son 10°C mayor que 20°C
-        
-  -  `suma y resta aplica` pero `no multiplicación` ya que los valores son absolutos de un cero arbitrario.
-
-## Categorias de atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
-
-- `Razón`
-
-  - orden de rango y magnitud está implícito
-  
-  - Tiene un cero natural
-  
-  - Usa atributos númericos
-    - Ej: 50 km/hr es dos veces más rápido que 25 km/hr
-        
-  - suma, resta, división y multiplicación tiene sentido, ya que los valores son absolutos de un cero natural
-
-## Categorias de atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
-
-Identficar columnas como:  
-  - Nominal  
-  - Ordinal  
-  - Intervalo/Razón  
-  
-::: {.columns}
-::: {.column width="50%"}
-![](img/puntos_tabla.png)
-:::
-::: {.column width="50%"}
-![](img/tabla_tipo_dato.png)
-:::
-:::
-
-## Tipos de datos de atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
-
-. . .
-
-- los `datos` de atributos son `guardados` en la `memoria`
-
-. . .
-
-- el tipo de `dato` del `atributo` necesita ser `definido` para un `eficiente` uso de la `memoria` y determinación de la aplicabilidad operativa
-
-. . .
-
-- hay cuatro tipos comunes de datos
-
-  1. entero
-  
-  2. flotante/real
-  
-  3. texto/caracter
-  
-  4. fecha
-  
-## Tipos de datos de atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
-
-1.- `Entero`
-
-- Sin punto decimal
-
-- se puede usar para `cálculos matemáticos`
-  
-  - sin embargo el resultado de una fracción será redondeado
-  
-- Ejemplos:
-
-  - 1
-  - 2458
-  - -54
-  
-## Tipos de datos de atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
-
-2.- `Flotante/real`
-
-- Número decimal
-  
-- se puede usar para `cálculos matemáticos`
-  
-- Ejemplos:
-  
-  - 1,4532
-    
-  - 254783,1
-    
-  - -845,157
-    
-## Tipos de datos de atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
-
-3.- `texto/caracter`
-
-- no se puede usar para cálculos matemáticos
-  
-- el texto puede ser manipulado, ej. para encontrar subcadenas o para cortar cadenas.
-
-- Ej.
-  
-  - "A"
-    
-  - "SIG"
-    
-  - "Avenida Bernardo O'Higgins 2345"
-
-## Tipos de datos de atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
-
-4- `fecha`
-
-- guarda fechas
-  
-- `no` se puede usar para `cálculos matemáticos`
-  
-- sin embargo, se puede usar para `calcular` el periodo de `tiempo` entre dos fechas
-  
-- Ej.
-  
-  - 12-12-1980
-    
-  - 12 de diciembre 1980
-    
-  - 12/12/80
-
-# 5. Tipos de modelos de datos espaciales {background-color='orange'}
+# 4. Tipos de modelos de datos espaciales {background-color='orange'}
 
 
 ## Tipos de modelos de datos espaciales {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
@@ -732,3 +540,197 @@ Zambrano et al. (2016)
 - puede contener topología
 :::
 :::
+
+# 5. Atributos {background-color='red'}
+## Atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+## Atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+- Registrar características `no espaciales` que describen entidades espaciales
+
+::: {.columns}
+::: {.column width="50%"}
+- Dispuestos en tablas :
+
+  - Fila: `entidad`
+  
+  - Columna: `atributo`
+:::
+::: {.column width="50%"}
+![](img/tabla.png)
+:::
+:::
+
+- se puede almacenar como un formato de archivo plano, o en un sistema de gestión de base de datos (SGBD).
+  
+## Atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+![](img/hidrante.png){fig-align='center'}
+
+## Categorias de atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+- Nominal
+
+- Ordinal
+
+- Intervalo
+
+- Razón
+
+## Categorias de atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+- `Nominal`
+
+  - Entrega información `descriptiva`
+    Ej. color, nombre de ciudad, tipo de planta
+      
+  - `no` implica ningún `orden`
+  
+  - Tambien pueden ser imágenes, sonidos o peliculas
+  
+## Categorias de atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+- `Ordinal`
+
+  - `implican` un ranking u `orden` basado en sus valores.
+
+  - los valores pueden ser texto descriptivo o numérico
+  
+    - Ej. alto/mediano/bajo o 1/50/100
+
+  - especifiqua `solo rango`, y no escala
+  
+    - Ej. alto/50 es mayor que bajo/1 pero no sabemos por cuanto
+
+## Categorias de atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+- `Intervalo`
+
+  - orden de rango y magnitud está implícito
+  
+  - `No` tiene un cero natural
+    - Usa un cero arbitrario
+  
+  - Usa atributos númericos
+    - Ej: 30° C son 10°C mayor que 20°C
+        
+  -  `suma y resta aplica` pero `no multiplicación` ya que los valores son absolutos de un cero arbitrario.
+
+## Categorias de atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+- `Razón`
+
+  - orden de rango y magnitud está implícito
+  
+  - Tiene un cero natural
+  
+  - Usa atributos númericos
+    - Ej: 50 km/hr es dos veces más rápido que 25 km/hr
+        
+  - suma, resta, división y multiplicación tiene sentido, ya que los valores son absolutos de un cero natural
+
+## Categorias de atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+Identficar columnas como:  
+  - Nominal  
+  - Ordinal  
+  - Intervalo/Razón  
+  
+::: {.columns}
+::: {.column width="50%"}
+![](img/puntos_tabla.png)
+:::
+::: {.column width="50%"}
+![](img/tabla_tipo_dato.png)
+:::
+:::
+
+## Tipos de datos de atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+. . .
+
+- los `datos` de atributos son `guardados` en la `memoria`
+
+. . .
+
+- el tipo de `dato` del `atributo` necesita ser `definido` para un `eficiente` uso de la `memoria` y determinación de la aplicabilidad operativa
+
+. . .
+
+- hay cuatro tipos comunes de datos
+
+  1. entero
+  
+  2. flotante/real
+  
+  3. texto/caracter
+  
+  4. fecha
+  
+## Tipos de datos de atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+1.- `Entero`
+
+- Sin punto decimal
+
+- se puede usar para `cálculos matemáticos`
+  
+  - sin embargo el resultado de una fracción será redondeado
+  
+- Ejemplos:
+
+  - 1
+  - 2458
+  - -54
+  
+## Tipos de datos de atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+2.- `Flotante/real`
+
+- Número decimal
+  
+- se puede usar para `cálculos matemáticos`
+  
+- Ejemplos:
+  
+  - 1,4532
+    
+  - 254783,1
+    
+  - -845,157
+    
+## Tipos de datos de atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+3.- `texto/caracter`
+
+- no se puede usar para cálculos matemáticos
+  
+- el texto puede ser manipulado, ej. para encontrar subcadenas o para cortar cadenas.
+
+- Ej.
+  
+  - "A"
+    
+  - "SIG"
+    
+  - "Avenida Bernardo O'Higgins 2345"
+
+## Tipos de datos de atributos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+4- `fecha`
+
+- guarda fechas
+  
+- `no` se puede usar para `cálculos matemáticos`
+  
+- sin embargo, se puede usar para `calcular` el periodo de `tiempo` entre dos fechas
+  
+- Ej.
+  
+  - 12-12-1980
+    
+  - 12 de diciembre 1980
+    
+  - 12/12/80
+
+
