@@ -23,9 +23,7 @@ format:
 
 # ¿Qué hemos visto? {background-color='orange'}
 
-## ¿Qué hemos visto hasta ahora? {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
-
-### ¿Qué son los SIG?
+## ¿Qué son los SIG? {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
 .center[Es un `sistema` basado en computador para ayudar a la `recolección`, `mantención`, `almacenamiento`, `análisis`, `salida` y `distribución` de <br> información y datos espaciales y no-espaciales]
 

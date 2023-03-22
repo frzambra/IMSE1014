@@ -7,7 +7,7 @@ format:
   revealjs:
     slide-number: true
     title-block-banner: true
-    logo: "logo_hemera.jpg"
+    logo: "../logo_hemera.jpg"
     footer: "IMSE1014|1-2023"
     theme: simple
     echo: true

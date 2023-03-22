@@ -7,7 +7,7 @@
 <link href="02_intro_SIG_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="02_intro_SIG_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="02_intro_SIG_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.2.335">
+  <meta name="generator" content="quarto-1.1.189">
 
   <meta name="author" content="Dr.&nbsp;Francisco Zambrano">
   <title>Introducción a los SIG</title>
@@ -323,20 +323,13 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
+<section id="title-slide" class="center">
   <h1 class="title">Introducción a los SIG</h1>
   <p class="subtitle">Introducción a la Tecnología de Información Geográfica (IMSE1014)</p>
-
-<div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-Dr.&nbsp;Francisco Zambrano 
-</div>
-</div>
-</div>
-
-  <p class="date">3/15/23</p>
+  <p class="author">Dr.&nbsp;Francisco Zambrano</p>
+  <p class="date">15 marzo 2023</p>
 </section>
+
 <section id="contenidos" class="slide level2 smaller scrollable" data-background-image="../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
 <h2>Contenidos</h2>
 <ol type="1">
@@ -591,7 +584,7 @@ Dr.&nbsp;Francisco Zambrano
 <p><a href="https://www.youtube.com/watch?v=9F7z9LLYxf8&amp;t=128s">climate change</a></p>
 <p><a href="https://www.youtube.com/watch?v=CjAuDfnVKi4">Panemia</a></p>
 
-<img src="logo_hemera.jpg" class="slide-logo r-stretch"><div class="footer footer-default">
+<img src="../logo_hemera.jpg" class="slide-logo r-stretch"><div class="footer footer-default">
 <p>IMSE1014|1-2023</p>
 </div>
 </section></section>
@@ -844,24 +837,7 @@ Dr.&nbsp;Francisco Zambrano
         button.classList.add('code-copy-button-checked');
         var currentTitle = button.getAttribute("title");
         button.setAttribute("title", "Copied!");
-        let tooltip;
-        if (window.bootstrap) {
-          button.setAttribute("data-bs-toggle", "tooltip");
-          button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "Copied!");
-          tooltip = new bootstrap.Tooltip(button, 
-            { trigger: "manual", 
-              customClass: "code-copy-button-tooltip",
-              offset: [0, -8]});
-          tooltip.show();    
-        }
         setTimeout(function() {
-          if (tooltip) {
-            tooltip.hide();
-            button.removeAttribute("data-bs-title");
-            button.removeAttribute("data-bs-toggle");
-            button.removeAttribute("data-bs-placement");
-          }
           button.setAttribute("title", currentTitle);
           button.classList.remove('code-copy-button-checked');
         }, 1000);
@@ -899,42 +875,24 @@ Dr.&nbsp;Francisco Zambrano
           return note.innerHTML;
         });
       }
-      const findCites = (el) => {
-        const parentEl = el.parentElement;
-        if (parentEl) {
-          const cites = parentEl.dataset.cites;
-          if (cites) {
-            return {
-              el,
-              cites: cites.split(' ')
-            };
-          } else {
-            return findCites(el.parentElement)
-          }
-        } else {
-          return undefined;
-        }
-      };
       var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
       for (var i=0; i<bibliorefs.length; i++) {
         const ref = bibliorefs[i];
-        const citeInfo = findCites(ref);
-        if (citeInfo) {
-          tippyHover(citeInfo.el, function() {
-            var popup = window.document.createElement('div');
-            citeInfo.cites.forEach(function(cite) {
-              var citeDiv = window.document.createElement('div');
-              citeDiv.classList.add('hanging-indent');
-              citeDiv.classList.add('csl-entry');
-              var biblioDiv = window.document.getElementById('ref-' + cite);
-              if (biblioDiv) {
-                citeDiv.innerHTML = biblioDiv.innerHTML;
-              }
-              popup.appendChild(citeDiv);
-            });
-            return popup.innerHTML;
+        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+        tippyHover(ref, function() {
+          var popup = window.document.createElement('div');
+          cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
           });
-        }
+          return popup.innerHTML;
+        });
       }
     });
     </script>
