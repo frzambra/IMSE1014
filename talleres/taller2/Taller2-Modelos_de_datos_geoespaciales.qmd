@@ -39,7 +39,6 @@ Este laboratorio incluye las siguientes tareas:
 -   `Actividad 2:` aprenda a trabajar con el panel navegador QGIS.
 -   `Actividad 3:` familiarizarse con los modelos de datos geoespaciales.
 -   `Actividad 4:` visualización de datos geoespaciales en el lienzo de QGIS.
--   `Actividad 5:` formatos de datos geoespaciales vectoriales y raster.
 
 # Datos
 
@@ -49,8 +48,7 @@ Para el taller utilizará modelos de datos geoespaciales de tipo vectorial y ras
     -   `cuencas BNA`: delimitación de las cuencas hidrográficas de Chile.
     -   `estaciones de calidad de aire`: estaciones de monitoreo del Sistema de Información Nacional de Calidad de aire (SINCA) .
     -   `sendero de Chile`: Conjunto de rutas que atraviesan el país, contribuyendo a la protección de la naturaleza, a través de la generación de un espacio de acceso público. Esta información se encuentra para todo el país.
-    - `data_vectorial_taller2.gpkg`: archivo en formato geopackage. Lo debe descargar desde el campus virtual.
-    
+    -   `data_vectorial_taller2.gpkg`: archivo en formato geopackage. Lo debe descargar desde el campus virtual.
 -   `datos raster`:
     -   `imágen aérea:` descargue la siguiente imágen <https://t.ly/cScMI>
     -   `precipitación Chile`: <https://chelsa-chile.s3.amazonaws.com/monthly/pre/CHELSA_pr_v2.1_20190601.tif>
@@ -241,11 +239,11 @@ QGIS tiene distintas maneras de agregar datos para cada modelo de datos geoespac
 -   EstacionesdeCalidaddeAire.shp
 -   Sendero_de_Chile.shp
 
-17. Con el navegador de QGIS explore el archvio de tipo `geopackage` que tiene extensión ".gpkg", `data_vectorial_taller2.gpkg`". Este tipo de archivo corresponde al formato "Geopackage" <https://en.wikipedia.org/wiki/GeoPackage>.
+17. Con el navegador de QGIS explore el archvio de tipo `geopackage` que tiene extensión ".gpkg", `data_vectorial_taller2.gpkg`". Este tipo de archivo corresponde al formato"Geopackage" <https://en.wikipedia.org/wiki/GeoPackage>.
 
 18. Haga clic en la flecha junto al archivo `data_vectorial_taller2.gpkg`
 
-![](img/geopackage1.png) 
+![](img/geopackage1.png)
 
 19. Este tipo de archivo corresponde a una forma de base de datos y permite almacenar formatos de datos vectoriales y raster en el mismo archivo. En este caso se ve que contiene toda las capas vecotriales en un solo archivo.
 
@@ -277,7 +275,7 @@ Ahora aprenderá cómo agregar datos Raster a QGIS.
 
 ![](img/sentinel2_zoom.png)
 
-9. Ahora vamos a cargar otro tipo de datos raster, unos que tienen datos de precipitación y temperatura para Chile.
+9.  Ahora vamos a cargar otro tipo de datos raster, unos que tienen datos de precipitación y temperatura para Chile.
 
 10. Abra el administrador de fuentes de datos, luego seleccione `raster` y en `tipo de fuente` seleccione `Protocolo: HTTP, cloud, etc,..`
 
