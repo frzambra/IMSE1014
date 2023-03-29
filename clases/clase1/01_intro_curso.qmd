@@ -7,7 +7,7 @@ format:
   revealjs:
     slide-number: true
     title-block-banner: true
-    logo: "../logo_hemera.jpg"
+    logo: "../../logo_hemera.jpg"
     footer: "IMSE1014|1-2023"
     theme: simple
     echo: true
@@ -15,7 +15,7 @@ format:
 
 # `Presentación profesor` {background-color='lightblue'}
 
-## Breve descripción {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+## Breve descripción {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
 - Dr. Francisco Zambrano Bigiarini
   
@@ -27,7 +27,7 @@ format:
 
   - Camino la Piramide #5750, Edifico de Ciencias, Nivel 4.
 
-## Centro Hémera  {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+## Centro Hémera  {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
  [hemera.umayor.cl](https://hemera.umayor.cl/)
 
@@ -47,7 +47,7 @@ Utilizamos **teledetección** para entender la dinámica del planeta.
 
 ## Centro Hémera  {.smaller .scrollable background-image="gifs/esa.gif" background-size="contain" background-position="50% 50%" layout="true"}
 
-## Línea de investigación y proyectos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+## Línea de investigación y proyectos {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
 - __Escala regional__: estudio de la `sequía` y su impacto en la vegetación en Chile usando teledetección.
 
@@ -63,7 +63,7 @@ Utilizamos **teledetección** para entender la dinámica del planeta.
 [Google Scholar](https://scholar.google.es/citations?user=mKQRdOEAAAAJ&hl=e) <- clic
 
 ---
-## Línea de investigación y proyectos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+## Línea de investigación y proyectos {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
 ### Director del proyecto:
 
@@ -73,14 +73,14 @@ Utilizamos **teledetección** para entender la dinámica del planeta.
     - `Periodo de ejecucción:` 2022-2023
     - `Financiamiento:` ANID
     
-## ODES {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+## ODES {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
 ![](gifs/ODES_Logo_animacion.mp4)
 [http://odes-chile.org](http://odes-chile.org)
 
 ## ODES {.smaller .scrollable background-image="gifs/anim_swc2_file.gif" background-size="contain" background-position="50% 50%" layout="true"}
 
-## ODES {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+## ODES {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
 ![](gifs/acoriver.mp4){width="70%"}
 
@@ -88,7 +88,7 @@ Utilizamos **teledetección** para entender la dinámica del planeta.
 
 
 
-## Línea de investigación y proyectos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+## Línea de investigación y proyectos {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
 ### Director del proyecto:
 
@@ -100,7 +100,7 @@ Utilizamos **teledetección** para entender la dinámica del planeta.
 
 [http://frzambra.shinyapps.io/monitoreo_cuarteles/](http://frzambra.shinyapps.io/monitoreo_cuarteles/)
 
-## Línea de investigación y proyectos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+## Línea de investigación y proyectos {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
 ### Director del proyecto:
 
@@ -110,7 +110,7 @@ Utilizamos **teledetección** para entender la dinámica del planeta.
     - `Periodo de ejecucción:` 2020-2023
     - `Financiamiento:` ANID
 
-## Línea de investigación y proyectos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+## Línea de investigación y proyectos {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
 ### Investigador asociado en el siguiente proyecto:
 
@@ -121,7 +121,7 @@ Utilizamos **teledetección** para entender la dinámica del planeta.
     - `Periodo de ejecucción:` 2021-2024
     - `Financiamiento:` ANID
 
-## Línea de investigación y proyectos {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+## Línea de investigación y proyectos {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
 ### Investigador asociado en el siguiente proyecto:
 
@@ -134,7 +134,7 @@ Utilizamos **teledetección** para entender la dinámica del planeta.
     
 # `Descripción del curso` {background-color='brown'}
 
-## Metodología del curso {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+## Metodología del curso {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
 El curso está diseñado con `módulos de cátedra` en dónde se enseñaran los fundamentos teóricos.
 
@@ -144,18 +144,18 @@ Además, de `modulos de laboratorio` en donde se aprederá de forma práctica ut
 
 - Cátedra y taller: miércoles 08:30 - 12:20 (MALI-210)
   
-## Descripción del curso {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+## Descripción del curso {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
 `Visión general` de los conceptos de los Sistema de Información Geográfica `(SIG)` y sus `componentes`. 
 
 Tanto la `teoría` como la `aplicación practica` de los `SIG` se enfatizarán en este curso. 
 
 
-## Objetivo del curso {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+## Objetivo del curso {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
 Que los `estudiantes aprendan` los `conceptos` para el `manejo` de sistemas de información geográfica, además del manejo del software para Sistemas de Información Geográfica `QGIS 3.30` y su `aplicación en Ing. en Medio Ambiente`.
 
-## Objetivos de aprendizaje {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+## Objetivos de aprendizaje {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
 1. Demostrar `comprensión` y `competencia teórica` de Sistemas de Información Geográfica; 
 
@@ -165,7 +165,7 @@ Que los `estudiantes aprendan` los `conceptos` para el `manejo` de sistemas de i
 
 4. Demostrar habilidad en el uso del software SIG `QGIS 3.30`. 
 
-## Calendario de clases {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+## Calendario de clases {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
 | Fecha               | Tema                                           |
 |---------------------|------------------------------------------------|
@@ -185,7 +185,7 @@ Que los `estudiantes aprendan` los `conceptos` para el `manejo` de sistemas de i
 | 14 junio       | Presentación trabajo final |
 | 28 junio       | Presentación trabajo final |
 
-## Evaluaciones {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+## Evaluaciones {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
 
 - Promedio notas de Taller (20%)
@@ -196,7 +196,7 @@ Que los `estudiantes aprendan` los `conceptos` para el `manejo` de sistemas de i
 
 - Trabajo final (20%): 14 y 28 junio
 
-## Bibliografía recomendada {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+## Bibliografía recomendada {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
 1. Paul Bolstad. GIS Fundamentals: A First Text on Geographic Information Systems, Sixth Edition.
 
@@ -209,6 +209,6 @@ Que los `estudiantes aprendan` los `conceptos` para el `manejo` de sistemas de i
 5. Barnali Dixon and Venkatesh Uddameri. GIS and Geocomputation for Water Resources Science and Engineering. 2016
 
 
-## Link a las diapositivas de las clases {.smaller .scrollable background-image="../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+## Link a las diapositivas de las clases {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
 [https://frzambra.github.io/IMSE1014/IMSE1014.html](https://frzambra.github.io/IMSE1014/IMSE1014.html)
