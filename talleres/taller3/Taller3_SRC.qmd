@@ -335,12 +335,6 @@ La cuadrícula Universal Transverse Mercator (UTM) (que se muestra en la figura 
 - PSAD56 UTM, 
 - SAD69. 
 
-## Actividad 5: Exportar capas en diferentes proyecciones, crear archivos geopackages, agregar mapa de referencia.
-
-1. Exporte los mapas a diferentes proyecciones
-2. Cree un archivo geopackage con varias capas
-3. Agregue un mapa de referencia satelital a QGIS
-
 # Conclusión
 
 En este taller, ha explorado sistemas de coordenadas y proyecciones de mapas. Cada proyección del mapa distorsiona la Tierra de manera diferente. Puede modificar las proyecciones de mapas proporcionadas en QGIS para satisfacer sus necesidades de mapeo. Es importante que establezca la proyección de mapa correcta para cada capa de datos y para el proyecto.
