@@ -33,6 +33,7 @@ En este repositorio se pone a disposición de los alumnos de la carrera de `Inge
 
 1. Taller 1: Aplicaciones SIG en Medio Ambiente
 2. [Taller 2: Modelos de datos geoespaciales](talleres/taller2/Taller2-Modelos_de_datos_geoespaciales.html)
+3. [Taller 3: Sistemas de Referencias de Coordenadas (SRC)](talleres/taller3/Taller3_SRC.html)
 
 ## Software SIG
 
