@@ -22,10 +22,8 @@ Este taller incluye las siguientes actividades:
 
 - `Actividad 1`: Configuración de proyecciones geográficas y sistemas de coordenadas en QGIS Desktop
 - `Actividad 2`: Explorar las proyecciones geográficas nacionales
-- `Actividad 3`: Explorar el sistema de coordenadas Universal Transversal de Mercator (UTM)
-- `Actividad 4`: Repaso: Exportar proyecciones, crear archivos geopackages, agregar mapa de referencia.
-
-- Tarea Taller 3: 
+- `Actividad 3`: Explorar las proyecciones de mapas nacionales
+- `Actividad 4`: Explorar el sistema de coordenadas Universal Transversal de Mercator (UTM)
 
 ## Objetivo
 
