@@ -472,6 +472,7 @@ Objetivo: Minimizar todas las propiedades de la proyección geográfica
 
 ## Indicatriz de Tissot interactiva 
 
+[http://metrocosm.com/compare-map-projections.html](pinche aquí)
 ```{=html}
 <iframe width="100%" height="100%" src="http://metrocosm.com/compare-map-projections.html" title="Quarto Documentation"></iframe>
 ```
