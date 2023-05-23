@@ -29,6 +29,7 @@ En este repositorio se pone a disposición de los alumnos de la carrera de `Inge
 4. 22 marzo 2023 [Modelos de datos geoespaciales](clases/clase2/04_modelos_datos_SIG.html)
 5. 5 abril 2023 [Proyecciones y Sistemas de Referencia de Coordenadas](clases/clase3/05_SRC.html)
 6. 3 mayo 2023 [Creación de mapas con datos geoespaciales](clases/clase4/06_visualizacion.html)
+7. 24 mayo 2023 [Teledetección e imágenes aéreas](clases/clase5/07_teledeteccion.html)
 
 ## Talleres
 
