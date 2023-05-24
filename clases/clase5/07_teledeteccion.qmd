@@ -133,9 +133,22 @@ mapview::mapview()@map |>
 
 ![](img/veg-reflect.png){width="700px"}
 
-# Curva espectral vegetación sana {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+## Curva espectral vegetación sana {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
 ![](img/leaf-reflected-infrared.png){width="700px"}
+
+## Curva espectral vegetación sana {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+::: {.columns}
+::: {.column width=50%}
+![](img/cloroa_clorob_espectra.jpg){fig-align='center' width=100%}
+:::
+::: {.column width=50%}
+- Hay diferentes pigmentos en la vegetación.
+- Los cloroplastos absorben parte de la radiación para activar el proceso de la fotosíntesis.
+- Dependiendo del tipo de pigmento se absorbe más en unas longitudes de onda que en otras.
+:::
+:::
 
 ## Ejemplo {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
