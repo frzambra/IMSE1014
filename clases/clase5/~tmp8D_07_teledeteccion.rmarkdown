@@ -1,0 +1,150 @@
+---
+title: "Teledetección e Imágenes Aéreas"
+subtitle: "Introducción a la Tecnología de Información Geográfica (IMSE1014)"
+author: "Dr. Francisco Zambrano"
+date: "24/05/2023"
+format: 
+  revealjs:
+    slide-number: true
+    title-block-banner: true
+    logo: "../../logo_hemera.jpg"
+    footer: "IMSE1014|1-2023"
+    theme: simple
+    echo: true
+---
+
+```{setup,echo=FALSE}
+library(mapview)
+```
+
+
+## Contenidos {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+1. Introducción
+2. Proceso para crear un mapa
+3. Diseño del mapa
+
+# Introducción {background-color='brown'}
+
+## Datos remotos y útiles  {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+- Datos sensados de forma remota
+
+  - Imágenes Aéreas
+  
+  - Imágenes de Satélite
+  
+- Útiles por muchas razones
+
+  - Cubren grandes extensiones
+  
+  - Rango espectral extendido
+  
+  - Precisión geométrica
+  
+  - Registro permanente
+  
+## Ejemplos {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+
+```{r echo=FALSE,fig.width=10}
+mapview::mapview()@map  |>  
+  leaflet::setView(-72, -36,  zoom = 12) 
+
+```
+
+
+## Ejemplos {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+**Volcan Llaima**
+
+
+```{r echo=FALSE,fig.width=10}
+mapview::mapview()@map |> 
+    leaflet::setView(-71.72, -38.7,  zoom = 12)
+```
+
+
+## Ejemplos {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+**Liceo El Carmen, San Fernando**
+
+
+![](img/im1.png){width="530px" fig-align="center"}
+
+
+## Ejemplos {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+**Liceo El Carmen, San Fernando**
+
+![](img/im2.png){width="530px" fig-align="center"}
+
+## Ejemplos {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+**Liceo El Carmen, San Fernando**
+
+![](img/im3.png){width="530px" fig-align="center"}
+
+## Ejemplos {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+![](img/fig1.png)
+
+## Ejemplos {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+![](img/fig2.png)
+
+# Teledetección {background-color='ocean'}
+
+## Principios básicos {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+- La **teledetección** se basa en la energía electromagnética reflejada
+
+- La energía solar caracterizada por la **longitud de onda**
+
+  - cada `color` tiene una longitud de onda específica.
+  
+  - el rango compleo de longitud de onda se denómina **espectro electromagnético**
+  
+   nuestros ojos perciben la luz en el rango **visible** del espectro
+   
+
+## Espectro electromagnético (Videos) {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+1. [Espectro electromagnetico](https://www.youtube.com/watch?v=ixwxOQf50kc&t=106s)
+
+2. [La luz visible](https://www.youtube.com/watch?v=YCWvxv__nmQ)
+
+3. [Infrarojo](https://www.youtube.com/watch?v=8ybXNZQGzSQ)
+
+## Espectro electromagnético {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+![](img/fig3.png)
+
+## Espectro electromagnético {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+![](img/EspectroElectromagnetico.png)
+
+## Principios básicos teledetección {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+1. Energía electromagnética que golpea un objeto puede ser **absorvida**, **reflejada** o **transmitida**
+
+2. Los objetos se ven como el color que deben **reflejar**.
+
+3. Los objetos además reflejan otras porciones del espectro.
+
+## Curva espectral vegetación sana {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+![](img/veg-reflect.png){width="700px"}
+
+# Curva espectral vegetación sana {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+![](img/leaf-reflected-infrared.png){width="700px"}
+
+## Ejemplo {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+
+![](img/rgb.png){width="530px" fig-align='center'}
+
+## Ejemplo {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+![](img/falso_color.png){width="530px"}

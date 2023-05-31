@@ -13,10 +13,6 @@ format:
     echo: true
 ---
 
-```{setup,echo=FALSE}
-library(mapview)
-```
-
 ## Contenidos {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
 1. Introducción
@@ -24,6 +20,11 @@ library(mapview)
 3. Teoría del color
 4. Imágenes aéreas
 5. Imágenes satelitales
+
+```{setup}
+#| echo: false
+library(mapview)
+```
 
 # Introducción {background-color='brown'}
 
@@ -92,6 +93,8 @@ mapview::mapview()@map |>
 
 # Teledetección {background-color='ocean'}
 
+## {background-image="img/What-Is-Remote-Sensing.jpg" background-position="contain"}
+
 ## Principios básicos {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
 - La **teledetección** se basa en la energía electromagnética reflejada
@@ -104,6 +107,7 @@ mapview::mapview()@map |>
   
    nuestros ojos perciben la luz en el rango **visible** del espectro
    
+
 
 ## Espectro electromagnético (Videos) {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
@@ -129,6 +133,19 @@ mapview::mapview()@map |>
 
 3. Los objetos además reflejan otras porciones del espectro.
 
+::: {.columns}
+::: {.column width=50%}
+![](img/energia_incidente.png){width="60%"}
+:::
+::: {.column width=50%}
+
+$r = f_r/f_i$ (reflectividad)  
+$a = f_a/f_i$ (absortividad)  
+$t = f_t/f_i$ (transmisividad) 
+
+:::
+:::
+
 ## Curva espectral vegetación sana {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
 ![](img/veg-reflect.png){width="700px"}
@@ -141,7 +158,7 @@ mapview::mapview()@map |>
 
 ::: {.columns}
 ::: {.column width=50%}
-![](img/cloroa_clorob_espectra.jpg){fig-align='center' width=100%}
+![](img/espectro_absor_pigmentos.png){fig-align='center' width=100%}
 :::
 ::: {.column width=50%}
 - Hay diferentes pigmentos en la vegetación.
