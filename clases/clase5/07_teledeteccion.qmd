@@ -656,3 +656,83 @@ Considerar los siguientes factores:
 - Post-proceso
 
 - Requerimientos espectrales
+
+
+# Indices de Vegetación {background-color='lightblue'}
+
+## Espectro electromagnético {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+![](img/fig1.png){fig-width="800px" fig-align='center'}
+
+
+## Espectro electromagnético {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+![](img/fig2.jpg){fig-width="800px" fig-align='center'}
+
+
+## Curva espectral {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+**Vegetación**
+
+![](img/fig4.png){fig-width="550px" fig-align='center'}
+
+## Respuesta de la vegetación {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+**Vegetación**
+
+![](img/fig3.jpg){fig-width="700px" fig-align='center'}
+
+## Índices de vegetación {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+**Índice de Diferencia Normalizada (NDVI)**
+
+![](img/fig5.png){fig-width="550px" fig-align='center'}
+
+
+## Índices de vegetación {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+**Índice de Diferencia Normalizada (NDVI)**
+
+$$NDVI = \frac{NIR-RED}{NIR+RED} $$
+
+![](img/fig7.png){fig-width="800px" fig-align='center'}
+
+## Índices de vegetación {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+**Índice de Humedad de Diferencia Normalizada (NDMI)**
+
+$$NDMI = \frac{NIR-SWIR}{NIR+SWIR} $$
+
+![](img/fig8.png){fig-width="800px" fig-align='center'}
+
+## Imagenes de Satelite {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+**Imágenes Sentinel-2**
+
+![](img/fig6.png){fig-width="800px" fig-align='center'}
+
+## Bandas Sentinel-2 {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+**Imágenes Sentinel-2**
+
+![](img/fig9.png){fig-width="600px" fig-align='center'}
+
+# Calculadora Raster en QGIS  {background-color='orange'}
+
+## Utilidad {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+Permite realizar operaciones aritméticas con datos raster
+
+![](img/fig10.gif){fig-width="600px" fig-align='center'}
+
+## Ejemplo {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+![](img/fig11.jpg){fig-width="700px" fig-align='center'}
+
+## Para cálculo de Índices de Vegetación {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+La vamos a utilizar para calcular los índices de vegetación NDVI y NDMI.
+
+$$NDVI = \frac{NIR-RED}{NIR+RED} $$
+
+$$NDMI = \frac{NIR-SWIR}{NIR+SWIR} $$
