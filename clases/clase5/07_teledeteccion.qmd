@@ -1,5 +1,5 @@
 ---
-title: "Teledetección e Imágenes Aéreas"
+title: "Teledetección e Imágenes Satelitales"
 subtitle: "Introducción a la Tecnología de Información Geográfica (IMSE1014)"
 author: "Dr. Francisco Zambrano"
 date: "24/05/2023"
@@ -18,8 +18,8 @@ format:
 1. Introducción
 2. Teledetección
 3. Teoría del color
-4. Imágenes aéreas
-5. Imágenes satelitales
+4. Imágenes satelitales
+5. Índices de vegetación
 
 ```{setup}
 #| echo: false
@@ -301,222 +301,222 @@ Las tonalidades más habituales en una composición en falso color son:
 
 ![](img/bandas_rgb2truecolor.png){width=100%}
 
-# Imágenes aéreas y Drones (UAV) {background-color='darkgreen'}
+<!-- # Imágenes aéreas y Drones (UAV) {background-color='darkgreen'} -->
 
-## Imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+<!-- ## Imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
 
-- Las imágenes aéreas han sido una fuente importante de información geográfica
+<!-- - Las imágenes aéreas han sido una fuente importante de información geográfica -->
 
-  - Comenzaron al mismo tiempo que las camaras portables
-  
-  - Se hicieron prácticas con la invención de los aeroplanos.
-  
-- Fotogrametría: ciencia de de medir geometria desde imágenes
+<!--   - Comenzaron al mismo tiempo que las camaras portables -->
 
-## Imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+<!--   - Se hicieron prácticas con la invención de los aeroplanos. -->
 
-![](img/fig9.png){width="450px" fig-align='center'} 
+<!-- - Fotogrametría: ciencia de de medir geometria desde imágenes -->
 
-## Imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+<!-- ## Imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
 
-![](img/fig10.png){width="600px" fig-align='center'}
+<!-- ![](img/fig9.png){width="450px" fig-align='center'}  -->
 
-## Imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+<!-- ## Imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
 
-![](img/fig11.png){width="400px" fig-align='center'}
+<!-- ![](img/fig10.png){width="600px" fig-align='center'} -->
 
-## Imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+<!-- ## Imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
 
-![](img/fig12.png){width="600px" fig-align='center'}
+<!-- ![](img/fig11.png){width="400px" fig-align='center'} -->
 
-## Imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+<!-- ## Imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
 
-![](img/fig13.png){width="500px" fig-align='center')
+<!-- ![](img/fig12.png){width="600px" fig-align='center'} -->
 
-## Imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+<!-- ## Imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
 
-![](img/fig14.jpg){fig-align='center'}
+<!-- ![](img/fig13.png){width="500px" fig-align='center') -->
 
-## Imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+<!-- ## Imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
 
-![](img/fig15.png){fig-align='center'}
+<!-- ![](img/fig14.jpg){fig-align='center'} -->
 
-## Imágenes aéreas - atributos {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+<!-- ## Imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
 
-- En un principio se utilizaban camaras análogas con rollo (film)
+<!-- ![](img/fig15.png){fig-align='center'} -->
 
-- luego se comenzo a utilizar camaras digitales, en vez de un rollo (film) se basan en el sistema CCD.
+<!-- ## Imágenes aéreas - atributos {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
 
-- Hoy en día los drones pueden tener camaras multiespectrales
+<!-- - En un principio se utilizaban camaras análogas con rollo (film) -->
 
-## Imágenes aéreas - Camaras digitales {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+<!-- - luego se comenzo a utilizar camaras digitales, en vez de un rollo (film) se basan en el sistema CCD. -->
 
-- Utilizan el sistema CCD (charge coupled device) o similar.
+<!-- - Hoy en día los drones pueden tener camaras multiespectrales -->
 
-  - El CCD es un sistema rectangular de pixeles que responde a la luz
-  
-- Multiples CCD se pueden utilizar con uno o multiples lentes
+<!-- ## Imágenes aéreas - Camaras digitales {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
 
-## Imágenes aéreas - Camaras digitales{.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+<!-- - Utilizan el sistema CCD (charge coupled device) o similar. -->
 
-![](img/fig16.png){width="600px" fig-align='center'}
+<!--   - El CCD es un sistema rectangular de pixeles que responde a la luz -->
 
-## Imágenes aéreas - Sensores multiespectrales {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+<!-- - Multiples CCD se pueden utilizar con uno o multiples lentes -->
 
-**Parrot Sequoia**
+<!-- ## Imágenes aéreas - Camaras digitales{.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
 
-[https://www.youtube.com/watch?time_continue=137&v=SaztuWuDEsg&feature=emb_logo](https://www.youtube.com/watch?time_continue=137&v=SaztuWuDEsg&feature=emb_logo)
+<!-- ![](img/fig16.png){width="600px" fig-align='center'} -->
 
+<!-- ## Imágenes aéreas - Sensores multiespectrales {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
 
-## Calidad geométrica de una imágen aérea {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+<!-- **Parrot Sequoia** -->
 
-- Todas las imágenes aéreas tienen distorción geométrica
+<!-- [https://www.youtube.com/watch?time_continue=137&v=SaztuWuDEsg&feature=emb_logo](https://www.youtube.com/watch?time_continue=137&v=SaztuWuDEsg&feature=emb_logo) -->
 
-- Ortofóto: posición del objeto despues de ser proyectado a un plano
 
-  - equivalente a mirar verticalmente una escena desde una altura infinita
-  
-- la mayoría de las fotos aéreas no proveen una vista ortofotográfica, sino que una vista en perspectiva, la que es una visión distorsionada de la imagen de la tierra.
+<!-- ## Calidad geométrica de una imágen aérea {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
 
-## Calidad geométrica de una imágen aérea {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+<!-- - Todas las imágenes aéreas tienen distorción geométrica -->
 
-![](img/fig17.jpg){width="600px" fig-align='center'}
+<!-- - Ortofóto: posición del objeto despues de ser proyectado a un plano -->
 
+<!--   - equivalente a mirar verticalmente una escena desde una altura infinita -->
 
-## Calidad geométrica de una imágen aérea {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+<!-- - la mayoría de las fotos aéreas no proveen una vista ortofotográfica, sino que una vista en perspectiva, la que es una visión distorsionada de la imagen de la tierra. -->
 
-Cinco principales fuentes de distorsión
+<!-- ## Calidad geométrica de una imágen aérea {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
 
-1. terreno: error mayor
+<!-- ![](img/fig17.jpg){width="600px" fig-align='center'} -->
 
-2. inclinación de la camara: error mayor
 
-3. Lente de la camara: error menor
+<!-- ## Calidad geométrica de una imágen aérea {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
 
-4. refracción atmosférica: error menor
+<!-- Cinco principales fuentes de distorsión -->
 
-5. otros errores de camara: error menor
+<!-- 1. terreno: error mayor -->
 
-## Distorsión de terreno {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+<!-- 2. inclinación de la camara: error mayor -->
 
-- La variación del terreno es generalmente la mayor fuente de distorisón geométrica
+<!-- 3. Lente de la camara: error menor -->
 
-- Produce desplaciamiento del relieve
+<!-- 4. refracción atmosférica: error menor -->
 
-## Distorsión de terreno {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+<!-- 5. otros errores de camara: error menor -->
 
-![](img/fig18.png){width="600px" fig-align='center'}
+<!-- ## Distorsión de terreno {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
 
-## Distorsión de terreno {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+<!-- - La variación del terreno es generalmente la mayor fuente de distorisón geométrica -->
 
-![](img/fig19.png){width="600px" fig-align='center'}
+<!-- - Produce desplaciamiento del relieve -->
 
-## Distorsión de terreno {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+<!-- ## Distorsión de terreno {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
 
-- Las distorsiones de terreno son radiales.
+<!-- ![](img/fig18.png){width="600px" fig-align='center'} -->
 
-- La distorsión de relieve afecta angulos y distancias en una imágene aérea.
+<!-- ## Distorsión de terreno {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
 
-- La escala no es constante en una imágene aérea
+<!-- ![](img/fig19.png){width="600px" fig-align='center'} -->
 
-- Una imágene aérea tomada vertical sobre el terreno no es **ortofotográfica**
+<!-- ## Distorsión de terreno {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
 
-## Distorsión por inclinación de la camara {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+<!-- - Las distorsiones de terreno son radiales. -->
 
-- Es cuando el eje de la camara no se encuentra en un angulo vertical
+<!-- - La distorsión de relieve afecta angulos y distancias en una imágene aérea. -->
 
-- Resulta en una compleja convergencia de perspectiva
+<!-- - La escala no es constante en una imágene aérea -->
 
-## Distorsión por inclinación de la camara {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+<!-- - Una imágene aérea tomada vertical sobre el terreno no es **ortofotográfica** -->
 
-![](img/fig20.png){width="150px" fig-align='center'}
+<!-- ## Distorsión por inclinación de la camara {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
 
-## Otros errores {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+<!-- - Es cuando el eje de la camara no se encuentra en un angulo vertical -->
 
-- Desplazamiento radial del lente: imperfección en la superficie de la camara del lente
+<!-- - Resulta en una compleja convergencia de perspectiva -->
 
-- Error sistemático: patron deformado
+<!-- ## Distorsión por inclinación de la camara {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
 
-- Errores atmosféricos: reflexión de la luz
+<!-- ![](img/fig20.png){width="150px" fig-align='center'} -->
 
-## Corrección geométrica {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+<!-- ## Otros errores {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
 
-- La fotogrametríca proporciona herramientas para realizar corrección geométrica.
+<!-- - Desplazamiento radial del lente: imperfección en la superficie de la camara del lente -->
 
-- El proceso de corrección requiere medir las coordenadas de la imágen y sus correspondientes coordenadas en terreno.
+<!-- - Error sistemático: patron deformado -->
 
-- **Resultado final:** imágen ortorectificada- una imágen con corrección de distorsión de terreno y perspectiva.
+<!-- - Errores atmosféricos: reflexión de la luz -->
 
-## Ortorectificación {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+<!-- ## Corrección geométrica {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
 
-![](img/fig21.png)
+<!-- - La fotogrametríca proporciona herramientas para realizar corrección geométrica. -->
 
-## Usos de las imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+<!-- - El proceso de corrección requiere medir las coordenadas de la imágen y sus correspondientes coordenadas en terreno. -->
 
-- La base para la agromensura y mapeo topográfico
+<!-- - **Resultado final:** imágen ortorectificada- una imágen con corrección de distorsión de terreno y perspectiva. -->
 
-  - Mide X, Y, Z
-  
-- Foto interpretación
+<!-- ## Ortorectificación {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
 
-  - Categorizar o asignar atributos a objetos/lugares en la superficie
-  
-- Usadas como mapa de fondo (referencia)
+<!-- ![](img/fig21.png) -->
 
-- Monitoreo agrícola
+<!-- ## Usos de las imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
 
-  - Estado de la vegetación - enfermedades
-  
-  - conteo de plantas
-  
-  - estado hídrico
-  
-  - ..... y mucho más
+<!-- - La base para la agromensura y mapeo topográfico -->
 
-## Usos de las imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+<!--   - Mide X, Y, Z -->
 
-- **Fotointerpretación:** el proceso de convertir las imágenes en información
+<!-- - Foto interpretación -->
 
-- Los interpretes utilizan:
-  
-  - tamaño
-  - forma
-  - color
-  - brillo
-  - textura
-  - ubicación relativa y absoluta
+<!--   - Categorizar o asignar atributos a objetos/lugares en la superficie -->
 
-para interpretar las imágenes
+<!-- - Usadas como mapa de fondo (referencia) -->
 
-## Usos de las imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+<!-- - Monitoreo agrícola -->
 
-**Fotointerpretación**
+<!--   - Estado de la vegetación - enfermedades -->
 
-tamaño, forma, color, brillo, textura, ubicación relativa y absoluta
+<!--   - conteo de plantas -->
 
-![](img/fig22.png){width="350px" fig-align='center'}
-![](img/fig23.png){width="350px" fig-align='center'}
+<!--   - estado hídrico -->
+
+<!--   - ..... y mucho más -->
+
+<!-- ## Usos de las imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+
+<!-- - **Fotointerpretación:** el proceso de convertir las imágenes en información -->
+
+<!-- - Los interpretes utilizan: -->
+
+<!--   - tamaño -->
+<!--   - forma -->
+<!--   - color -->
+<!--   - brillo -->
+<!--   - textura -->
+<!--   - ubicación relativa y absoluta -->
+
+<!-- para interpretar las imágenes -->
+
+<!-- ## Usos de las imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+
+<!-- **Fotointerpretación** -->
+
+<!-- tamaño, forma, color, brillo, textura, ubicación relativa y absoluta -->
+
+<!-- ![](img/fig22.png){width="350px" fig-align='center'} -->
+<!-- ![](img/fig23.png){width="350px" fig-align='center'} -->
 
 
 # Imágenes Satelitales {background-color='orange'}
 
 
+<!-- ## Características {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+
+
+<!-- - concepto similar a las imágenes aéreas -->
+
+<!-- - Tiene los mismo usos -->
+
+<!--   - Base para crear mapas -->
+
+<!--   - Interpretación de imágenes -->
+
+<!--   - Como mapa de referencia -->
+
+<!-- - ... pero hay algunas diferencias importantes -->
+
 ## Características {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
-
-
-- concepto similar a las imágenes aéreas
-
-- Tiene los mismo usos
-
-  - Base para crear mapas
-  
-  - Interpretación de imágenes
-  
-  - Como mapa de referencia
-  
-- ... pero hay algunas diferencias importantes
-
-## ¿En qué difieren? {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
 - Perspectiva desde muy arriba
 
@@ -534,9 +534,8 @@ tamaño, forma, color, brillo, textura, ubicación relativa y absoluta
 - Menor resolución efectiva
 
 
-## ¿En qué difieren? {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+## Tipos de imágenes satelitales {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
 
-Dos tipos de imágenes satelitales
 
 - Públicas: 
 

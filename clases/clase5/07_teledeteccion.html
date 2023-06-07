@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.2.475">
 
   <meta name="author" content="Dr.&nbsp;Francisco Zambrano">
-  <title>Teledetección e Imágenes Aéreas</title>
+  <title>Teledetección e Imágenes Satelitales</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -318,7 +318,7 @@
       margin-right: 0; 
     }
   </style>
-  <script src="07_teledeteccion_files/libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
+  <script src="07_teledeteccion_files/libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
   <script src="07_teledeteccion_files/libs/jquery-1.12.4/jquery.min.js"></script>
   <link href="07_teledeteccion_files/libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
   <script src="07_teledeteccion_files/libs/leaflet-1.3.1/leaflet.js"></script>
@@ -336,7 +336,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Teledetección e Imágenes Aéreas</h1>
+  <h1 class="title">Teledetección e Imágenes Satelitales</h1>
   <p class="subtitle">Introducción a la Tecnología de Información Geográfica (IMSE1014)</p>
 
 <div class="quarto-title-authors">
@@ -355,8 +355,8 @@ Dr.&nbsp;Francisco Zambrano
 <li>Introducción</li>
 <li>Teledetección</li>
 <li>Teoría del color</li>
-<li>Imágenes aéreas</li>
 <li>Imágenes satelitales</li>
+<li>Índices de vegetación</li>
 </ol>
 <div class="cell">
 
@@ -388,8 +388,8 @@ Dr.&nbsp;Francisco Zambrano
 <h2>Ejemplos</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-af17f310152283947adc" style="width:960px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-af17f310152283947adc">{"x":{"options":{"minZoom":1,"maxZoom":52,"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"preferCanvas":false,"bounceAtZoomLimits":false,"maxBounds":[[[-90,-370]],[[90,370]]]},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron","CartoDB.Positron","CartoDB.Positron",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["CartoDB.DarkMatter","CartoDB.DarkMatter","CartoDB.DarkMatter",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["OpenStreetMap","OpenStreetMap","OpenStreetMap",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["Esri.WorldImagery","Esri.WorldImagery","Esri.WorldImagery",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["OpenTopoMap","OpenTopoMap","OpenTopoMap",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addLayersControl","args":[["CartoDB.Positron","CartoDB.DarkMatter","OpenStreetMap","Esri.WorldImagery","OpenTopoMap"],[],{"collapsed":true,"autoZIndex":true,"position":"topleft"}]},{"method":"addScaleBar","args":[{"maxWidth":100,"metric":true,"imperial":true,"updateWhenIdle":true,"position":"bottomleft"}]}],"setView":[[-36,-72],12,[]]},"evals":[],"jsHooks":{"render":[{"code":"function(el, x, data) {\n  return (\n      function(el, x, data) {\n      // get the leaflet map\n      var map = this; //HTMLWidgets.find('#' + el.id);\n      // we need a new div element because we have to handle\n      // the mouseover output separately\n      // debugger;\n      function addElement () {\n      // generate new div Element\n      var newDiv = $(document.createElement('div'));\n      // append at end of leaflet htmlwidget container\n      $(el).append(newDiv);\n      //provide ID and style\n      newDiv.addClass('lnlt');\n      newDiv.css({\n      'position': 'relative',\n      'bottomleft':  '0px',\n      'background-color': 'rgba(255, 255, 255, 0.7)',\n      'box-shadow': '0 0 2px #bbb',\n      'background-clip': 'padding-box',\n      'margin': '0',\n      'padding-left': '5px',\n      'color': '#333',\n      'font': '9px/1.5 \"Helvetica Neue\", Arial, Helvetica, sans-serif',\n      'z-index': '700',\n      });\n      return newDiv;\n      }\n\n\n      // check for already existing lnlt class to not duplicate\n      var lnlt = $(el).find('.lnlt');\n\n      if(!lnlt.length) {\n      lnlt = addElement();\n\n      // grab the special div we generated in the beginning\n      // and put the mousmove output there\n\n      map.on('mousemove', function (e) {\n      if (e.originalEvent.ctrlKey) {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                           ' lon: ' + (e.latlng.lng).toFixed(5) +\n                           ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                           ' | zoom: ' + map.getZoom() +\n                           ' | x: ' + L.CRS.EPSG3857.project(e.latlng).x.toFixed(0) +\n                           ' | y: ' + L.CRS.EPSG3857.project(e.latlng).y.toFixed(0) +\n                           ' | epsg: 3857 ' +\n                           ' | proj4: +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs ');\n      } else {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                      ' lon: ' + (e.latlng.lng).toFixed(5) +\n                      ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                      ' | zoom: ' + map.getZoom() + ' ');\n      }\n      });\n\n      // remove the lnlt div when mouse leaves map\n      map.on('mouseout', function (e) {\n      var strip = document.querySelector('.lnlt');\n      if( strip !==null) strip.remove();\n      });\n\n      };\n\n      //$(el).keypress(67, function(e) {\n      map.on('preclick', function(e) {\n      if (e.originalEvent.ctrlKey) {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                      ' lon: ' + (e.latlng.lng).toFixed(5) +\n                      ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                      ' | zoom: ' + map.getZoom() + ' ');\n      var txt = document.querySelector('.lnlt').textContent;\n      console.log(txt);\n      //txt.innerText.focus();\n      //txt.select();\n      setClipboardText('\"' + txt + '\"');\n      }\n      });\n\n      }\n      ).call(this.getMap(), el, x, data);\n}","data":null},{"code":"function(el, x, data) {\n  return (function(el,x,data){\n           var map = this;\n\n           map.on('keypress', function(e) {\n               console.log(e.originalEvent.code);\n               var key = e.originalEvent.code;\n               if (key === 'KeyE') {\n                   var bb = this.getBounds();\n                   var txt = JSON.stringify(bb);\n                   console.log(txt);\n\n                   setClipboardText('\\'' + txt + '\\'');\n               }\n           })\n        }).call(this.getMap(), el, x, data);\n}","data":null}]}}</script>
+<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-bfa926393e7499454dd0" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-bfa926393e7499454dd0">{"x":{"options":{"minZoom":1,"maxZoom":52,"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"preferCanvas":false,"bounceAtZoomLimits":false,"maxBounds":[[[-90,-370]],[[90,370]]]},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron","CartoDB.Positron","CartoDB.Positron",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["CartoDB.DarkMatter","CartoDB.DarkMatter","CartoDB.DarkMatter",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["OpenStreetMap","OpenStreetMap","OpenStreetMap",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["Esri.WorldImagery","Esri.WorldImagery","Esri.WorldImagery",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["OpenTopoMap","OpenTopoMap","OpenTopoMap",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addLayersControl","args":[["CartoDB.Positron","CartoDB.DarkMatter","OpenStreetMap","Esri.WorldImagery","OpenTopoMap"],[],{"collapsed":true,"autoZIndex":true,"position":"topleft"}]},{"method":"addScaleBar","args":[{"maxWidth":100,"metric":true,"imperial":true,"updateWhenIdle":true,"position":"bottomleft"}]}],"setView":[[-36,-72],12,[]]},"evals":[],"jsHooks":{"render":[{"code":"function(el, x, data) {\n  return (\n      function(el, x, data) {\n      // get the leaflet map\n      var map = this; //HTMLWidgets.find('#' + el.id);\n      // we need a new div element because we have to handle\n      // the mouseover output separately\n      // debugger;\n      function addElement () {\n      // generate new div Element\n      var newDiv = $(document.createElement('div'));\n      // append at end of leaflet htmlwidget container\n      $(el).append(newDiv);\n      //provide ID and style\n      newDiv.addClass('lnlt');\n      newDiv.css({\n      'position': 'relative',\n      'bottomleft':  '0px',\n      'background-color': 'rgba(255, 255, 255, 0.7)',\n      'box-shadow': '0 0 2px #bbb',\n      'background-clip': 'padding-box',\n      'margin': '0',\n      'padding-left': '5px',\n      'color': '#333',\n      'font': '9px/1.5 \"Helvetica Neue\", Arial, Helvetica, sans-serif',\n      'z-index': '700',\n      });\n      return newDiv;\n      }\n\n\n      // check for already existing lnlt class to not duplicate\n      var lnlt = $(el).find('.lnlt');\n\n      if(!lnlt.length) {\n      lnlt = addElement();\n\n      // grab the special div we generated in the beginning\n      // and put the mousmove output there\n\n      map.on('mousemove', function (e) {\n      if (e.originalEvent.ctrlKey) {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                           ' lon: ' + (e.latlng.lng).toFixed(5) +\n                           ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                           ' | zoom: ' + map.getZoom() +\n                           ' | x: ' + L.CRS.EPSG3857.project(e.latlng).x.toFixed(0) +\n                           ' | y: ' + L.CRS.EPSG3857.project(e.latlng).y.toFixed(0) +\n                           ' | epsg: 3857 ' +\n                           ' | proj4: +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs ');\n      } else {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                      ' lon: ' + (e.latlng.lng).toFixed(5) +\n                      ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                      ' | zoom: ' + map.getZoom() + ' ');\n      }\n      });\n\n      // remove the lnlt div when mouse leaves map\n      map.on('mouseout', function (e) {\n      var strip = document.querySelector('.lnlt');\n      if( strip !==null) strip.remove();\n      });\n\n      };\n\n      //$(el).keypress(67, function(e) {\n      map.on('preclick', function(e) {\n      if (e.originalEvent.ctrlKey) {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                      ' lon: ' + (e.latlng.lng).toFixed(5) +\n                      ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                      ' | zoom: ' + map.getZoom() + ' ');\n      var txt = document.querySelector('.lnlt').textContent;\n      console.log(txt);\n      //txt.innerText.focus();\n      //txt.select();\n      setClipboardText('\"' + txt + '\"');\n      }\n      });\n\n      }\n      ).call(this.getMap(), el, x, data);\n}","data":null},{"code":"function(el, x, data) {\n  return (function(el,x,data){\n           var map = this;\n\n           map.on('keypress', function(e) {\n               console.log(e.originalEvent.code);\n               var key = e.originalEvent.code;\n               if (key === 'KeyE') {\n                   var bb = this.getBounds();\n                   var txt = JSON.stringify(bb);\n                   console.log(txt);\n\n                   setClipboardText('\\'' + txt + '\\'');\n               }\n           })\n        }).call(this.getMap(), el, x, data);\n}","data":null}]}}</script>
 </div>
 </div>
 </section>
@@ -398,8 +398,8 @@ Dr.&nbsp;Francisco Zambrano
 <p><strong>Volcan Llaima</strong></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-b2d0654b1e9fbb56c6c6" style="width:960px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-b2d0654b1e9fbb56c6c6">{"x":{"options":{"minZoom":1,"maxZoom":52,"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"preferCanvas":false,"bounceAtZoomLimits":false,"maxBounds":[[[-90,-370]],[[90,370]]]},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron","CartoDB.Positron","CartoDB.Positron",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["CartoDB.DarkMatter","CartoDB.DarkMatter","CartoDB.DarkMatter",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["OpenStreetMap","OpenStreetMap","OpenStreetMap",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["Esri.WorldImagery","Esri.WorldImagery","Esri.WorldImagery",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["OpenTopoMap","OpenTopoMap","OpenTopoMap",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addLayersControl","args":[["CartoDB.Positron","CartoDB.DarkMatter","OpenStreetMap","Esri.WorldImagery","OpenTopoMap"],[],{"collapsed":true,"autoZIndex":true,"position":"topleft"}]},{"method":"addScaleBar","args":[{"maxWidth":100,"metric":true,"imperial":true,"updateWhenIdle":true,"position":"bottomleft"}]}],"setView":[[-38.7,-71.72],12,[]]},"evals":[],"jsHooks":{"render":[{"code":"function(el, x, data) {\n  return (\n      function(el, x, data) {\n      // get the leaflet map\n      var map = this; //HTMLWidgets.find('#' + el.id);\n      // we need a new div element because we have to handle\n      // the mouseover output separately\n      // debugger;\n      function addElement () {\n      // generate new div Element\n      var newDiv = $(document.createElement('div'));\n      // append at end of leaflet htmlwidget container\n      $(el).append(newDiv);\n      //provide ID and style\n      newDiv.addClass('lnlt');\n      newDiv.css({\n      'position': 'relative',\n      'bottomleft':  '0px',\n      'background-color': 'rgba(255, 255, 255, 0.7)',\n      'box-shadow': '0 0 2px #bbb',\n      'background-clip': 'padding-box',\n      'margin': '0',\n      'padding-left': '5px',\n      'color': '#333',\n      'font': '9px/1.5 \"Helvetica Neue\", Arial, Helvetica, sans-serif',\n      'z-index': '700',\n      });\n      return newDiv;\n      }\n\n\n      // check for already existing lnlt class to not duplicate\n      var lnlt = $(el).find('.lnlt');\n\n      if(!lnlt.length) {\n      lnlt = addElement();\n\n      // grab the special div we generated in the beginning\n      // and put the mousmove output there\n\n      map.on('mousemove', function (e) {\n      if (e.originalEvent.ctrlKey) {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                           ' lon: ' + (e.latlng.lng).toFixed(5) +\n                           ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                           ' | zoom: ' + map.getZoom() +\n                           ' | x: ' + L.CRS.EPSG3857.project(e.latlng).x.toFixed(0) +\n                           ' | y: ' + L.CRS.EPSG3857.project(e.latlng).y.toFixed(0) +\n                           ' | epsg: 3857 ' +\n                           ' | proj4: +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs ');\n      } else {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                      ' lon: ' + (e.latlng.lng).toFixed(5) +\n                      ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                      ' | zoom: ' + map.getZoom() + ' ');\n      }\n      });\n\n      // remove the lnlt div when mouse leaves map\n      map.on('mouseout', function (e) {\n      var strip = document.querySelector('.lnlt');\n      if( strip !==null) strip.remove();\n      });\n\n      };\n\n      //$(el).keypress(67, function(e) {\n      map.on('preclick', function(e) {\n      if (e.originalEvent.ctrlKey) {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                      ' lon: ' + (e.latlng.lng).toFixed(5) +\n                      ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                      ' | zoom: ' + map.getZoom() + ' ');\n      var txt = document.querySelector('.lnlt').textContent;\n      console.log(txt);\n      //txt.innerText.focus();\n      //txt.select();\n      setClipboardText('\"' + txt + '\"');\n      }\n      });\n\n      }\n      ).call(this.getMap(), el, x, data);\n}","data":null},{"code":"function(el, x, data) {\n  return (function(el,x,data){\n           var map = this;\n\n           map.on('keypress', function(e) {\n               console.log(e.originalEvent.code);\n               var key = e.originalEvent.code;\n               if (key === 'KeyE') {\n                   var bb = this.getBounds();\n                   var txt = JSON.stringify(bb);\n                   console.log(txt);\n\n                   setClipboardText('\\'' + txt + '\\'');\n               }\n           })\n        }).call(this.getMap(), el, x, data);\n}","data":null}]}}</script>
+<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-e403933247f4eb7ac10c" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-e403933247f4eb7ac10c">{"x":{"options":{"minZoom":1,"maxZoom":52,"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"preferCanvas":false,"bounceAtZoomLimits":false,"maxBounds":[[[-90,-370]],[[90,370]]]},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron","CartoDB.Positron","CartoDB.Positron",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["CartoDB.DarkMatter","CartoDB.DarkMatter","CartoDB.DarkMatter",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["OpenStreetMap","OpenStreetMap","OpenStreetMap",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["Esri.WorldImagery","Esri.WorldImagery","Esri.WorldImagery",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["OpenTopoMap","OpenTopoMap","OpenTopoMap",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addLayersControl","args":[["CartoDB.Positron","CartoDB.DarkMatter","OpenStreetMap","Esri.WorldImagery","OpenTopoMap"],[],{"collapsed":true,"autoZIndex":true,"position":"topleft"}]},{"method":"addScaleBar","args":[{"maxWidth":100,"metric":true,"imperial":true,"updateWhenIdle":true,"position":"bottomleft"}]}],"setView":[[-38.7,-71.72],12,[]]},"evals":[],"jsHooks":{"render":[{"code":"function(el, x, data) {\n  return (\n      function(el, x, data) {\n      // get the leaflet map\n      var map = this; //HTMLWidgets.find('#' + el.id);\n      // we need a new div element because we have to handle\n      // the mouseover output separately\n      // debugger;\n      function addElement () {\n      // generate new div Element\n      var newDiv = $(document.createElement('div'));\n      // append at end of leaflet htmlwidget container\n      $(el).append(newDiv);\n      //provide ID and style\n      newDiv.addClass('lnlt');\n      newDiv.css({\n      'position': 'relative',\n      'bottomleft':  '0px',\n      'background-color': 'rgba(255, 255, 255, 0.7)',\n      'box-shadow': '0 0 2px #bbb',\n      'background-clip': 'padding-box',\n      'margin': '0',\n      'padding-left': '5px',\n      'color': '#333',\n      'font': '9px/1.5 \"Helvetica Neue\", Arial, Helvetica, sans-serif',\n      'z-index': '700',\n      });\n      return newDiv;\n      }\n\n\n      // check for already existing lnlt class to not duplicate\n      var lnlt = $(el).find('.lnlt');\n\n      if(!lnlt.length) {\n      lnlt = addElement();\n\n      // grab the special div we generated in the beginning\n      // and put the mousmove output there\n\n      map.on('mousemove', function (e) {\n      if (e.originalEvent.ctrlKey) {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                           ' lon: ' + (e.latlng.lng).toFixed(5) +\n                           ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                           ' | zoom: ' + map.getZoom() +\n                           ' | x: ' + L.CRS.EPSG3857.project(e.latlng).x.toFixed(0) +\n                           ' | y: ' + L.CRS.EPSG3857.project(e.latlng).y.toFixed(0) +\n                           ' | epsg: 3857 ' +\n                           ' | proj4: +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs ');\n      } else {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                      ' lon: ' + (e.latlng.lng).toFixed(5) +\n                      ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                      ' | zoom: ' + map.getZoom() + ' ');\n      }\n      });\n\n      // remove the lnlt div when mouse leaves map\n      map.on('mouseout', function (e) {\n      var strip = document.querySelector('.lnlt');\n      if( strip !==null) strip.remove();\n      });\n\n      };\n\n      //$(el).keypress(67, function(e) {\n      map.on('preclick', function(e) {\n      if (e.originalEvent.ctrlKey) {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                      ' lon: ' + (e.latlng.lng).toFixed(5) +\n                      ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                      ' | zoom: ' + map.getZoom() + ' ');\n      var txt = document.querySelector('.lnlt').textContent;\n      console.log(txt);\n      //txt.innerText.focus();\n      //txt.select();\n      setClipboardText('\"' + txt + '\"');\n      }\n      });\n\n      }\n      ).call(this.getMap(), el, x, data);\n}","data":null},{"code":"function(el, x, data) {\n  return (function(el,x,data){\n           var map = this;\n\n           map.on('keypress', function(e) {\n               console.log(e.originalEvent.code);\n               var key = e.originalEvent.code;\n               if (key === 'KeyE') {\n                   var bb = this.getBounds();\n                   var txt = JSON.stringify(bb);\n                   console.log(txt);\n\n                   setClipboardText('\\'' + txt + '\\'');\n               }\n           })\n        }).call(this.getMap(), el, x, data);\n}","data":null}]}}</script>
 </div>
 </div>
 </section>
@@ -646,222 +646,121 @@ Dr.&nbsp;Francisco Zambrano
 <section id="falso-color-1" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
 <h2>Falso color</h2>
 
+<!-- # Imágenes aéreas y Drones (UAV) {background-color='darkgreen'} -->
+<!-- ## Imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- - Las imágenes aéreas han sido una fuente importante de información geográfica -->
+
+<!--   - Comenzaron al mismo tiempo que las camaras portables -->
+<!--   - Se hicieron prácticas con la invención de los aeroplanos. -->
+<!-- - Fotogrametría: ciencia de de medir geometria desde imágenes -->
+<!-- ## Imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- ![](img/fig9.png){width="450px" fig-align='center'}  -->
+<!-- ## Imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- ![](img/fig10.png){width="600px" fig-align='center'} -->
+<!-- ## Imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- ![](img/fig11.png){width="400px" fig-align='center'} -->
+<!-- ## Imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- ![](img/fig12.png){width="600px" fig-align='center'} -->
+<!-- ## Imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- ![](img/fig13.png){width="500px" fig-align='center') -->
+<!-- ## Imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- ![](img/fig14.jpg){fig-align='center'} -->
+<!-- ## Imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- ![](img/fig15.png){fig-align='center'} -->
+<!-- ## Imágenes aéreas - atributos {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- - En un principio se utilizaban camaras análogas con rollo (film) -->
+<!-- - luego se comenzo a utilizar camaras digitales, en vez de un rollo (film) se basan en el sistema CCD. -->
+<!-- - Hoy en día los drones pueden tener camaras multiespectrales -->
+<!-- ## Imágenes aéreas - Camaras digitales {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- - Utilizan el sistema CCD (charge coupled device) o similar. -->
+<!--   - El CCD es un sistema rectangular de pixeles que responde a la luz -->
+<!-- - Multiples CCD se pueden utilizar con uno o multiples lentes -->
+<!-- ## Imágenes aéreas - Camaras digitales{.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- ![](img/fig16.png){width="600px" fig-align='center'} -->
+<!-- ## Imágenes aéreas - Sensores multiespectrales {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- **Parrot Sequoia** -->
+<!-- [https://www.youtube.com/watch?time_continue=137&v=SaztuWuDEsg&feature=emb_logo](https://www.youtube.com/watch?time_continue=137&v=SaztuWuDEsg&feature=emb_logo) -->
+<!-- ## Calidad geométrica de una imágen aérea {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- - Todas las imágenes aéreas tienen distorción geométrica -->
+<!-- - Ortofóto: posición del objeto despues de ser proyectado a un plano -->
+<!--   - equivalente a mirar verticalmente una escena desde una altura infinita -->
+<!-- - la mayoría de las fotos aéreas no proveen una vista ortofotográfica, sino que una vista en perspectiva, la que es una visión distorsionada de la imagen de la tierra. -->
+<!-- ## Calidad geométrica de una imágen aérea {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- ![](img/fig17.jpg){width="600px" fig-align='center'} -->
+<!-- ## Calidad geométrica de una imágen aérea {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- Cinco principales fuentes de distorsión -->
+<!-- 1. terreno: error mayor -->
+<!-- 2. inclinación de la camara: error mayor -->
+<!-- 3. Lente de la camara: error menor -->
+<!-- 4. refracción atmosférica: error menor -->
+<!-- 5. otros errores de camara: error menor -->
+<!-- ## Distorsión de terreno {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- - La variación del terreno es generalmente la mayor fuente de distorisón geométrica -->
+<!-- - Produce desplaciamiento del relieve -->
+<!-- ## Distorsión de terreno {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- ![](img/fig18.png){width="600px" fig-align='center'} -->
+<!-- ## Distorsión de terreno {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- ![](img/fig19.png){width="600px" fig-align='center'} -->
+<!-- ## Distorsión de terreno {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- - Las distorsiones de terreno son radiales. -->
+<!-- - La distorsión de relieve afecta angulos y distancias en una imágene aérea. -->
+<!-- - La escala no es constante en una imágene aérea -->
+<!-- - Una imágene aérea tomada vertical sobre el terreno no es **ortofotográfica** -->
+<!-- ## Distorsión por inclinación de la camara {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- - Es cuando el eje de la camara no se encuentra en un angulo vertical -->
+<!-- - Resulta en una compleja convergencia de perspectiva -->
+<!-- ## Distorsión por inclinación de la camara {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- ![](img/fig20.png){width="150px" fig-align='center'} -->
+<!-- ## Otros errores {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- - Desplazamiento radial del lente: imperfección en la superficie de la camara del lente -->
+<!-- - Error sistemático: patron deformado -->
+<!-- - Errores atmosféricos: reflexión de la luz -->
+<!-- ## Corrección geométrica {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- - La fotogrametríca proporciona herramientas para realizar corrección geométrica. -->
+<!-- - El proceso de corrección requiere medir las coordenadas de la imágen y sus correspondientes coordenadas en terreno. -->
+<!-- - **Resultado final:** imágen ortorectificada- una imágen con corrección de distorsión de terreno y perspectiva. -->
+<!-- ## Ortorectificación {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- ![](img/fig21.png) -->
+<!-- ## Usos de las imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- - La base para la agromensura y mapeo topográfico -->
+<!--   - Mide X, Y, Z -->
+<!-- - Foto interpretación -->
+<!--   - Categorizar o asignar atributos a objetos/lugares en la superficie -->
+<!-- - Usadas como mapa de fondo (referencia) -->
+<!-- - Monitoreo agrícola -->
+<!--   - Estado de la vegetación - enfermedades -->
+<!--   - conteo de plantas -->
+<!--   - estado hídrico -->
+<!--   - ..... y mucho más -->
+<!-- ## Usos de las imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- - **Fotointerpretación:** el proceso de convertir las imágenes en información -->
+<!-- - Los interpretes utilizan: -->
+<!--   - tamaño -->
+<!--   - forma -->
+<!--   - color -->
+<!--   - brillo -->
+<!--   - textura -->
+<!--   - ubicación relativa y absoluta -->
+<!-- para interpretar las imágenes -->
+<!-- ## Usos de las imágenes aéreas {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- **Fotointerpretación** -->
+<!-- tamaño, forma, color, brillo, textura, ubicación relativa y absoluta -->
+<!-- ![](img/fig22.png){width="350px" fig-align='center'} -->
+<!-- ![](img/fig23.png){width="350px" fig-align='center'} -->
 <img data-src="img/bandas_rgb2truecolor.png" style="width:100.0%" class="r-stretch"></section></section>
-<section>
-<section id="imágenes-aéreas-y-drones-uav" class="title-slide slide level1 center" data-background-color="darkgreen">
-<h1>Imágenes aéreas y Drones (UAV)</h1>
-
-</section>
-<section id="imágenes-aéreas" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Imágenes aéreas</h2>
-<ul>
-<li><p>Las imágenes aéreas han sido una fuente importante de información geográfica</p>
-<ul>
-<li><p>Comenzaron al mismo tiempo que las camaras portables</p></li>
-<li><p>Se hicieron prácticas con la invención de los aeroplanos.</p></li>
-</ul></li>
-<li><p>Fotogrametría: ciencia de de medir geometria desde imágenes</p></li>
-</ul>
-</section>
-<section id="imágenes-aéreas-1" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Imágenes aéreas</h2>
-
-<img data-src="img/fig9.png" width="450" class="r-stretch quarto-figure-center"></section>
-<section id="imágenes-aéreas-2" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Imágenes aéreas</h2>
-
-<img data-src="img/fig10.png" width="600" class="r-stretch quarto-figure-center"></section>
-<section id="imágenes-aéreas-3" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Imágenes aéreas</h2>
-
-<img data-src="img/fig11.png" width="400" class="r-stretch quarto-figure-center"></section>
-<section id="imágenes-aéreas-4" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Imágenes aéreas</h2>
-
-<img data-src="img/fig12.png" width="600" class="r-stretch quarto-figure-center"></section>
-<section id="imágenes-aéreas-5" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Imágenes aéreas</h2>
-<p><img data-src="img/fig13.png">{width=“500px” fig-align=‘center’)</p>
-</section>
-<section id="imágenes-aéreas-6" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Imágenes aéreas</h2>
-
-<img data-src="img/fig14.jpg" class="r-stretch quarto-figure-center"></section>
-<section id="imágenes-aéreas-7" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Imágenes aéreas</h2>
-
-<img data-src="img/fig15.png" class="r-stretch quarto-figure-center"></section>
-<section id="imágenes-aéreas---atributos" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Imágenes aéreas - atributos</h2>
-<ul>
-<li><p>En un principio se utilizaban camaras análogas con rollo (film)</p></li>
-<li><p>luego se comenzo a utilizar camaras digitales, en vez de un rollo (film) se basan en el sistema CCD.</p></li>
-<li><p>Hoy en día los drones pueden tener camaras multiespectrales</p></li>
-</ul>
-</section>
-<section id="imágenes-aéreas---camaras-digitales" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Imágenes aéreas - Camaras digitales</h2>
-<ul>
-<li><p>Utilizan el sistema CCD (charge coupled device) o similar.</p>
-<ul>
-<li>El CCD es un sistema rectangular de pixeles que responde a la luz</li>
-</ul></li>
-<li><p>Multiples CCD se pueden utilizar con uno o multiples lentes</p></li>
-</ul>
-</section>
-<section id="imágenes-aéreas---camaras-digitales-1" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Imágenes aéreas - Camaras digitales</h2>
-
-<img data-src="img/fig16.png" width="600" class="r-stretch quarto-figure-center"></section>
-<section id="imágenes-aéreas---sensores-multiespectrales" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Imágenes aéreas - Sensores multiespectrales</h2>
-<p><strong>Parrot Sequoia</strong></p>
-<p><a href="https://www.youtube.com/watch?time_continue=137&amp;v=SaztuWuDEsg&amp;feature=emb_logo">https://www.youtube.com/watch?time_continue=137&amp;v=SaztuWuDEsg&amp;feature=emb_logo</a></p>
-</section>
-<section id="calidad-geométrica-de-una-imágen-aérea" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Calidad geométrica de una imágen aérea</h2>
-<ul>
-<li><p>Todas las imágenes aéreas tienen distorción geométrica</p></li>
-<li><p>Ortofóto: posición del objeto despues de ser proyectado a un plano</p>
-<ul>
-<li>equivalente a mirar verticalmente una escena desde una altura infinita</li>
-</ul></li>
-<li><p>la mayoría de las fotos aéreas no proveen una vista ortofotográfica, sino que una vista en perspectiva, la que es una visión distorsionada de la imagen de la tierra.</p></li>
-</ul>
-</section>
-<section id="calidad-geométrica-de-una-imágen-aérea-1" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Calidad geométrica de una imágen aérea</h2>
-
-<img data-src="img/fig17.jpg" width="600" class="r-stretch quarto-figure-center"></section>
-<section id="calidad-geométrica-de-una-imágen-aérea-2" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Calidad geométrica de una imágen aérea</h2>
-<p>Cinco principales fuentes de distorsión</p>
-<ol type="1">
-<li><p>terreno: error mayor</p></li>
-<li><p>inclinación de la camara: error mayor</p></li>
-<li><p>Lente de la camara: error menor</p></li>
-<li><p>refracción atmosférica: error menor</p></li>
-<li><p>otros errores de camara: error menor</p></li>
-</ol>
-</section>
-<section id="distorsión-de-terreno" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Distorsión de terreno</h2>
-<ul>
-<li><p>La variación del terreno es generalmente la mayor fuente de distorisón geométrica</p></li>
-<li><p>Produce desplaciamiento del relieve</p></li>
-</ul>
-</section>
-<section id="distorsión-de-terreno-1" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Distorsión de terreno</h2>
-
-<img data-src="img/fig18.png" width="600" class="r-stretch quarto-figure-center"></section>
-<section id="distorsión-de-terreno-2" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Distorsión de terreno</h2>
-
-<img data-src="img/fig19.png" width="600" class="r-stretch quarto-figure-center"></section>
-<section id="distorsión-de-terreno-3" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Distorsión de terreno</h2>
-<ul>
-<li><p>Las distorsiones de terreno son radiales.</p></li>
-<li><p>La distorsión de relieve afecta angulos y distancias en una imágene aérea.</p></li>
-<li><p>La escala no es constante en una imágene aérea</p></li>
-<li><p>Una imágene aérea tomada vertical sobre el terreno no es <strong>ortofotográfica</strong></p></li>
-</ul>
-</section>
-<section id="distorsión-por-inclinación-de-la-camara" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Distorsión por inclinación de la camara</h2>
-<ul>
-<li><p>Es cuando el eje de la camara no se encuentra en un angulo vertical</p></li>
-<li><p>Resulta en una compleja convergencia de perspectiva</p></li>
-</ul>
-</section>
-<section id="distorsión-por-inclinación-de-la-camara-1" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Distorsión por inclinación de la camara</h2>
-
-<img data-src="img/fig20.png" width="150" class="r-stretch quarto-figure-center"></section>
-<section id="otros-errores" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Otros errores</h2>
-<ul>
-<li><p>Desplazamiento radial del lente: imperfección en la superficie de la camara del lente</p></li>
-<li><p>Error sistemático: patron deformado</p></li>
-<li><p>Errores atmosféricos: reflexión de la luz</p></li>
-</ul>
-</section>
-<section id="corrección-geométrica" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Corrección geométrica</h2>
-<ul>
-<li><p>La fotogrametríca proporciona herramientas para realizar corrección geométrica.</p></li>
-<li><p>El proceso de corrección requiere medir las coordenadas de la imágen y sus correspondientes coordenadas en terreno.</p></li>
-<li><p><strong>Resultado final:</strong> imágen ortorectificada- una imágen con corrección de distorsión de terreno y perspectiva.</p></li>
-</ul>
-</section>
-<section id="ortorectificación" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Ortorectificación</h2>
-
-<img data-src="img/fig21.png" class="r-stretch"></section>
-<section id="usos-de-las-imágenes-aéreas" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Usos de las imágenes aéreas</h2>
-<ul>
-<li><p>La base para la agromensura y mapeo topográfico</p>
-<ul>
-<li>Mide X, Y, Z</li>
-</ul></li>
-<li><p>Foto interpretación</p>
-<ul>
-<li>Categorizar o asignar atributos a objetos/lugares en la superficie</li>
-</ul></li>
-<li><p>Usadas como mapa de fondo (referencia)</p></li>
-<li><p>Monitoreo agrícola</p>
-<ul>
-<li><p>Estado de la vegetación - enfermedades</p></li>
-<li><p>conteo de plantas</p></li>
-<li><p>estado hídrico</p></li>
-<li><p>….. y mucho más</p></li>
-</ul></li>
-</ul>
-</section>
-<section id="usos-de-las-imágenes-aéreas-1" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Usos de las imágenes aéreas</h2>
-<ul>
-<li><p><strong>Fotointerpretación:</strong> el proceso de convertir las imágenes en información</p></li>
-<li><p>Los interpretes utilizan:</p>
-<ul>
-<li>tamaño</li>
-<li>forma</li>
-<li>color</li>
-<li>brillo</li>
-<li>textura</li>
-<li>ubicación relativa y absoluta</li>
-</ul></li>
-</ul>
-<p>para interpretar las imágenes</p>
-</section>
-<section id="usos-de-las-imágenes-aéreas-2" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>Usos de las imágenes aéreas</h2>
-<p><strong>Fotointerpretación</strong></p>
-<p>tamaño, forma, color, brillo, textura, ubicación relativa y absoluta</p>
-<p><img data-src="img/fig22.png" data-fig-align="center" width="350"> <img data-src="img/fig23.png" data-fig-align="center" width="350"></p>
-</section></section>
 <section>
 <section id="imágenes-satelitales" class="title-slide slide level1 center" data-background-color="orange">
 <h1>Imágenes Satelitales</h1>
-
+<!-- ## Características {.smaller background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+<!-- - concepto similar a las imágenes aéreas -->
+<!-- - Tiene los mismo usos -->
+<!--   - Base para crear mapas -->
+<!--   - Interpretación de imágenes -->
+<!--   - Como mapa de referencia -->
+<!-- - ... pero hay algunas diferencias importantes -->
 </section>
 <section id="características" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
 <h2>Características</h2>
-<ul>
-<li><p>concepto similar a las imágenes aéreas</p></li>
-<li><p>Tiene los mismo usos</p>
-<ul>
-<li><p>Base para crear mapas</p></li>
-<li><p>Interpretación de imágenes</p></li>
-<li><p>Como mapa de referencia</p></li>
-</ul></li>
-<li><p>… pero hay algunas diferencias importantes</p></li>
-</ul>
-</section>
-<section id="en-qué-difieren" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>¿En qué difieren?</h2>
 <ul>
 <li><p>Perspectiva desde muy arriba</p>
 <ul>
@@ -877,9 +776,8 @@ Dr.&nbsp;Francisco Zambrano
 <li><p>Menor resolución efectiva</p></li>
 </ul>
 </section>
-<section id="en-qué-difieren-1" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
-<h2>¿En qué difieren?</h2>
-<p>Dos tipos de imágenes satelitales</p>
+<section id="tipos-de-imágenes-satelitales" class="slide level2 smaller" data-background-image="../../logo_medioambiente.jpeg" data-background-position="97.5% 2.5%" data-background-size="7.5%" data-layout="true">
+<h2>Tipos de imágenes satelitales</h2>
 <ul>
 <li><p>Públicas:</p>
 <ul>
