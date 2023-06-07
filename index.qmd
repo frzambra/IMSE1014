@@ -36,7 +36,7 @@ En este repositorio se pone a disposición de los alumnos de la carrera de `Inge
 1. Taller 1: Aplicaciones SIG en Medio Ambiente
 2. [Taller 2: Modelos de datos geoespaciales](talleres/taller2/Taller2-Modelos_de_datos_geoespaciales.html)
 3. [Taller 3: Sistemas de Referencias de Coordenadas (SRC)](talleres/taller3/Taller3_SRC.html)
-4. Taller 4: repado (en el campus virtual)
+4. Taller 4: repaso (en el campus virtual)
 5. Taller 5: creación de mapa (en el campus virtual)
 6. [Taller 6: Teledeteccón e imagenes de satelite](talleres/taller6/taller6_teledeteccion.html)
 
