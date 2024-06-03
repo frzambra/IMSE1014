@@ -1,0 +1,84 @@
+---
+title: "Proyecto Final SIG"
+subtitle: "Caracterización Climática, Vegetacional e Hídrica de una Cuenca"
+author: "Dr. Francisco Zambrano"
+date: "2024/05/16"
+lang: es
+format: 
+  html:
+    number-sections: true
+    toc: true
+editor: source
+---
+
+# Descripción
+
+Una de las maneras fundamentales en la toma de decisiones es el poder conocer y comprender las características, limitaciones y potencialidades del territorio; esto con el fin de resolver diversas necesidades presentes en cuanto a estado actual del medio ambiente, impacto del clima, evaluación de los recursos hídricos, cambios en el suelo agrícola, subdivisiones del territorio, etc. Para cualquier proyecto de ingeniería en un territorio determinado (ej. cuenca, región, etc), la primera parte corresponde a su caracterización. 
+
+# Objetivo
+
+El objetivo del proyecto es utilizar SIG para  realizar la caracterización climática, vegetacional e hídrica de una cuenca en Chile.
+
+# Datos
+
+## Raster
+
+1. `Uso de Suelo:` debe utilizar los usos de suelos definidos para el año 2022 por el proyecto de "Mapeo Anual de Cobertura y Uso del Suelo en Chile Continental" ([MapBiomasChile](https://chile.mapbiomas.org/proyecto/))
+
+2. `Elevación:` debe utilizar los datos de elevación proporcionados por el 
+[Shuttle Radar Topography Mission (SRTM)](https://www.earthdata.nasa.gov/sensors/srtm) a resolución espacial de 90 metros.
+
+3. `Temperatura promedio anual:` debe utilizar los datos de temperatura media anual (1990-2020) estimados por [ODES](https://odes-chile.org) desde ERA5-Land (European Reanalysis version 5). Descargar [acá](https://drive.google.com/file/d/1i2kZNPbnQjKRpv6dSHX5VRtl6m-UC8F3/view?usp=sharing)
+
+4. `Precipitación total anual:` debe utilizar los datos de precipitacion total anual estimados por [ODES](https://odes-chile.org) desde ERA5-Land (European Reanalysis version 5). Descargar [acá](https://drive.google.com/file/d/1AU38AdLPWNg0MUY5Gl_YuHaJQAIhOhqx/view?usp=sharing)
+
+5. `Evapotranspiración de referencia total anual:` debe utilizar los datos de evapotranspiración total anual estimados por [ODES](https://odes-chile.org) desde ERA5-Land (European Reanalysis version 5). Descargar [acá](https://drive.google.com/file/d/1c3kq5HDTeni2XXYU8KNAOceirTvZglPN/view?usp=sharing)
+
+
+## Vectoriales
+
+1. `Cuencas y Subcuencas:` debe utilizar los límites de cuencas y subcuencas para Chile. Puede descargarlos desde la [Infraestructura de Datos Geoespaciales de Chile (IDE)](https://www.ide.cl)
+
+2. `Principales cauces (Hidrografía):` delimitación de los principales cauces de Chile. Puede descargarlos desde la [Infraestructura de Datos Geoespaciales de Chile (IDE)](https://www.ide.cl)
+
+3. `Pozos Monitoreo Aguas Subterráneas:` ubicación y nivel (profundidad) de los pozos en los que la Dirección General de Aguas (DGA) realiza el monitoreo del nivel piezométrico. Descargar desde [acá](https://drive.google.com/file/d/1jhY5YTtkRCN1AVxaiQ8_kY0vij5yw6Qp/view?usp=sharing)
+
+# Lo que debe entregar
+
+## Informe (180 pts)
+
+Debe elaborar un informe breve respecto a la caracterización climática, vegetacional e hídrica en la cuenca asignada. El informe debe contener la siguiente estructura:
+
+1. `Título (10 pts):` Una plana con el título y nombres integrantes
+2. `Resumen (20 pts):` Un resumen de máximo 300 palabras en el qué se aborde el ¿por qué?, ¿cómo? y ¿qué se logró?.
+3. `Introducción (20 pts):` Máximo una paǵina en dónde se aborde la importancia de realizar una caracterización para la cuenca. Debe incluir al menos tres referencias.  
+3. `Métodos (40 pts):` Debe contener las siguientes subsecciones:  
+3.1 `Área de Estudio:`  Debe crear un mapa en el que se muestre la topografía, los límites de las cuencas y subcuencas, los principales ríos de la cuenca y la ubicación de los pozos. Además, debe contener un mapa de ubicación en dónde se pueda identificar la ubicación de la cuenca respecto a Chile. 
+3.1. `Datos (10 pts):` debe dar una descripción de las caractéristicas de los datos utilizados.  
+3.2. `Procedimiento (30 pts):`. debe describir los procesos SIG utilizados. 
+4. `Resultados (70 pts):` Debe contener las siguientes subsecciones:  
+  4.1. `Caracterización climática (30 pts):` Debe realizar tres mapas en los que se puedan apreciar claramente las variación espacial de temperatura, precipitación y evapotranaspiración en la cuenca. En cada mapa se debe poder apreciar la variación de la topografía. Cada mapa debe tener los límites de la cuenca y sus subcuencas con las correspondientes etiquetas. La delimitación de los cauces y la ubicación de los pozos.  
+  4.2. `Caracterización vegetacional (20 pts):` Debe realiza un mapa de uso de suelo para la cuenca en el que se puedan identificar cada uno de los tipos de uso de suelos definidos en ([MapBiomasChile](https://chile.mapbiomas.org/proyecto/)). En el mapa se debe poder apreciar la variación de la topografía. El mapa debe tener los límites de la cuenca y sus subcuencas con las correspondientes etiquetas. La delimitación de los cauces con sus etiquetas y la ubicación de los pozos.  
+  4.3. `Nivel de los pozos (20 pts):` debe contener un gráfico en donde se muestre la variación anual promedio de los niveles de los pozos en cada subcuenca de la cuenca.
+5. `Conclusión (20 pts):` En un párrafo debe poder resumir las principales características climáticas, vegetacionales e hídricas de la cuenca.
+
+`Nota:` Cada mapa debe llevar una leyenda y debe describirse en el texto las principales características de lo que muestra el mapa.
+
+## Presentación (100 pts)
+
+Debe realizar una presentación con máximo 15 diapósitivas. Debe tener la siguientes esctructura:
+
+1. Título
+2. Contexto
+3. Métodos
+4. Resultados
+5. Conclusión
+
+La duración de la presentación debe ser entre 10 (mínimo) a 15 minutos (máximo).
+
+# Fechas de entrega
+
+`Informe:` Lunes 17 de junio 2024 hasta las 23:59.  
+`Presentación:` Lunes 24 de junio en el horario de clases.
+
+

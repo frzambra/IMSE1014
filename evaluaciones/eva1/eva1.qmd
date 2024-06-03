@@ -1,0 +1,54 @@
+---
+title: "Prueba 1: Práctico con QGIS"
+subtitle: "Introducción a la Tecnología de Información Geográfica"
+author: "Dr. Francisco Zambrano"
+date: "2024/04/15"
+format: 
+  html:
+    number-sections: true
+    echo: true
+    eval: false
+    table-of-contents: true
+lang: es
+---
+
+# Contexto 
+
+Como Ingeniero en Medio Ambiente está trabajando en un proyecto en una determinada región (en el campus virtual se le indicará cuál). El proyecto considera la evaluación de posibles lugares para la instalación de estaciones para medición de velocidad y dirección de viento. Usted está iniciando el proyecto, en esta etapa debe preparar la información con la que trabajará durante todo el transcurso del proyecto.  
+
+Para el proyecto se trabajará con datos de estaciones climáticas actuales, límites regionales de Chile y datos de velocidad del viento. Le entregaron datos para todo Chile, con multiples atributos y en diferentes sistemas de referencia de coordenadas (SRC), los que debe procesar, modificar, reproyectar y guardar en un archivo tipo base de datos.
+
+# Objetivo
+
+Lograr generar un archivo GeoPackage con todas las capas de información procesadas, modificadas y reproyectadas para la región asignada de acuerdo a lo solicitado.
+
+# Datos
+
+Para el proyecto cuenta con los siguientes datos:
+
+- `Velocidad del viento:` archivo raster con una capa de información, correspondiente a valores de velocidad de viento promedio entre 1981-2010 para el mes de abril. 
+- `Limites regionales de Chile:` archivo vectorial con los límites de las dieciseis regiona de Chile
+- `EMAS`: Estaciones Meteorológicas Automáticas ubicadas en Chile 
+
+Los datos los debe descargar desde [acá](https://drive.google.com/drive/folders/1EHPHkEOL-MG0Z7fuyjrWPHXhEdMTTpWV?usp=sharing)
+
+# Lo que debe realizar
+
+Para la región asignada, de acuerdoa lo que se le indica en el campus virtual, debe hacer lo siguiente:
+
+1. (10pts) Debe extraer los límites de la región en una capa nueva. Debe contener sólo la región asignada.
+2. (5 pts) A la capa resultante anterior le debe modificar la tabla de atributos y dejar sólo dos atributos: 1) un `ID` y 2) el nombre de la región.
+3. (25 pts) A la capa resultante anterior le debe agregar un atributo que corresponda al área en unidades de hectáreas.
+4. (10 pts) Respecto a la capa EMASs, debe extraer las EMAS de la región asignada en una capa nueva. Por lo que debe contener, sólo las EMAS que se encuentran en el interior de la región asignada.
+5. (5 pts) La capa resultante anterior la debe modificar de forma que tenga sólo dos atributos, el `Id` y `estacion`.
+6. (25 pts) A la capa resultante anterior le debe agregar dos atributos, la latitud y la longitud en grados decimales.
+7. (25 pts) Todas las capas (EMAS, límites, viento) correspondinete a la región asignada, las debe reproyectar a sistema de referencia de coordenadas esféricas datum WGS84.
+8. (15 pts) Todas las capas resultantes de la pregunta anterior (EMAS, límites, viento) las debe guardar en un archivo en formato GeoPackage nombrado como `prueba1_{nombre_region}.gpkg`. El GeoPackage debe contener tres capas: 
+  1) EMAS seleccionadas para su región con los cambios realizados de acuerdo a como se solicita
+  2) Polígono con los limites de la región asignada con los cambios de acuerdo a como se solicita.
+  3) Capa raster de velocidad del viento promedio 1981-2010 para el mes de abril.
+
+Nota: No debe subir más información que la solicitada, en caso contrario sólo se revisará un sólo archivo.
+
+
+

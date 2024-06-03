@@ -1,0 +1,213 @@
+---
+title: "Presentación del curso"
+subtitle: "Introducción a la Tecnología de Información Geográfica (IMSE1014)"
+author: "Dr. Francisco Zambrano"
+date: "11 marzo 2024"
+format: 
+  revealjs:
+    slide-number: true
+    title-block-banner: true
+    logo: "../../logo_hemera.jpg"
+    footer: "IMSE1014|1-2024"
+    theme: simple
+    echo: true
+---
+
+# `Profesor` {background-color='lightblue'}
+
+## Breve descripción {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+- Dr. Francisco Zambrano Bigiarini
+  
+  - Ingeniero Civil Agrícola, Dr. en Ingeniería Agrícola c/m en Recursos Hídricos `(Universidad de Concepción)`
+  
+  - Investigador Asociado, `Hémera` Centro de Observación de la Tierra, Universidad Mayor
+  
+  - [francisco.zambrano@umayor.cl]("mailto:francisco.zambrano@umayor.cl")
+
+  - Camino la Piramide #5750, Edifico de Ciencias, Nivel 4.
+
+## Centro Hémera  {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+ [hemera.umayor.cl](https://hemera.umayor.cl/)
+
+[@hemera](https://twitter.com/hemera)
+
+**¿Qué hacemos?**
+
+Utilizamos **teledetección** para entender la dinámica del planeta.
+
+ Líneas de investigación
+
+1. Sequía
+2. Cobertura terrestre y cambios en las formaciones `vegetacionales`
+2. Riesgos naturales geológicos y geomorfológicos
+3. Efecto del `cambio climático` y conservación de los recursos naturales
+4. Análisis y evaluación de `desastres naturales`
+
+## Centro Hémera  {.smaller .scrollable background-image="gifs/esa.gif" background-size="contain" background-position="50% 50%" layout="true"}
+
+## Línea de investigación {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+- __Escala regional__: estudio de la `sequía` y su impacto en la vegetación en Chile usando teledetección.
+
+- __Escala local__: uso de imágenes satelitales para entender la dinámica de la `vegetación` y su relación con el clima.
+
+  - Sentinel 2 (10m, frecuencia de 5 días)
+  
+  - Landsat 7/8/9 (30m, frecuencia de 16 días)
+
+ Más información: 
+
+ [Researchgate](https://www.researchgate.net/profile/Francisco_Zambrano_Bigiarini)  <- clic  
+[Google Scholar](https://scholar.google.es/citations?user=mKQRdOEAAAAJ&hl=e) <- clic
+
+---
+## Proyectos {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+### Director del proyecto:
+
+- [Fondo de Sequía](https://www.diariomayor.cl/ciencia-um/centro-h%C3%A9mera-u-mayor-implementar%C3%A1-primer-observatorio-de-la-sequ%C3%ADa-multiescala-para-chile.html)
+    - `Título:` A multi-scale drought observatory for Chile: an early warning system to mitigate agricultural and ecological impacts (ODES)
+    - `Monto:` $300.000.000
+    - `Periodo de ejecucción:` 2022-2023
+    - `Financiamiento:` ANID
+    
+## ODES {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+![](gifs/ODES_Logo_animacion.mp4)
+[http://odes-chile.org](http://odes-chile.org)
+
+## ODES {.smaller .scrollable background-image="gifs/anim_swc2_file.gif" background-size="contain" background-position="50% 50%" layout="true"}
+
+## ODES {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+![](gifs/acoriver.mp4){width="70%"}
+
+[http://odes-chile.org](http://odes-chile.org)
+
+## Proyectos {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+### Director del proyecto:
+
+- [FONDEF IDeA I+D 2020](https://www.diariomayor.cl/ciencia-um/centro-hemera-u-mayor-desarrollara-sistema-satelital-para-optimizar-el-riego-de-frutales-de-kiwi-y-cerezo.html)
+    - `Título:`  Sistema Satelital para la Optimización de Riego (SatOri) 
+    - `Monto:` $200.000.000
+    - `Periodo de ejecucción:` 2022-2024
+    - `Financiamiento:` ANID
+
+[http://frzambra.shinyapps.io/monitoreo_cuarteles/](http://frzambra.shinyapps.io/monitoreo_cuarteles/)
+
+<!-- ## Línea de investigación y proyectos {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+
+<!-- ### Director del proyecto: -->
+
+<!-- - Fondecyt de Iniciación -->
+<!--     - `Título:` The impact of weather variability on wheat and maize production: an improved early warning model for agricultural drought. -->
+<!--     - `Monto:` $91.000.000 -->
+<!--     - `Periodo de ejecucción:` 2020-2023 -->
+<!--     - `Financiamiento:` ANID -->
+
+<!-- ## Línea de investigación y proyectos {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+
+<!-- ### Investigador asociado en el siguiente proyecto: -->
+
+<!-- - FONDECYT Regular -->
+<!--     - `Título:` Multivariate Drought Monitor System: Biophysical Modelling, Remote Sensing And Hydroclimatic Information For Drought Analyisis And Forecasting In Agriculture. -->
+<!--     - `Institución principal:` Universidad Católica (Director Dr. Francisco Meza). -->
+<!--     - `Monto:` $270.000.000 -->
+<!--     - `Periodo de ejecucción:` 2021-2024 -->
+<!--     - `Financiamiento:` ANID -->
+
+<!-- ## Línea de investigación y proyectos {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"} -->
+
+<!-- ### Investigador asociado en el siguiente proyecto: -->
+
+<!-- - Proyecto Anillo ACT210007 -->
+<!--     - `Título:` Modeling  of  Epigenetic  GeneRegulatory Networks in sweetcherry floral buds in response to differential seasonal climate conditions. -->
+<!--     - `Institución principal:` Universidad Mayor (Directora Dra. Andrea Miyasaka) -->
+<!--     - `Monto:` $400.000.000 -->
+<!--     - `Periodo de ejecucción:` 2021-2024 -->
+<!--     - `Financiamiento:` ANID -->
+    
+# `Descripción del curso` {background-color='brown'}
+
+## Metodología del curso {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+El curso está diseñado con `módulos de cátedra` en dónde se enseñaran los fundamentos teóricos.
+
+Además, de `modulos de laboratorio` en donde se aprederá de forma práctica utilizando el software `QGIS 3.30 ‘s-Hertogenbosch` (www.qgis.org).
+
+**Horarios**
+
+- Cátedra y taller: miércoles 08:30 - 12:20 (HHLI-209)
+- Cátedra y taller: miércoles 14:00 - 17:20 (HHLI-209)
+  
+## Descripción del curso {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+`Visión general` de los conceptos de los Sistema de Información Geográfica `(SIG)` y sus `componentes`. 
+
+Tanto la `teoría` como la `aplicación practica` de los `SIG` se enfatizarán en este curso. 
+
+
+## Objetivo del curso {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+Que los `estudiantes aprendan` los `conceptos` para el `manejo` de sistemas de información geográfica, además del manejo del software para Sistemas de Información Geográfica `QGIS 3.30` y su `aplicación en Ing. en Medio Ambiente`.
+
+## Objetivos de aprendizaje {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+1. Demostrar `comprensión` y `competencia teórica` de Sistemas de Información Geográfica; 
+
+2. Demostrar comprensión y competencia en el `registro`, `formato`, `almacenamiento` y `edición` de datos epaciales; 
+
+3. Demostrar comprensión y competencia para el `diseño de mapas`; 
+
+4. Demostrar habilidad en el uso del software SIG `QGIS 3.36`. 
+
+## Calendario de clases {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+| Fecha               | Tema                                           |
+|---------------------|------------------------------------------------|
+| 11 marzo       | Presentación curso, introducción SIG e introducción a QGIS          |
+| 18 marzo       | Modelos de datos geoespaciales                 |
+| 25 marzo       | Taller 1: modelos de datos geoespaciales         |
+| 1 abril        | Sistemas de coordenadas y proyecciones     |
+| 8 abril        | Taller 2: sistemas de coordenadas y proyecciones                |
+| 15 abril       | Evaluación 1 (30%): teórico + prático     |
+| 22 abril       | Visualización de datos geoespaciales       
+| 29 abril       | Taller 3: visualización de datos geoespaciales        
+| 6 mayo       | Teledeteccíon |
+| 13 mayo       | Taller 4: teledetección |
+| 20 mayo       | Técnicas de análisis geoespacial |
+| 27 mayo       | Taller 5: técnicas de análisis geoespacial |
+| 3 junio       | Evaluación 2 (30%): teórico + prático |
+| 10 junio       | Presentación trabajo final |
+| 17 junio       | Presentación trabajo final |
+
+## Evaluaciones {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+
+- Promedio notas de Taller (25%)
+
+- Evaluación 1 (25%): 15 abril
+
+- Evaluación 2 (25%): 3 junio
+
+- Trabajo final (25%): 10 y 17 junio
+
+## Bibliografía recomendada {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+1. Paul Bolstad. GIS Fundamentals: A First Text on Geographic Information Systems, Sixth Edition.
+
+2. Victor Olaya. Sístemas de Informacíon Geográfica. [http://volaya.github.io/libro-sig/](http://volaya.github.io/libro-sig/) (Disponible online)
+
+3. Buzai, Gustavo & Baxendale, Claudia & Humacata, Luis & Principi, Noelia. (2016). Sistemas de Información Geográfica. Cartografía temática y análisis espacial (Disponible en biblioteca). 
+
+4. Una ligera introducción a SIG. [https://docs.qgis.org/3.10/es/docs/gentle_gis_introduction/index.html](https://docs.qgis.org/3.10/es/docs/gentle_gis_introduction/index.html. (Disponible online)
+
+5. Barnali Dixon and Venkatesh Uddameri. GIS and Geocomputation for Water Resources Science and Engineering. 2016
+
+
+## Link a las diapositivas de las clases {.smaller .scrollable background-image="../../logo_medioambiente.jpeg" background-position="97.5% 2.5%" background-size="7.5%" layout="true"}
+
+[https://frzambra.github.io/IMSE1014/IMSE1014.html](https://frzambra.github.io/IMSE1014/IMSE1014.html)

@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Dr.&nbsp;Francisco Zambrano">
+
+<title>Creación de Mapa con QGIS</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Taller6_mapa_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Taller6_mapa_files/libs/quarto-html/quarto.js"></script>
+<script src="Taller6_mapa_files/libs/quarto-html/popper.min.js"></script>
+<script src="Taller6_mapa_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Taller6_mapa_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Taller6_mapa_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Taller6_mapa_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Taller6_mapa_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Taller6_mapa_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Taller6_mapa_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">1</span> Introducción</a>
+  <ul class="collapse">
+  <li><a href="#objetivo" id="toc-objetivo" class="nav-link" data-scroll-target="#objetivo"><span class="header-section-number">1.1</span> Objetivo</a></li>
+  <li><a href="#datos" id="toc-datos" class="nav-link" data-scroll-target="#datos"><span class="header-section-number">1.2</span> Datos</a></li>
+  </ul></li>
+  <li><a href="#procedimiento" id="toc-procedimiento" class="nav-link" data-scroll-target="#procedimiento"><span class="header-section-number">2</span> Procedimiento</a>
+  <ul class="collapse">
+  <li><a href="#preparación-de-los-datos-para-la-región-asignada" id="toc-preparación-de-los-datos-para-la-región-asignada" class="nav-link" data-scroll-target="#preparación-de-los-datos-para-la-región-asignada"><span class="header-section-number">2.1</span> Preparación de los datos para la región asignada</a></li>
+  <li><a href="#crear-una-capa-de-sombreado-de-elevación-hillshade" id="toc-crear-una-capa-de-sombreado-de-elevación-hillshade" class="nav-link" data-scroll-target="#crear-una-capa-de-sombreado-de-elevación-hillshade"><span class="header-section-number">2.2</span> Crear una capa de sombreado de elevación (Hillshade)</a></li>
+  <li><a href="#preparar-capa-de-uso-de-suelo" id="toc-preparar-capa-de-uso-de-suelo" class="nav-link" data-scroll-target="#preparar-capa-de-uso-de-suelo"><span class="header-section-number">2.3</span> Preparar capa de uso de suelo</a></li>
+  <li><a href="#preparar-una-composición-de-impresión-para-uso-de-suelo" id="toc-preparar-una-composición-de-impresión-para-uso-de-suelo" class="nav-link" data-scroll-target="#preparar-una-composición-de-impresión-para-uso-de-suelo"><span class="header-section-number">2.4</span> Preparar una composición de impresión para uso de suelo</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Creación de Mapa con QGIS</h1>
+<p class="subtitle lead">Introducción a la Tecnología de Información Geográfica</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Dr.&nbsp;Francisco Zambrano </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">6 de mayo de 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="introducción" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introducción</h1>
+<p>Un mapa creado a partir de diferentes capas espaciales (vectoriales y rasters) debemos poder imprimirlo o exportarlo a un formato digital. La razón es que un archivo de proyecto de mapa en SIG no es una imagen. Más bien, guarda el estado del programa SIG, con referencias a todas las capas, sus etiquetas, colores, etc. Entonces, para alguien que no tenga los datos o el mismo programa SIG (como QGIS), el archivo de proyecto es inútil. Afortunadamente, QGIS puede exportar su archivo de mapa a un formato que la computadora de cualquier persona pueda leer, así como imprimir el mapa si tiene una impresora conectada. Tanto la exportación como la impresión se realizan a través de la “Composición de impresión” en QGIS.</p>
+<section id="objetivo" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="objetivo"><span class="header-section-number">1.1</span> Objetivo</h2>
+<p>Utilizar la herramienta de “composición de impresión” en QGIS para crear un mapa básico con todas las configuraciones necesarias.</p>
+</section>
+<section id="datos" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="datos"><span class="header-section-number">1.2</span> Datos</h2>
+<ul>
+<li><code>Uso de Suelo Chile (IGBP_2022_reclassified.tif)</code>: archivo raster con los tipos de uso de suelo en Chile.</li>
+<li><code>Elevaciones de Chile (dem_chile_30s.tif):</code> archivo raster con la elevación ortométrica de Chile. <!-- - `Fuentes Puntuales de Contaminantes:` archivo vectorial con la ubicación de principales fuentes contaminantes en Chile. --> <!-- - `Cuerpos de Agua`: archivo vectorial con la delimitación de los principales cuerpos de agua (rio, laguna, embalse, etc) en Chile. --></li>
+<li><code>Limites regionales de Chile</code>: archivo vectorial con los límites de las dieciseis regiones de Chile.</li>
+<li><code>Paleta colores uso de suelo (paleta_colores_landcover.csv)</code>: tabla con los valores de los pizeles de los raster y a que clase de uso de suelo corresponde, además de la intensidad de color en los canales RGB para crear los colores para cada clase de uso de suelo.</li>
+</ul>
+<p>Los datos los debe descargar desde <a href="https://drive.google.com/drive/folders/1t8fQBpDttARccDXa2anN2PmSeNGQXjbf?usp=sharing">acá</a></p>
+</section>
+</section>
+<section id="procedimiento" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Procedimiento</h1>
+<p>Acá se mostrará el procedimiento con la región de Aysen.</p>
+<section id="preparación-de-los-datos-para-la-región-asignada" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="preparación-de-los-datos-para-la-región-asignada"><span class="header-section-number">2.1</span> Preparación de los datos para la región asignada</h2>
+<ol type="1">
+<li><p>Lo primero que debe realizar es seleccionar los objetos espaciales que se encuentran ubicados en la región que se le asignó (ver campus virtual) y guradarlos con el mismo sistema de referencia de coordenadas, en este caso utilizaremos <code>EPSG:4326</code>; y guardar todas las capas en un archivo GeoPackage. Para los datos vectoriales lo debe realizar como lo hemos realizado en los talleres anteriores.</p></li>
+<li><p>Para los datos raster vamos a utilizar la herramienta del menu, <code>Ráster-&gt;Extracción-&gt;Cortar raster por capa de máscara</code></p></li>
+</ol>
+<p><img src="img/img_01.png" class="img-fluid"></p>
+<ol start="3" type="1">
+<li>En la ventana que se deplega seleccionamos la capa raster que queremos cortar como <code>Capa de entrada</code> y en <code>Capa de masacara</code> la capa vectorial que queremos utilizar como bordes para el corte. Las demas opciones las dejamos por defecto. Damos clic a <code>Ejecutar</code> y luego a <code>Cerrar</code>.</li>
+</ol>
+<p><img src="img/img_02.png" class="img-fluid"></p>
+<ol start="4" type="1">
+<li>Como resultado debemos obtener una nueva capa con nombre <code>Cortado (Máscara)</code>. Como se muestra en la figura:</li>
+</ol>
+<p><img src="img/img_03.png" class="img-fluid"></p>
+<ol start="5" type="1">
+<li><p>La capa resultante la podemos renombrar como <code>Uso de suelo</code> y podemos eliminar la capa original <code>IGBP_2022_reclassified</code>.</p></li>
+<li><p>Repetimos el mismo procedimiento con el raster de elevación <code>dem_chile_30s</code>. Cortamos la capa con respecto a los límites de la región y la renombramos como <code>Elevación</code>. Deberían quedar las siguientes capas en el <code>Panel de Capas</code>.</p></li>
+</ol>
+<p><img src="img/img_04.png" class="img-fluid"></p>
+</section>
+<section id="crear-una-capa-de-sombreado-de-elevación-hillshade" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="crear-una-capa-de-sombreado-de-elevación-hillshade"><span class="header-section-number">2.2</span> Crear una capa de sombreado de elevación (Hillshade)</h2>
+<ol type="1">
+<li>El primer paso para crear un hillshade es determinar la dirección del sol (acimut) y el angulo de acuerdo a la altura del sol. Por ejemplo si queremos simular con una sombra del sol desde el sur a una elevación de 45°, debemos definir un acimut de 180° y un angulo para la altura de 45°.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/img_05.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<ol start="2" type="1">
+<li>Vamos a la <code>Caja de Herramientas de Procesos</code> en QGIS. Si no te está activada, la debemos activar en el menu <code>Ver-&gt;Paneles-&gt;Caja de Herramientas de Procesos</code></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/img_06.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<ol start="3" type="1">
+<li>En la <code>Caja de herramientas de procesos</code> buscamos <code>Mapa de Sombras</code></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/img_07.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<ol start="4" type="1">
+<li>Hacemos clic en <code>Mapa de Sombras</code> y se despliega una ventana, en ella seleccionamos como <code>Capa de Altitud</code> la elevación, como <code>acimut</code> un ángulo de 180° y como <code>Ángulo vertical</code> un angulo de 40°. Hacemos clic en <code>Aceptar</code> y luego en <code>Cerrar</code>.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/img_08.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<ol start="5" type="1">
+<li>Ahora en el <code>Panel de Capas</code> de QGIS hay una nueva capa llamada <code>Mapa de Sombras (Hillshade)</code>.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/img_09.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<ol start="6" type="1">
+<li>La capa de <code>Mapa de Sombras</code> resultante tiene espacios de color negro en lugares donde corresponde a agua. Para eliminar esos espacios, vamos a utilizar la herramienta del menu, <code>Ráster-&gt;Extracción-&gt;Cortar raster por capa de máscara</code>, como lo hicimos anteriormente.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/img_10.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<ol start="7" type="1">
+<li>Seleccionamos como capa de entrada el <code>Mapa de Sombras</code> y como <code>Capa de mascara</code> los límites de la región de Aysen. Hacemos clic en <code>Ejecutar</code> y luego en <code>Aceptar</code>.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/img_11.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<ol start="8" type="1">
+<li>Ahora eliminamos la capa original y podemos renombrar la capa de mascara como <code>Capa se Sombras</code></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/img_12.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="preparar-capa-de-uso-de-suelo" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="preparar-capa-de-uso-de-suelo"><span class="header-section-number">2.3</span> Preparar capa de uso de suelo</h2>
+<ol type="1">
+<li><p>Vamos a dejar activada sólo la capa de <code>Uso de suelo</code> y vamos a cambiar la forma como está representaada.</p></li>
+<li><p>Hacemos clic con el boton derecho en la capa <code>Uso de Suelo</code>, pinchamos en <code>Propiedades</code> y luego en la pestaña simbología. En <code>Tipo de Renderizador</code> eleguimos <code>Valores en paleta/únicos</code> y luego pinchamos en <code>Clasificar</code>.</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/img_13.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<ol start="3" type="1">
+<li><p>Ahora utilizaremos la tabla de <code>Paleta de colores uso de suelo</code> para cambiar el nombre y color a cada tipo de uso de suelo.</p></li>
+<li><p>Primero cambiamos las etiquetas de acuerdo a continuación</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/img_14.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<ol start="5" type="1">
+<li>Ahora cambiamos los colores con las intensidades que se indica en la tabla <code>Paleta colores uso de suelo</code>. A modo de ejemplo, hacemos clic en el color de la primera clase. Se despliega el siguiente cuadro dónde podemos seleccionar el color.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/img_15.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<ol start="6" type="1">
+<li>Cambiamos los colores por los que aparecen en la tabla, en el caso de la primera clase de Bosques R=77, G=116 y B=31. Luego hacemos clic en <code>Aceptar</code>.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/img_16.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<ol start="7" type="1">
+<li>Para cada una de las demas clases, se procede de la misma forma respecto a la intensidad de colores que se indica en la tabla. El resultado debería ser el siguiente.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/img_17.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<ol start="8" type="1">
+<li>Hacemos clic en <code>Aplicar</code> y luego en <code>Acpetar</code>. El mapa ahora se debe ver de la siguiente forma:</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/img_18.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<ol start="9" type="1">
+<li>Ahora ubicamos la capa <code>Uso de Suelo</code> arriba de la de <code>Mapa de Sombras</code></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/img_19.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<ol start="10" type="1">
+<li>Ahora le vamos a dar un 60% de transparencia a la capa <code>Uso de Suelo</code>. Para esto, vamos a la propiedades de la capa y luego a la pestaña <code>Transparencia</code> y seleccionamos una transparencia de 60%.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/img_20.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<ol start="11" type="1">
+<li>Luego haga clic en <code>Aplica</code> y <code>Aceptar</code>. El lienzo de QGIS se debe ver de la siguiente manera.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/img_21.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="preparar-una-composición-de-impresión-para-uso-de-suelo" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="preparar-una-composición-de-impresión-para-uso-de-suelo"><span class="header-section-number">2.4</span> Preparar una composición de impresión para uso de suelo</h2>
+<p>Ahora que todos los datos están preparados y con la simbología correspondiente, vamos a crear un mapa entregable en formato digital.</p>
+<ol type="1">
+<li><p>haga zoom sobre la capa de <code>Límites</code> de la región.</p></li>
+<li><p>Haga clic en el menu <code>Proyecto</code> y luego en <code>Nueva composición de impresión</code></p></li>
+</ol>
+<p><img src="img/img_22.png" class="img-fluid"></p>
+<ol start="3" type="1">
+<li>Como nombre escriba <code>Mapa tipo uso de suelo</code> o el que usted prefiera, esto no afecta el resultado final del mapa.</li>
+</ol>
+<p><img src="img/img_23.png" class="img-fluid"></p>
+<ol start="4" type="1">
+<li>Ahora QGIS le muestra la ventana del <code>compositor de impresión</code> donde usted diseñara el mapa a entregar.</li>
+</ol>
+<p><img src="img/img_24.png" class="img-fluid"></p>
+<p>El compositor de impresión es una ventana de aplicación con muchas herramientas que le permiten crear un mapa. Para obtener información detallada sobre el compositor de impresion, consulte el manual de QGIS. La ventana principal del <code>compositor de impresión</code> muestra la hoja de papel en la que se diseñará el mapa. Hay botones en el lado izquierdo de la ventana que le permiten agregar varios elementos del mapa: mapa, barra de escala, foto, texto, formas, tablas de atributos, etc. Cada elemento agregado al lienzo del mapa se convierte en un objeto gráfico que puede ser manipulado (si está seleccionado) por la pestaña <code>Elementos</code> en el lado derecho del compositor. En la parte superior hay botones para exportar la composición, navegar dentro de la composición y algunas otras herramientas gráficas (agrupar / desagrupar, etc.)</p>
+<ol start="5" type="1">
+<li><p>En la pestaña Composición puede especificar detalles sobre la composición general.</p></li>
+<li><p>Vamos a definir el tamaño en el cuál se va a crear en mapa. En el menu <code>Diseño</code> haga clic en <code>Configurar página</code>. Estalbezca el tamaño de papel <code>Letter</code> y la orientación como <code>Vertical</code>. Luego haga clic en <code>Aceptar</code>.</p></li>
+</ol>
+<p><img src="img/img_25.png" class="img-fluid"></p>
+<ol start="7" type="1">
+<li><p>Establezca la resolución de Exportar a 300 DPI.</p></li>
+<li><p>En el menú de la derecha, seleccione <code>Diseño</code> y establezca en <code>configuración de exportación</code> con el valor de 300 ppp.</p></li>
+</ol>
+<p><img src="img/img_26.png" class="img-fluid"></p>
+<ol start="9" type="1">
+<li>Luego, con el botón <code>Añadir Mapa</code>, arrastre un cuadro en el lienzo del mapa donde desea que vaya el mapa. Recuerde que necesitará espacio para un título en la parte superior de la página y una leyenda a la derecha del mapa.</li>
+</ol>
+<p>Se puede cambiar el tamaño del objeto del mapa después de agregarlo seleccionándolo y usando los controles alrededor del perímetro para cambiar el tamaño.</p>
+<p>Sugerencias útiles sobre la extensión del mapa: en general, el mapa se verá como se ve en QGIS. Sin embargo, es posible que deba cambiar la extensión del mapa en QGIS, volver al Compositor de impresión y hacer clic en el botón Actualizar vista. Es normal tener un poco de ida y vuelta con QGIS y el <code>Compositor de Impresión</code> antes de obtener el mapa correcto.</p>
+<p><img src="img/img_27.png" class="img-fluid"></p>
+<p>Ahora agregará el título a su mapa.</p>
+<ol start="10" type="1">
+<li><p>Use la herramienta Agregar nueva etiqueta para arrastrar un cuadro hasta la parte superior de la composición. El cuadro de texto se puede cambiar de tamaño después del hecho mediante el uso de los controladores gráficos.</p></li>
+<li><p>Use las Propiedades del elemento para escribir el título. Ingrese el título como ‘Uso de suelo región de {nombre_región}, año 2022’.</p></li>
+<li><p>En la pestaña Elementos, seleccione el título. Esto cambiará las propiedades disponibles en la pestaña Propiedades del elemento.</p></li>
+<li><p>En la pestaña Propiedades del elemento, haga clic en el botón Fuente y cambie la fuente a: Negrita, Tamaño 28. Eliga <code>horientación horizontal</code> como <code>centro</code>, para que el texto se alinie en el centro. Si estos valores no se ajustan a su título los debe modificar.</p></li>
+</ol>
+<p><img src="img/img_28.png" class="img-fluid"></p>
+<ol start="14" type="1">
+<li>Ahora agregará una leyenda. Use la herramienta Agregar nueva leyenda para arrastrar un cuadro en el lado derecho del mapa (como se muestra en la figura a continuación). Ajuste los parametros para que la leyenda calce en el mapa.</li>
+</ol>
+<p><img src="img/img_29.png" class="img-fluid"></p>
+<ol start="15" type="1">
+<li>Agregué un marco, una cuadricula que muestre las coordenadas y una flecha norte. El mapa final deberá quedar como el siguiente.</li>
+</ol>
+<p><img src="img/img_31.png" class="img-fluid"></p>
+<ol start="16" type="1">
+<li>Por último debe exportar el mapa a un archivo formato PDF. Este archivo lo debe subir al campus virtual como resultado del taller.</li>
+</ol>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

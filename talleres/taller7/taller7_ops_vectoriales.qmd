@@ -1,0 +1,195 @@
+---
+title: "Operaciones Espaciales con Datos Vectoriales"
+subtitle: "Introducción a la Tecnología de Información Geográfica"
+author: "Dr. Francisco Zambrano"
+date: "05/06/2024"
+format: 
+  html:
+    number-sections: true
+    echo: true
+    eval: false
+    table-of-contents: true
+lang: es
+---
+
+# Introducción
+
+Al trabajar con datos vectoriales o raster es necesario aplicar diferentes operaciones o procesos sobre ellos que nos permiten modificarlos geométricamente de acuerdo a los objetivos del trabajo que deseamos realizar. Los software SIG como QGIS tienen diferentes operaciones implementadas que se pueden aplicar a modelos de datos geoespaciales vectoriales y rasters.  
+
+# Objetivo
+
+Utilizar operaciones espaciales a datos vectoriales.
+
+# Datos
+
+`Riego Censo Agropecuario 2007:` datos recopilados para el censo agropecuario del año 2007 a nivel de distrito censal respecto a la superficie de riego a lo largo de Chile.
+
+`Distritos en la región de Ñuble:` distritos censales ubicados en la región de Ñuble respecto a información recopilada para el censo agropecuario del año 2007.
+
+`Polígonos selección:` polígonos de circulos y un rectangulo, creados a modo de ejemplo para ejemplificar las diferentes operaciones de selección por localización.
+
+# Actividades
+
+## Selección por atributos
+
+**P1. Haga una selección por atributos que permita seleccionar los distritos censales que tienen una superificie de riego por goteo distinta de 0 y que pertenezcan a la región de O'Higgins. Guardelo en un archivo geopackage en SRC geográficas datum WGS84.**
+
+**Solución:**
+
+1. Cargue la capa `cc_riego` en QGIS
+
+![](img/fig_01.png)
+
+2. Abra la tabla de atributos
+
+![](img/fig_02.png)
+
+3. Haga clic en el `seleccionador de objetos espaciales utilizando expresión`
+
+![](img/fig_03.png)
+
+4. Escriba la expresión utilizando operadores algebraicos y lógicos que permite seleccionar los distritos que perteneces a la región de O'Higgins y su superficie de riego no es cero.
+
+ > "sup_riego" <> 0 &  "nom_reg"  =  'Región del Libertador General Bernardo O''Higgins'
+ 
+ ![](img/fig_04.png)
+ 
+ 5. Verifique que la expresión ingresada no generé algun error, luego haga clic en `seleccionar objetos espaciales` y después cierre la ventana del seleccionador por expresión.
+ 
+ 6. Ahora está en la tabla de atributos dónde están seleccionados los distritos censales de acuerdo a la expresión ingresada. Sin embargo, puede que en la tabla de atributos no apareza ningun objeto espacial seleccionado. Esto se debe a que usted sólo ve una parte mínima de la tabla de atributos. En la parte inferior izquierda haga clic en `Mostrar objetos espaciales seleccionados`.
+ 
+![](img/fig_05.png)
+ 
+ 7. Ahora la tabla de atributos le mostrará sólo los objetos seleccionados, los que se encuentran destacados en azul.
+ 
+![](img/fig_06.png)
+
+8. Ahora puede hacer clic en el menu de la tabla de atributos, dónde dice `Acercar mapa a las filas seleccionadas`
+
+![](img/fig_07.png)
+
+9. Ahora puede cerrar la tabla de atributos y verá en el lienzo de QGIS todos los distritos seleccionados que cumplen la condición definida.
+
+![](img/fig_08.png)
+
+10. Ahora guarde el resultado de la operación con nombre de capa `seleccion_1` en un archivo geopackage con nombre `selecciones_por_atributos.gpkg`.
+
+11. Primero vamos a seleccionar `exportar los objetos espaciales seleccionados`.
+
+![](img/fig_09.png)
+
+12. Seleccione como `formato: Geopackage`, como `nombre de archivo: selecciones_por_atributos`, como  `nombre capa: seleccion_1` y como `SRC: EPSG:4326`. Luego haga clic en `Aceptar`. Ya tiene guardados los distritos seleccionados en una capa en un archivo geopackage.
+
+![](img/fig_10.png)
+
+**P2. Haga una selección por atributos que permita seleccionar los distritos censales que tienen una superificie de riego por goteo distinta de 0 o que pertenezcan a la región de O'Higgins. Guardelo en un archivo geopackage en SRC geográficas datum WGS84.**
+
+1. La selección que debe realizar acá es muy similar a la anterior, sólo debe cambiar la expresión utilizada del paso (4) anterior:
+
+>  "goteo" <> 0 OR  "nom_reg"  =  'Región del Libertador General Bernardo O''Higgins' 
+
+2. En este caso se cambio el `AND` por un `OR`, la consecuencia que tiene esto, es que se seleccionaran los distritos que cumplen ambas condiciones. 
+
+![](img/fig_11.png)
+
+3. Por lo que se seleccionaran distritos en todo Chile que tienen superficie por riego por goteo distinta de cero más lo que se encuentran en la región de O'Higgins.
+
+![](img/fig_12.png)
+
+4. Ahora guarde los objetos espaciales seleccionados en el archivo geopackage `selecciones_por_atributos` con nombre de capa `seleccion_2` y SRC geográfica datum WGS84.
+
+![](img/fig_13.png)
+
+
+**P3. Haga una selección por atributos que permita seleccionar todos los distritos con superficie de riego total menor a 500 ha o que tengan superficie por goteo mayor a 100 ha y que estén en la región de O'Higgins. Guardelo en un archivo geopackage en SRC geográficas datum WGS84.**
+
+1. En este caso la expresión para selección será:
+
+> ("sup_riego" < 500 OR  "goteo" > 100) AND   "nom_reg" = 'Región del Libertador General Bernardo O''Higgins' 
+
+![](img/fig_14.png)
+
+2. La selección en el lienzo deberá verse como sigue
+
+![](img/fig_15.png)
+
+3. Ahora guarde los objetos espaciales seleccionados en el archivo geopackage `selecciones_por_atributos` con nombre de capa `seleccion_3` y SRC geográfica datum WGS84.
+
+![](img/fig_16.png)
+
+4. En el panel de capas deberá ver cuatro capas, las tres correspondientes a las selecciones realizadas y la capa `cc_riego` que se utilizó para realizar las selecciones.
+
+![](img/fig_17.png)
+
+5. En el navegador de QGIS puede revisar el archivo geopackage en el que deben estar guardadas las tres capas.
+
+![](img/fig_18.png)
+
+## Selección por localización
+
+1. Cargue en el panel de capas las capas vectoriales de los poligonos de selección, correspondientes a circulos y rectangulo.
+
+![](img/fig_19.png)
+
+2. Ahora vamos a realizar operaciones de selección por localización, en las que vamos a seleccionar los circulos respecto a distintas superposiciones con el rectangulo. 
+
+3. Vamos a ingresar al menu de selección por localización. Ir a `menú->Vectorial->Herramientas de Investigación->Selección por localización`.
+
+![](img/fig_20.png)
+
+4. La primera operación de selección que vamos a realizar es de intersección. En que vamos a seleccionar los circulos que se intersectan con el rectangulo.
+
+5. Ingresamos a `Selección por localización`. En la ventana que se despliega, dónde dice `Seleccionar objetos de` vamos a ingresar `Circulos`. Dónde dice `Comparado con los objetos de` vamos a ingresar `rectangulo`. Vamos a elegir la operación de selección `intersectar`. Para ejecutar la operación de selección, haga clic en `Ejecutar`. Ahora cierre la ventana de selección.
+
+![](img/fig_21.png)
+
+6. Se seleccionaron cuatro circulos, los que se intersectan en al menos un punto con el rectangulo.
+
+![](img/fig_22.png)
+
+7. Ahora vamos a aplicar la operación de selcción `Contienen`, la que permite selccionar los circulos que contienen el rectangulo.
+
+![](img/fig_23.png)
+
+8. En este caso no se selcciono ningun circulo, ya que ningun circulo continen completamente al rectangulo.
+
+![](img/fig_24.png)
+
+9. Ahora aplicaremos la operación de selcción `Inconexo` la que permite seleccionar los circulos que no tienen conexión con el rectangulo (al revés de intersección)
+
+![](img/fig_25.png)
+
+10. En este caso se selcciono un sólo circulo, el que no tiene ninguna conexión con el rectangulo
+
+![](img/fig_26.png)
+
+11. Ahora aplicamos la operación de selección `Igual`, el resultado de esta operación no entrega ninguna selección. Ya que no hay ningun objeto espacial de los `circulos` que sea igual a algun objeto espacial de `rectangulo`.
+
+![](img/fig_27.png)
+
+
+12. Ahora vamos a aplicar la operación de selección `tocan`, la que permite selccionar los circulos que tocan en un punto con el rectangulo.
+
+![](img/fig_28.png)
+
+8. En este caso se selccionó un sólo circulo, que corresponde al único que intersecta de forma tangente al rectangulo (en un sólo punto).
+
+![](img/fig_29.png)
+
+9. Ahora vamos a aplicar la operación de selección `solapan`, la que permite selccionar los circulos que pasan por sobre otro sin contenerlo por completo.
+
+![](img/fig_30.png)
+
+10. En este caso se seleccionar dos circulos, que corresponden a los que tienen puntos dentro del rectangulo y otros fuera.
+
+![](img/fig_31.png)
+
+11. Ahora vamos a aplicar la operación de selección `estan dentro`, la que permite selccionar los circulos que están completamente dentro del rectangulo.
+
+![](img/fig_32.png)
+
+12. Se selecciono un sólo circulo el que está completamente contenido en el rectangulo.
+
+![](img/fig_33.png)
+
+13. La operación de `cruzan` no genera una selección en este caso, ya que se debe utilizar con geometrias de diferente tipo (ej., linea-poligono).

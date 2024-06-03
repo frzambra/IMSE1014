@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Manejo de Información Geográfica (AGRE1002)</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr. Francisco Zambrano Bigiarini   Investigador en Hémera     frzambra     @frzambra    francisco.zambrano@umayor.cl" />
+    <script src="https://use.fontawesome.com/5235085b15.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="font-awesome-animation.min.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Manejo de Información Geográfica (AGRE1002)
+## Técnicas de Análisis Geoespaciales
+### Dr. Francisco Zambrano Bigiarini <br> Investigador en <a href="https://hemera.umayor.cl/">Hémera</a> <br> <a href="http://github.com/frzambra"><i class="fa fa-github fa-fw"></i>  frzambra</a><br> <a href="http://twitter.com/frzambra"> <i class="fa fa-twitter fa-fw"></i>  <span class="citation">@frzambra</span></a><br> <a href="mailto:francisco.zambrano@umayor.cl"><i class="fa fa-paper-plane fa-fw"></i>  francisco.zambrano@umayor.cl</a><br>
+### 15 junio 2020
+
+---
+
+
+
+
+
+# ¿Qué es un análisis geoespacial?
+
+- Es la aplicación de operaciones para manipular o calcular
+coordenadas y/o atributos de datos relacionados.
+
+- Aplicados para resolver problemas como:
+
+  - Ruta de buses
+  
+  - Zonas de inundación
+  
+  - Determinación de un sitio adecuado
+  
+- El análisis espacial utiliza `operaciones espaciales` para manipular y calcular.
+
+- `AEsD`: se utilizará para referirse a análisis espacial por el resto de esta clase.
+
+---
+# Ejemplo de AEsD
+
+Delimitación de cuenca.
+
+.center[
+  &lt;img src="img/fig1.png"  width="700px" /&gt;
+]
+
+---
+# Input, Operación y Output
+
+- `AEsD` generalmente usa datos de 1 o más capas para crear un output (salida)
+
+  - Uno a uno
+  - Uno a muchos
+  - Muchos a uno
+  - Muchos a muchos
+  
+- El output no necesariamente debe ser espacial
+
+  - Estadísticas
+  
+  - Reporte/Informe
+  
+---
+# 7 técnicas de análisis geoespacial
+
+- Selección
+
+- Buffering
+
+- Dissolve (disolver)
+
+- Operaciones de overlay (superposición)
+
+- Claisificación
+
+- Operaciones con tablas
+
+- Geocodificación
+
+---
+# Selección
+
+- Las `operaciones de selección` identifican objetos que cumplen ciertas condiciones.
+
+- Las condiciones de selección pueden ser `espaciales` o `no espaciales`
+
+  - Selección basada en atributos (no espacial)
+  
+  - Selección basada en posición.
+  
+---
+# Métodos de selección
+
+- Dos tipos de métodos de selección disponibles
+
+  - En pantalla/manual
+  
+    - El usuario selecciona los datos
+    
+  - Automático
+  
+    - El usuario/script define condiciones para que el computador seleccione los datos.
+    
+---
+class: center, middle
+
+# Selección no espacial
+
+---
+
+## Consulta de tabla de atributos
+
+- Consulta de tabla es una operación SIG no espacial muy común.
+
+- Selecciona una submuestra de los registros basado en valores específicos de atributos.
+
+- Utiliza `operaciones algebraicas` y `operadores booleanos`
+
+---
+# Operaciones algebraicas
+
+- Operaciones:
+
+  - Menor que `&lt;`
+  
+  - Mayor que `&gt;`
+  
+  - Igual que `=`
+  
+  - No igual a `&lt;&gt;`
+  
+- mayor que y menor que no se pueden aplicar a atributos nominales
+
+  - ¿Por qué?
+
+- se pueden aplicar solos o en combinación  
+---
+# Ejemplo
+
+Datos de riego censo agropecuario 2007 (IDE Minagri)
+
+- Superficie de riego mayor a 1000 ha
+
+  - Expresión:  "sup_riego" &gt;1000
+
+- Superficie de riego goteo menor a 10 ha
+
+  - Expresión:   "goteo" &lt;10
+
+- Todos los distritos que se encuentran en la región Metropolitana
+
+  - Expresión:  "nom_reg"  =  'Región Metropolitana de Santiago' 
+  
+- Todos los distritos que NO se encuentran en la región Metropolitana
+
+  - Espresión:  "nom_reg"  &lt;&gt;  'Región Metropolitana de Santiago' 
+  
+---
+# Algebra booleana
+
+- Utiliza condiciones `OR`, `AND` o `NOT`
+
+- La evaluación se hace asignando a la salida un valor de verdadero (TRUE) o falso (FALSE), a cada condición.
+
+- El orden de las operaciones no importa
+
+---
+# Operadores y tablas de verdad
+
+.center[
+  &lt;img src="img/fig3.gif"  width="280px" /&gt;
+]
+
+---
+# Operadores y tablas de verdad
+
+
+.center[
+    &lt;img src="img/fig2.gif"  width="700px" /&gt;
+]
+
+---
+# ¿Cuál es el resultado?
+
+- NOT (F)
+
+- V AND V
+
+- F OR NOT(V)
+
+- V OR (F OR (V AND V))
+
+- (V AND V) OR F AND (NOT(F) AND V)
+
+---
+# ¿Cuál es el resultado?
+
+- NOT (F) --&gt; **V**
+
+- V AND V --&gt; **V**
+
+- F OR NOT(V) -&gt; **F**
+
+- V OR (F OR (V AND V)) --&gt; **V**
+
+- (V AND V) OR F AND (NOT(F) AND V) --&gt; **V**
+
+---
+#Ejemplo
+
+Riego Censo agropecuario 2007
+
+- Superificie de riego por goteo distinta de 0 y que perteneza a la región de O'Higgins
+
+  -  ("goteo" &lt;&gt;0) AND  ("nom_reg"  =  'Región del Libertador General Bernardo O''Higgins' )
+  
+- ¿Qué pasa si cambio el AND por un OR?
+
+  -  -  ("goteo" &lt;&gt;0) OR  ("nom_reg"  =  'Región del Libertador General Bernardo O''Higgins' )
+  
+- Si quiero seleccionar todos los distritos con superficie de riego total a 500 ha o  que tengan superficie por goteo mayor a 100 ha y que estén en la región del Maule.
+
+--
+  - ( "sup_riego" &gt; 500 OR  "goteo" &gt;100) AND  "nom_reg"  =  'Región del Maule' 
+  
+  
+---
+class: center, middle
+
+# Selección Espacial
+
+---
+# Ejemplo
+
+
+---
+#Operaciones espaciales de selección
+
+- `Adjacentes` identifica objetos que comparte un segmento de borde
+
+- `Intersecta` identifica objetos que pasan sobre otro
+
+- `Contiene` identifica objetos que contienen a otros o estan conmtenidos por otros objetos
+
+- `Distancia` identifca los objetos que estan a una cierta distancia de otros objetos
+
+---
+class: center, middle
+
+# Buffering y Dissolve
+
+---
+
+# Buffering
+
+- `Buffers` son regiones que estan a menos de o igual a una distancia desde uno o varios objetos.
+
+  - Los buffers se pueden crear desde puntos, lineas, poligonos, o raster.
+  
+- Los `buffers` son tipicamente usados para identificar areas o objetos que están `dentro` o `fuera` desde la distancia umbral.
+
+  - ¿Ejemplos de usos de buffer?
+
+---
+# Buffering
+
+.center[
+    &lt;img src="img/fig4.jpg"  width="700px" /&gt;
+]
+
+---
+# Buffering
+
+.center[
+    &lt;img src="img/fig5.gif"  width="600px" /&gt;
+]
+
+---
+# Ejemplo en QGIS
+
+- seleccionar un distrito
+
+- crear puntos aleatorios y centroide
+
+- crear buffer para los puntos y para el distrito
+
+---
+# Dissolve
+
+- `Dissolve` combina objetos similares dentro de una capa basado en atributos
+
+.center[
+    &lt;img src="img/fig6.gif"  width="700px" /&gt;
+]
+
+---
+# Ejemplo QGIS
+
+- Disolver distritos seleccionados 
+
+---
+class: center, middle
+
+# Operaciones de superposición
+
+---
+# Operaciones de superposición
+
+- Consideran la combinación de datos y atributos espaciales de dos o más capas espaciales. 
+
+  - Muy poderosa y popular aplicación
+  
+  - ¿Ejemplos de superposición?
+  
+- Superposición requiere que los datos esten en el mismo sistema de coordenadas
+
+---
+# Superposición vectorial
+
+- Considera combinar gemoetrias de tipo punto, linea, poligono y sus atributos.
+
+  - La superposición crea nuevas geometrías.
+  
+- El resultado puede generar grandes tablas de atributos si la operación de superposición combina muchas capas.
+
+  - el duplicado de atributos también puede suceder
+  
+---
+# Casos básicos de superposición - Cortar
+
+- `Cortar` define el área de salida del objeto espacial basado en un póligono `cortado`
+
+- Los atributos de la capa de corte no son pasados al objeto cortado final, solo los del objeto de entrada.
+
+.center[
+    &lt;img src="img/fig7.gif"  width="700px" /&gt;
+]
+
+---
+# Casos básicos de superposición - Intersección
+
+- Combina los datos de los dos objetos, pero solo para regiones en que ambos objetos se intersectan.
+
+- Similar a `cortar` pero en este caso los atributos del `poligono` de corte son pasados al objeto de salida.
+
+.center[
+    &lt;img src="img/fig8.png"  width="600px" /&gt;
+]
+
+---
+# Casos básicos de superposición - Unión
+
+- `Unión` es una operación de superposición que incluye todos los datos de los dos objetos.
+
+- No se descartan objetos espaciales en la unión y los atributos correspondientes son almacenados para todas las regiones.
+
+.center[
+    &lt;img src="img/fig9.png"  width="600px" /&gt;
+]
+
+---
+# Ejemplo QGIS
+
+- Crear un poligono de ejemplo agregar alguna información de atibuto
+
+- Cortar la capa de distritos censales con el polígono creado
+
+- Unir la capa de distritos censales con el polígono creado
+
+- Intersecatr la capa de distritos censales con el poligono creado
+
+- Comparar las tablas de atributos
+
+---
+# Problemas de superposición vectorial
+
+- Objetos de entrada representen entidades comunes que se representan en ambas capas, pueden tener una geometría ligeramente diferente.
+
+- Esto crea `polígonos de astilla` cuando las operaciones de astilla son realizadas.
+
+- Existen diferentes técnicas para reducir la ocurrencia de `polígonos de astilla`
+
+---
+# Ejemplo
+
+.center[
+    &lt;img src="img/fig10.png"  width="600px" /&gt;
+]
+
+---
+# Ejemplo
+
+.center[
+    &lt;img src="img/fig11.png"  width="600px" /&gt;
+]
+
+---
+class: center, middle
+
+# Operaciones con tablas
+
+---
+# Operaciones con tablas
+
+- Combinar tablas de atributos es una poderosa herramienta de análisis
+
+- Tres tipos comunes de operaciones con tablas:
+
+  - Intersección
+  
+  - Unión
+  
+  - Juntar (Join)
+
+---
+# Operaciones con tablas - Intersección
+
+.center[
+    &lt;img src="img/fig12.png"  width="600px" /&gt;
+]
+
+---
+# Operaciones con tablas - Unión
+
+.center[
+    &lt;img src="img/fig13.png"  width="600px" /&gt;
+]
+
+---
+# Operaciones con tablas - Juntar
+
+.center[
+    &lt;img src="img/fig14.png"  width="600px" /&gt;
+]
+
+---
+class: center, middle
+
+# Geocodificación
+
+---
+# Geocodificación
+
+- Es el proceso de referenciar objetos espacialmente de acuerdo a su dirección con su ubicación en la tierra.
+
+- Dos tipos de geocodificación
+
+  - Geocodifcación lineal
+    
+    - Asume que una dirección varia linealmente a través del objeto (linea)
+    
+  - Geocodificación de área
+  
+    - Asigna una localización geocodificada a un área (polígono)
+    
+---
+# Geocodificación lineal
+
+Ubiación estimada
+
+¿Dónde queda el 180 Easy St?
+
+`$$\frac{180-100}{200-100} = .8 = 80%$$`
+
+Se encuentra al 80% del inicio
+
+.center[
+    &lt;img src="img/fig15.png"  width="700px" /&gt;
+]
+
+---
+# Geocodificación de área
+
+.center[
+    &lt;img src="img/fig16.png"  width="700px" /&gt;
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

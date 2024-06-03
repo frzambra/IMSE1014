@@ -1,0 +1,296 @@
+---
+title: "Taller 2: Modelos de datos geoespaciales"
+subtitle: "Introducción a la Tecnología de Información Geográfica (IMSE1014)"
+author: "Dr. Francisco Zambrano"
+date: "2024/03/18"
+format: 
+  html:
+    number-sections: true
+    echo: true
+    eval: false
+    table-of-contents: true
+lang: es
+editor: visual
+---
+
+# Introducción
+
+**Objetivo:** Explorar y comprender los modelos de datos geoespaciales
+
+Los sistemas de información geográfica modelan el mundo real con representaciones de objetos como lagos, carreteras y pueblos. Los modelos de datos geoespaciales son los medios utilizados para representar estas características. Se componen de dos partes: objetos espaciales y atributos que, cuando se combinan, crean un modelo de realidad.
+
+![](img/gdm-1.png)
+
+Dos partes del modelo de datos geoespaciales.
+
+Hay dos modelos principales de datos geoespaciales: vectorial y ráster.
+
+-   `Modelo de datos vectoriales:` mejor para modelar objetos discretos. Los datos vectoriales se presentan en tres formas: `punto`, `línea` y `polígono`.
+
+-   `Modelo de datos ráster:` este modelo es el mejor para modelar objetos continuos. Un ráster está compuesto por una matriz de celdas contiguas, con cada celda (píxel) que tiene un único valor numérico.
+
+Este taller presentará a los estudiantes la interfaz QGIS, que se utiliza durante todo el curso.
+
+Es importante aprender los conceptos en este taller ya que los talleres futuros requerirán las habilidades cubiertas en este taller.
+
+Este laboratorio incluye las siguientes tareas:
+
+-   `Actividad 1:` conocer la interfaz de QGIS
+-   `Actividad 2:` aprenda a trabajar con el panel navegador QGIS.
+-   `Actividad 3:` familiarizarse con los modelos de datos geoespaciales.
+-   `Actividad 4:` visualización de datos geoespaciales en el lienzo de QGIS.
+
+# Datos
+
+Para el taller utilizará modelos de datos geoespaciales de tipo vectorial y raster.
+
+-   `datos vectoriales`: desde la IDE del Ministerio de Medio Ambiente (https://www.ide.cl/index.php/medio-ambiente) debe descargar las siguientes capas:
+    -   `cuencas BNA`: delimitación de las cuencas hidrográficas de Chile. [Descargar acá](https://drive.google.com/file/d/1z8rhLNND6MiYZv8RkJ4YYNh3ZG6xxfu9/view?usp=sharing)
+    -   `estaciones de calidad de aire`: estaciones de monitoreo del Sistema de Información Nacional de Calidad de aire (SINCA) . [Descargar acá](https://drive.google.com/file/d/13V_CXbPpmJ4UFuuCanOqQhRp8qF38HWc/view?usp=sharing)
+    -   `sendero de Chile`: Conjunto de rutas que atraviesan el país, contribuyendo a la protección de la naturaleza, a través de la generación de un espacio de acceso público. Esta información se encuentra para todo el país. [Descargar acá](https://drive.google.com/file/d/1PDV3zeYpf7q7ptT7866-4vcADAOuzdMR/view?usp=sharing)
+    -   `data_vectorial_taller2.gpkg`: archivo en formato geopackage. [Descargar acá](https://drive.google.com/file/d/11NrNLnHUGE-K42JgtH0AQVbyLYRYDpfZ/view?usp=sharing).
+-   `datos raster`:
+    -   `imágen aérea:` descargue la siguiente imágen <https://shorturl.at/aQY06>
+    -   `precipitación acumulada mensual Chile Febrero 2024`: [Descargar acá](https://drive.google.com/file/d/1GlCMeCdGzBzlMRnfzhdgGpXN5qgMYT4I/view?usp=sharing)
+    -   `temperatura promedio mensual Chile Febrero 2024`: [Descargar acá](https://drive.google.com/file/d/1cOB3X1tIpqGb6ov1aVeJ_E_H_w01mxiB/view?usp=sharing)
+
+# Actividad 1: Vista general de la interfaz
+
+Exploraremos la interfaz de usuario de QGIS, de forma que se familiarice con los menús, barras de herramientas, lienzo del mapa y lista de capas, que forman la estructura básica de la interfaz.
+
+![](img/partes_interfaz_qgis.png)
+
+Los elementos identificados en la figura superior son:
+
+1.  Navegador
+2.  Barras de herramientas
+3.  Panel de capas
+4.  Barra de estado
+5.  Lienzo del mapa
+6.  Barra de localización
+
+## El Navegador
+
+El Navegador de QGIS es un panel que le permite navegar fácilmente por su base de datos. Puede acceder a archivos vectoriales comunes (ej. archivos shape de ESRI o MapInfo), bases de datos (ej. PostGIS, Oracle, Spatialite o MYSQL Spatial) y conexiones WMS/WFS. \>Nota: Si alguna de estas herramientas no está visible en su pantalla, pruebe activando algunas barras de herramientas que estén actualmente ocultas. Tenga también presente que si no hay espacio suficiente en la pantalla una barra de herramientas se puede acortar ocultando alguna de sus herramientas. Puede ver las herramientas ocultas haciendo clic en el botón con una flecha derecha en cualquier barra de herramientas que se encuentre colapsada. Puede ver un consejo con el nombre de cualquier herramienta manteniendo el ratón sobre la herramienta un instante.
+
+## Barras de herramientas
+
+Sus conjuntos de herramientas más utilizadas se pueden convertir en barras de herramientas para un acceso más rápido. Por ejemplo, la barra de herramientas `Proyecto` le permite guardar, abrir, imprimir e iniciar un nuevo proyecto. Puede fácilmente personalizar la interfaz para ver sólo las herramientas que use más a menudo, añadiendo o eliminando barras de herramientas según necesite mediante el menú -\>Ver -\> Barras de herramientas.
+
+Incluso si no son visibles en una barra de herramientas, todas sus herramientas estan disponibles a través de los menús. Por ejemplo, si elimina la barra de herramientas Archivo (que contiene el botón Guardar), aún podrá guardar su mapa al hacer clic en el menú -\>Proyecto y luego en -\>Guardar.
+
+## Panel de capas
+
+En el panel de capas puede ver una lista, en cualquier momento, de todas las capas que están disponibles.
+
+Expandiendo los elementos colapsados (haciendo clic en la flecha o símbolo más a su lado) se obtiene más información sobre el aspecto actual de la capa.
+
+Un clic derecho sobre una capa mostrará un menú con muchas opciones extra. ¡Pronto estará usando algunas de ellas, así que écheles un vistazo!
+
+> Nota: Una capa vectorial es un conjunto de datos, normalmente de un tipo específico de objetos, tales como carreteras, árboles, etc. Una capa vectorial puede consistir en puntos, líneas o polígonos.
+
+## La barra de estado
+
+Muestra información sobre el mapa actual. También le permite ajustar la escala del mapa y ver las coordenadas del cursor del ratón en el mapa.
+
+## El lienzo del mapa
+
+Aquí es donde se muestra el mapa con las distintas capas/temas.
+
+## Barra de localización
+
+Dentro de esta barra puede acceder a casi todos los objetos de QGIS: capas, características de capa, algoritmos, marcadores espaciales, etc. Verifique todas las diferentes opciones en la sección Configuración del localizador en el Manual del usuario de QGIS.
+
+# Actividad 2: Aprenda a trabajar con el navegador de QGIS
+
+En esta tarea, se familiarizará con el navegador QGIS. El primer paso para trabajar en un proyecto con conjuntos de datos geoespaciales es organizar su espacio de trabajo. Es importante que organicemos los conjuntos de datos lógicamente en la computadora y los hagamos fáciles de encontrar. En esta tarea, obtendrá una copia de los datos del taller y explorará cómo se organizan los datos utilizando el navegador QGIS.
+
+1.  `Navegador:` Panel superior izquierdo
+
+La interfaz para el navegador QGIS es simple y limpia (se muestra en la figura a continuación).
+
+![](img/navegador.png)
+
+El Árbol de archivos se muestra a la izquierda, que muestra los archivos y carpetas de su computadora. (NOTA: su máquina puede tener un conjunto y un número de unidades diferentes enumerados aquí. Esto está bien).
+
+Los iconos en la parte superior permiten agregar una capa al panel de capas, actualizar la lista de archivos, aplicar filtros, comprimir los árboles y activar el control de propiedades.
+
+![](img/navegador-icons.png)
+
+2.  `Árbol de archivos`. Haga clic en la flecha a la izquierda de la unidad C:. Ahora verá todas las subcarpetas directamente debajo de la carpeta C: /.
+
+3.  Expanda la carpeta del taller donde almacenó sus datos en el Árbol de archivos haciendo clic en las flechas a la izquierda de cada carpeta. Ahora verá el contenido de la carpeta `taller2/data` para el laboratorio (que se muestra en la figura a continuación).
+
+![](img/navegador_taller2-data.png)
+
+Tómese un momento para leer los nombres de los archivos. Hay tres carpetas y varios archivos listados con diferentes íconos. El icono ![](img/vectorial-icon.png) indica que el conjunto de datos es una capa vectorial. Este ![](img/raster-icon.png) icono se usa para representar datos ráster, pero también se usa para otros archivos, como los archivos XML.
+
+# Actividad 3: familiarizarse con los modelos de datos geoespaciales
+
+Ahora que está familiarizado con el diseño básico del navegador QGIS, exploraremos algunos datos geoespaciales.
+
+1.  Echemos un vistazo más de cerca a estos datos actualmente enumerados en el navegador QGIS.
+2.  Seleccione la capa `Cuencas_BNA.shp` en el Árbol de archivos. Activa el control de propiedades ![](img/icon_crt_prop.png) y selecciona la pestaña de metadatos. Esto le brinda información básica sobre el conjunto de datos.
+
+Notará que el tipo de almacenamiento es el archivo de formato ESRI Shapefile. La ventana de visualización también le dice que tiene un tipo de polígono de geometría y tiene 139 objetos (que se muestran en la figura a continuación).
+
+![](img/metadatos.png)
+
+Además de los modelos de datos (vector y ráster), debemos comprender los formatos de archivo. Algunos formatos de archivo están diseñados para almacenar datos vectoriales y otros, datos ráster. Los `shapefiles` son archivos de formato vectorial. De hecho, son probablemente el formato de archivo vectorial más común.
+
+Un shapefile individual solo puede contener un tipo de geometría (polígono, línea o punto). Un shapefile es en realidad una colección de archivos en la computadora con un nombre común, pero con diferentes extensiones.
+
+3.  Ahora seleccione `EstacionesdeCalidaddeAire.shp`. Verá que esto también es un ESRI Shapefile pero que es un conjunto de datos de puntos con 153 objetos.
+
+4.  Seleccione `Sendero_de_Chile.shp`. Este es un Shapefile ESRI con geometría de línea y 304 objetos.
+
+5.  Seleccione `Cuencas_BNA.shp` nuevamente y haga clic en la pestaña Vista previa. Esto le muestra las características espaciales de este conjunto de datos SIG (que se muestra en la figura a continuación)
+
+![](img/vista_previa.png)
+
+6.  Haga clic en la pestaña Atributos. Esto le muestra el otro componente del modelo de datos, los atributos. Cada fila corresponde a una entidad u objeto de tipo polígono. Las columnas son cosas que sabemos sobre los polígonos, como el nombre de la cuenca o la superficie (ver la figura a continuación).
+
+![](img/atributos.png)
+
+7.  Seleccione el conjunto de datos `3727d67a-8ca7-46e1-9e7e-74087101cce1.tif`. Haga clic en la pestaña Vista previa. Este es un ejemplo de un dataset ráster. Como una fotografía, está compuesta de celdas (pixeles). Este raster es una imagen satelital de un sector agrícola en la provincia de Talagante, Región Metropolitana (que se muestra en la figura a continuación).
+
+![](img/raster_sentinel2.png)
+
+Veamos los formatos de archivo con más detalle.
+
+8.  Seleccione la carpeta `taller2/data` en el árbol de archivos y explore las subcarpetas. Si tienes activado el `Control de propiedades` se mostrará todo lo que está disponible cuando se selecciona una carpeta (ver figura a continuación).
+
+9.  Ahora la ventana de visualización le muestra lo que vería en el Explorador de Windows.
+
+![](img/lista-archivos.png)
+
+Centrarse en los archivos de la carpeta `Cuencas_BNA`. Observe que el Árbol de archivos muestra por ejemplo el Shapefile como `Cuencas_BNA.shp`, mientras que la Ventana de visualización muestra cinco (o más) archivos llamados `Cuencas_BNA`. Estos son todos los archivos que componen el Shapefile. El árbol de archivos simplifica la vista de sus datos mostrándole solo el archivo `.shp`. Para obtener más información sobre los archivos de formato ESRI, consulte este enlace http://en.wikipedia.org/wiki/Shapefile
+
+# Actividad 4: Visualización de datos geoespaciales en el Lienzo de QGIS
+
+Ahora que sabe cómo se almacenan los conjuntos de datos geoespaciales en su computadora, veamos qué aspecto tienen los datos que contienen. La siguiente sección le presentará como visualizar datos en el lienzo de QGIS Desktop.
+
+1.  QGIS tiene tres secciones principales: el (1) Navegador, (3) Panel Capas y el (5) lienzo del mapa.
+
+![](img/partes_interfaz_qgis.png)
+
+2.  La interfaz de QGIS la puede configurar a su gusto, por ejemplo puede cerrar algunos paneles. Por ejemplo, para cerrar el navegador localice el panel del navegador y haga clic en el pequeño botón `X` en la esquina superior derecha para cerrar el panel (consulte la figura a continuación).
+
+![](img/navegador-close.png)
+
+Los paneles se pueden acoplar y desacoplar desde la ventana del escritorio QGIS. Para desacoplar un panel, haga clic y arrastre la barra de título superior del panel (descrita en la figura a continuación) y arrástrelo lejos de los lados. Cuando suelte el botón del mouse, el panel estará flotando libremente.
+
+![](img/capas-move.png)
+
+Para acoplar un panel flotante, haga clic y arrastre la barra de título, y arrastre el panel hacia el lado izquierdo o derecho del escritorio QGIS hasta que aparezca un rectángulo debajo del panel. Suelte el botón del mouse para acoplar el panel (la acción de acoplamiento se muestra en la figura a continuación).
+
+![](img/acoplamiento.png)
+
+Con la interfaz de escritorio QGIS personalizada, agreguemos algunos datos.
+
+## Datos vectoriales
+
+QGIS tiene distintas maneras de agregar datos para cada modelo de datos geoespaciales principales (vector y ráster). Vamos a agregar la capa vectorial de las cuencas hidrográficas de Chile.
+
+3.  Puede cargar una capa utiliznando el Administrador de fuentes de datos. Haga clic en el boton ![](img/ads.png) y luego seleccione el tipo de modelo de datos vectorial.
+
+![](img/ads_manager.png)
+
+4.  Esto abre la ventana Agregar capa vectorial. Agreguemos uno de los archivos de forma ESRI, que es un conjunto de datos basado en archivos.
+
+5.  Mantenga el tipo de fuente "Archivo", que es el predeterminado. Luego haga clic en el boton explorar ![](img/explorar-icon.png)
+
+6.  Se abre la ventana Abrir una capa vectorial compatible con GDAL/OGR. (NOTA: GDAL/OGR es un proyecto FOSS4G con el único propósito de leer y escribir archivos de datos vectoriales y raster geoespaciales). La ventana está predeterminada para todos los archivos. Cuando exploró los datos de taller en el navegador de QGIS, notó que hay varios shapefiles en la carpeta de datos del taller. Tómese un momento para ver las otras opciones disponibles. Haga clic en el cuadro desplegable `Todos los archivos` y cambie a ESRI Shapefiles (como se muestra en la figura a continuación).
+
+![](img/tipos_archivos_vetcoriales.png)
+
+7.  Una vez que haya terminado de explorar, asegúrese de que todavía esté configurado en ESRI Shapefiles. Esto filtra lo que puede ver en la carpeta del taller para que solo vea los shapefiles.
+
+8.  Seleccione `Cuencas_BNA.shp` y haga clic en Abrir (consulte la figura a continuación).
+
+![](img/abrir_vectorial_op2.png)
+
+9.  Ahora regrese a la ventana `Agregar capa vectorial` y haga clic en `Abrir` para agregar los datos a QGIS (consulte la figura a continuación).
+
+![](img/abrir_vectorial_op2_2.png)
+
+10. Ahora verá `Cuencas_BNA` en el `Panel de Capas` y los objetos del mapa que se muestran en el `lienzo` de QGIS. Las capas vectoriales SIG vendrán con colores aleatorios. Aprenderá a cambiar el estilo de capa en un taller futuro.
+
+![](img/capa_vectorial_al_lienzo.png)
+
+11. Examinemos los atributos. Haga clic derecho en la capa de las cuencas en el `Panel de Capas`. Esto abre un menú contextual. Seleccione Abrir tabla de atributos (se muestra en la figura a continuación).
+
+![](img/abrir_tabla_atributos.png)
+
+12. Se abre la tabla de atributos. Recuerda que exploró este conjunto de datos con el `Navegador` de QGIS, tiene 139 entidades espaciales (139 polígonos). La tabla de atributos tiene 139 registros correspondientes. Hay columnas con el código de la cuenca (COD_CUEN), nombre de la cuenca (NOM_CUEN) y área en kilometros cuadrados (Area_km2). Cierre la tabla de atributos haciendo clic en el botón X en la esquina superior derecha.
+
+![](img/tabla_atributos_metropolitana.png)
+
+13. Otra forma de interactuar con las características espaciales y los atributos es el botón ![](img/identify-button-icon.png) Identificar objetos espaciales.
+
+14. Haga clic en el botón ![](img/identify-button-icon.png)
+
+15. Haga clic en una de las entidades en el mapa. El panel Identificar resultados (que se muestra en la figura a continuación) le muestra los atributos de la función en la que hizo clic. \>Nota: El panel de resultados Identificar puede estar inicialmente acoplado o flotante.
+
+![](img/identify-button-metropolitana.png)
+
+16. Repita el mismo procedimiento y agregue las demas capas vectoriales
+
+-   EstacionesdeCalidaddeAire.shp
+-   Sendero_de_Chile.shp
+
+17. Con el navegador de QGIS explore el archvio de tipo `geopackage` que tiene extensión ".gpkg", `data_vectorial_taller2.gpkg`". Este tipo de archivo corresponde al formato"Geopackage" <https://en.wikipedia.org/wiki/GeoPackage>.
+
+18. Haga clic en la flecha junto al archivo `data_vectorial_taller2.gpkg`
+
+![](img/geopackage1.png)
+
+19. Este tipo de archivo corresponde a una forma de base de datos y permite almacenar formatos de datos vectoriales y raster en el mismo archivo. En este caso se ve que contiene toda las capas vecotriales en un solo archivo.
+
+## Datos raster
+
+Ahora aprenderá cómo agregar datos Raster a QGIS.
+
+1.  Utilice el Administrador de fuentes de datos para cargar los datos. Haga clic en el boton ![](img/ads.png) y luego seleccione el tipo de modelo de datos raster.
+
+2.  Se abre la ventana `Administrador de fuentes de datos ráster` admitidos por GDAL/OGR (que se muestra en la figura siguiente). Este es un flujo de trabajo muy similar a la adición de datos vectoriales.
+
+![](img/load-raster.png)
+
+3.  QGIS utiliza `GDAL/OGR` para abrir archivos de tipo vectoriales y también raster.
+
+4.  El filtro de datos ráster de la ventana está configurado para `Todos los archivos` de manera predeterminada, para que vea todo el contenido de la carpeta (Figura siguiente).
+
+![](img/load-raster2.png)
+
+5.  Establezca el filtro en `Geo Tiff` (¡Además, tenga en cuenta cuántos formatos leerá!) En SIG hay muchos más tipos de archivos ráster que vectoriales.
+
+6.  Abra el archivo `3727d67a-8ca7-46e1-9e7e-74087101cce1.tif`, corresponde a una imágen aérea de la región Metropolitana.
+
+7.  Este raster cubre una parte del centro de la ciudad de Santiago. Haga clic con el botón derecho en el conjunto de datos `3727d67a-8ca7-46e1-9e7e-74087101cce1` en el panel de capas y elija Zoom a la capa para hacer zoom en la extensión espacial de este ráster (como se muestra en la figura a continuación).
+
+![](img/zoom-a-la-capa.png)
+
+8.  Debería ver algo como en la figura siguiente
+
+![](img/sentinel2_zoom.png)
+
+9.  Ahora vamos a cargar otro tipo de datos raster, unos que tienen datos de precipitación y temperatura para Chile.
+
+10. Abra el administrador de fuentes de datos, luego seleccione `raster` y en `tipo de fuente` seleccione `Protocolo: HTTP, cloud, etc,..`
+
+11. En el campo al lado dónde dice `URI` copie la URL del archivo almacenado en la nube https://chelsa-chile.s3.amazonaws.com/monthly/pre/CHELSA_pr_v2.1_20190601.tif.
+
+![](img/data_raster_cloud1.png)
+
+12. Haga clic en añadir, ahora se debe haber agregado una nueva capa.
+
+![](img/data_raster_cloud2.png)
+
+13. Repita los mismo pasos para agregar los datos raster de temperatura https://chelsa-chile.s3.amazonaws.com/monthly/tas/CHELSA_tas_v2.1_20190601.tif
+
+14. Explore las características de los datos raster.
+
+# Conclusión
+
+En este taller exploró conjuntos de datos que utilizan los dos modelos de datos geoespaciales comunes: vectorial y ráster. También ha utilizado el navegador QGIS para obtener una vista previa de los conjuntos de datos. En futuros talleres, aprenderá a usar QGIS para hacer mapas y realizar análisis.

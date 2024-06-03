@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Dr.&nbsp;Francisco Zambrano">
+
+<title>Operaciones Espaciales con Datos Vectoriales</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="taller7_ops_vectoriales_files/libs/clipboard/clipboard.min.js"></script>
+<script src="taller7_ops_vectoriales_files/libs/quarto-html/quarto.js"></script>
+<script src="taller7_ops_vectoriales_files/libs/quarto-html/popper.min.js"></script>
+<script src="taller7_ops_vectoriales_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="taller7_ops_vectoriales_files/libs/quarto-html/anchor.min.js"></script>
+<link href="taller7_ops_vectoriales_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="taller7_ops_vectoriales_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="taller7_ops_vectoriales_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="taller7_ops_vectoriales_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="taller7_ops_vectoriales_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">1</span> Introducción</a></li>
+  <li><a href="#objetivo" id="toc-objetivo" class="nav-link" data-scroll-target="#objetivo"><span class="header-section-number">2</span> Objetivo</a></li>
+  <li><a href="#datos" id="toc-datos" class="nav-link" data-scroll-target="#datos"><span class="header-section-number">3</span> Datos</a></li>
+  <li><a href="#actividades" id="toc-actividades" class="nav-link" data-scroll-target="#actividades"><span class="header-section-number">4</span> Actividades</a>
+  <ul class="collapse">
+  <li><a href="#selección-por-atributos" id="toc-selección-por-atributos" class="nav-link" data-scroll-target="#selección-por-atributos"><span class="header-section-number">4.1</span> Selección por atributos</a></li>
+  <li><a href="#selección-por-localización" id="toc-selección-por-localización" class="nav-link" data-scroll-target="#selección-por-localización"><span class="header-section-number">4.2</span> Selección por localización</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Operaciones Espaciales con Datos Vectoriales</h1>
+<p class="subtitle lead">Introducción a la Tecnología de Información Geográfica</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Dr.&nbsp;Francisco Zambrano </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">6 de mayo de 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="introducción" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introducción</h1>
+<p>Al trabajar con datos vectoriales o raster es necesario aplicar diferentes operaciones o procesos sobre ellos que nos permiten modificarlos geométricamente de acuerdo a los objetivos del trabajo que deseamos realizar. Los software SIG como QGIS tienen diferentes operaciones implementadas que se pueden aplicar a modelos de datos geoespaciales vectoriales y rasters.</p>
+</section>
+<section id="objetivo" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Objetivo</h1>
+<p>Utilizar operaciones espaciales a datos vectoriales.</p>
+</section>
+<section id="datos" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Datos</h1>
+<p><code>Riego Censo Agropecuario 2007:</code> datos recopilados para el censo agropecuario del año 2007 a nivel de distrito censal respecto a la superficie de riego a lo largo de Chile.</p>
+<p><code>Distritos en la región de Ñuble:</code> distritos censales ubicados en la región de Ñuble respecto a información recopilada para el censo agropecuario del año 2007.</p>
+<p><code>Polígonos selección:</code> polígonos de circulos y un rectangulo, creados a modo de ejemplo para ejemplificar las diferentes operaciones de selección por localización.</p>
+</section>
+<section id="actividades" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Actividades</h1>
+<section id="selección-por-atributos" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="selección-por-atributos"><span class="header-section-number">4.1</span> Selección por atributos</h2>
+<p><strong>P1. Haga una selección por atributos que permita seleccionar los distritos censales que tienen una superificie de riego por goteo distinta de 0 y que pertenezcan a la región de O’Higgins. Guardelo en un archivo geopackage en SRC geográficas datum WGS84.</strong></p>
+<p><strong>Solución:</strong></p>
+<ol type="1">
+<li>Cargue la capa <code>cc_riego</code> en QGIS</li>
+</ol>
+<p><img src="img/fig_01.png" class="img-fluid"></p>
+<ol start="2" type="1">
+<li>Abra la tabla de atributos</li>
+</ol>
+<p><img src="img/fig_02.png" class="img-fluid"></p>
+<ol start="3" type="1">
+<li>Haga clic en el <code>seleccionador de objetos espaciales utilizando expresión</code></li>
+</ol>
+<p><img src="img/fig_03.png" class="img-fluid"></p>
+<ol start="4" type="1">
+<li>Escriba la expresión utilizando operadores algebraicos y lógicos que permite seleccionar los distritos que perteneces a la región de O’Higgins y su superficie de riego no es cero.</li>
+</ol>
+<blockquote class="blockquote">
+<p>“sup_riego” &lt;&gt; 0 &amp; “nom_reg” = ‘Región del Libertador General Bernardo O’‘Higgins’</p>
+</blockquote>
+<p><img src="img/fig_04.png" class="img-fluid"></p>
+<ol start="5" type="1">
+<li><p>Verifique que la expresión ingresada no generé algun error, luego haga clic en <code>seleccionar objetos espaciales</code> y después cierre la ventana del seleccionador por expresión.</p></li>
+<li><p>Ahora está en la tabla de atributos dónde están seleccionados los distritos censales de acuerdo a la expresión ingresada. Sin embargo, puede que en la tabla de atributos no apareza ningun objeto espacial seleccionado. Esto se debe a que usted sólo ve una parte mínima de la tabla de atributos. En la parte inferior izquierda haga clic en <code>Mostrar objetos espaciales seleccionados</code>.</p></li>
+</ol>
+<p><img src="img/fig_05.png" class="img-fluid"></p>
+<ol start="7" type="1">
+<li>Ahora la tabla de atributos le mostrará sólo los objetos seleccionados, los que se encuentran destacados en azul.</li>
+</ol>
+<p><img src="img/fig_06.png" class="img-fluid"></p>
+<ol start="8" type="1">
+<li>Ahora puede hacer clic en el menu de la tabla de atributos, dónde dice <code>Acercar mapa a las filas seleccionadas</code></li>
+</ol>
+<p><img src="img/fig_07.png" class="img-fluid"></p>
+<ol start="9" type="1">
+<li>Ahora puede cerrar la tabla de atributos y verá en el lienzo de QGIS todos los distritos seleccionados que cumplen la condición definida.</li>
+</ol>
+<p><img src="img/fig_08.png" class="img-fluid"></p>
+<ol start="10" type="1">
+<li><p>Ahora guarde el resultado de la operación con nombre de capa <code>seleccion_1</code> en un archivo geopackage con nombre <code>selecciones_por_atributos.gpkg</code>.</p></li>
+<li><p>Primero vamos a seleccionar <code>exportar los objetos espaciales seleccionados</code>.</p></li>
+</ol>
+<p><img src="img/fig_09.png" class="img-fluid"></p>
+<ol start="12" type="1">
+<li>Seleccione como <code>formato: Geopackage</code>, como <code>nombre de archivo: selecciones_por_atributos</code>, como <code>nombre capa: seleccion_1</code> y como <code>SRC: EPSG:4326</code>. Luego haga clic en <code>Aceptar</code>. Ya tiene guardados los distritos seleccionados en una capa en un archivo geopackage.</li>
+</ol>
+<p><img src="img/fig_10.png" class="img-fluid"></p>
+<p><strong>P2. Haga una selección por atributos que permita seleccionar los distritos censales que tienen una superificie de riego por goteo distinta de 0 o que pertenezcan a la región de O’Higgins. Guardelo en un archivo geopackage en SRC geográficas datum WGS84.</strong></p>
+<ol type="1">
+<li>La selección que debe realizar acá es muy similar a la anterior, sólo debe cambiar la expresión utilizada del paso (4) anterior:</li>
+</ol>
+<blockquote class="blockquote">
+<p>“goteo” &lt;&gt; 0 OR “nom_reg” = ‘Región del Libertador General Bernardo O’‘Higgins’</p>
+</blockquote>
+<ol start="2" type="1">
+<li>En este caso se cambio el <code>AND</code> por un <code>OR</code>, la consecuencia que tiene esto, es que se seleccionaran los distritos que cumplen ambas condiciones.</li>
+</ol>
+<p><img src="img/fig_11.png" class="img-fluid"></p>
+<ol start="3" type="1">
+<li>Por lo que se seleccionaran distritos en todo Chile que tienen superficie por riego por goteo distinta de cero más lo que se encuentran en la región de O’Higgins.</li>
+</ol>
+<p><img src="img/fig_12.png" class="img-fluid"></p>
+<ol start="4" type="1">
+<li>Ahora guarde los objetos espaciales seleccionados en el archivo geopackage <code>selecciones_por_atributos</code> con nombre de capa <code>seleccion_2</code> y SRC geográfica datum WGS84.</li>
+</ol>
+<p><img src="img/fig_13.png" class="img-fluid"></p>
+<p><strong>P3. Haga una selección por atributos que permita seleccionar todos los distritos con superficie de riego total menor a 500 ha o que tengan superficie por goteo mayor a 100 ha y que estén en la región de O’Higgins. Guardelo en un archivo geopackage en SRC geográficas datum WGS84.</strong></p>
+<ol type="1">
+<li>En este caso la expresión para selección será:</li>
+</ol>
+<blockquote class="blockquote">
+<p>(“sup_riego” &lt; 500 OR “goteo” &gt; 100) AND “nom_reg” = ‘Región del Libertador General Bernardo O’‘Higgins’</p>
+</blockquote>
+<p><img src="img/fig_14.png" class="img-fluid"></p>
+<ol start="2" type="1">
+<li>La selección en el lienzo deberá verse como sigue</li>
+</ol>
+<p><img src="img/fig_15.png" class="img-fluid"></p>
+<ol start="3" type="1">
+<li>Ahora guarde los objetos espaciales seleccionados en el archivo geopackage <code>selecciones_por_atributos</code> con nombre de capa <code>seleccion_3</code> y SRC geográfica datum WGS84.</li>
+</ol>
+<p><img src="img/fig_16.png" class="img-fluid"></p>
+<ol start="4" type="1">
+<li>En el panel de capas deberá ver cuatro capas, las tres correspondientes a las selecciones realizadas y la capa <code>cc_riego</code> que se utilizó para realizar las selecciones.</li>
+</ol>
+<p><img src="img/fig_17.png" class="img-fluid"></p>
+<ol start="5" type="1">
+<li>En el navegador de QGIS puede revisar el archivo geopackage en el que deben estar guardadas las tres capas.</li>
+</ol>
+<p><img src="img/fig_18.png" class="img-fluid"></p>
+</section>
+<section id="selección-por-localización" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="selección-por-localización"><span class="header-section-number">4.2</span> Selección por localización</h2>
+<ol type="1">
+<li>Cargue en el panel de capas las capas vectoriales de los poligonos de selección, correspondientes a circulos y rectangulo.</li>
+</ol>
+<p><img src="img/fig_19.png" class="img-fluid"></p>
+<ol start="2" type="1">
+<li><p>Ahora vamos a realizar operaciones de selección por localización, en las que vamos a seleccionar los circulos respecto a distintas superposiciones con el rectangulo.</p></li>
+<li><p>Vamos a ingresar al menu de selección por localización. Ir a <code>menú-&gt;Vectorial-&gt;Herramientas de Investigación-&gt;Selección por localización</code>.</p></li>
+</ol>
+<p><img src="img/fig_20.png" class="img-fluid"></p>
+<ol start="4" type="1">
+<li><p>La primera operación de selección que vamos a realizar es de intersección. En que vamos a seleccionar los circulos que se intersectan con el rectangulo.</p></li>
+<li><p>Ingresamos a <code>Selección por localización</code>. En la ventana que se despliega, dónde dice <code>Seleccionar objetos de</code> vamos a ingresar <code>Circulos</code>. Dónde dice <code>Comparado con los objetos de</code> vamos a ingresar <code>rectangulo</code>. Vamos a elegir la operación de selección <code>intersectar</code>. Para ejecutar la operación de selección, haga clic en <code>Ejecutar</code>. Ahora cierre la ventana de selección.</p></li>
+</ol>
+<p><img src="img/fig_21.png" class="img-fluid"></p>
+<ol start="6" type="1">
+<li>Se seleccionaron cuatro circulos, los que se intersectan en al menos un punto con el rectangulo.</li>
+</ol>
+<p><img src="img/fig_22.png" class="img-fluid"></p>
+<ol start="7" type="1">
+<li>Ahora vamos a aplicar la operación de selcción <code>Contienen</code>, la que permite selccionar los circulos que contienen el rectangulo.</li>
+</ol>
+<p><img src="img/fig_23.png" class="img-fluid"></p>
+<ol start="8" type="1">
+<li>En este caso no se selcciono ningun circulo, ya que ningun circulo continen completamente al rectangulo.</li>
+</ol>
+<p><img src="img/fig_24.png" class="img-fluid"></p>
+<ol start="9" type="1">
+<li>Ahora aplicaremos la operación de selcción <code>Inconexo</code> la que permite seleccionar los circulos que no tienen conexión con el rectangulo (al revés de intersección)</li>
+</ol>
+<p><img src="img/fig_25.png" class="img-fluid"></p>
+<ol start="10" type="1">
+<li>En este caso se selcciono un sólo circulo, el que no tiene ninguna conexión con el rectangulo</li>
+</ol>
+<p><img src="img/fig_26.png" class="img-fluid"></p>
+<ol start="11" type="1">
+<li>Ahora aplicamos la operación de selección <code>Igual</code>, el resultado de esta operación no entrega ninguna selección. Ya que no hay ningun objeto espacial de los <code>circulos</code> que sea igual a algun objeto espacial de <code>rectangulo</code>.</li>
+</ol>
+<p><img src="img/fig_27.png" class="img-fluid"></p>
+<ol start="12" type="1">
+<li>Ahora vamos a aplicar la operación de selección <code>tocan</code>, la que permite selccionar los circulos que tocan en un punto con el rectangulo.</li>
+</ol>
+<p><img src="img/fig_28.png" class="img-fluid"></p>
+<ol start="8" type="1">
+<li>En este caso se selccionó un sólo circulo, que corresponde al único que intersecta de forma tangente al rectangulo (en un sólo punto).</li>
+</ol>
+<p><img src="img/fig_29.png" class="img-fluid"></p>
+<ol start="9" type="1">
+<li>Ahora vamos a aplicar la operación de selección <code>solapan</code>, la que permite selccionar los circulos que pasan por sobre otro sin contenerlo por completo.</li>
+</ol>
+<p><img src="img/fig_30.png" class="img-fluid"></p>
+<ol start="10" type="1">
+<li>En este caso se seleccionar dos circulos, que corresponden a los que tienen puntos dentro del rectangulo y otros fuera.</li>
+</ol>
+<p><img src="img/fig_31.png" class="img-fluid"></p>
+<ol start="11" type="1">
+<li>Ahora vamos a aplicar la operación de selección <code>estan dentro</code>, la que permite selccionar los circulos que están completamente dentro del rectangulo.</li>
+</ol>
+<p><img src="img/fig_32.png" class="img-fluid"></p>
+<ol start="12" type="1">
+<li>Se selecciono un sólo circulo el que está completamente contenido en el rectangulo.</li>
+</ol>
+<p><img src="img/fig_33.png" class="img-fluid"></p>
+<ol start="13" type="1">
+<li>La operación de <code>cruzan</code> no genera una selección en este caso, ya que se debe utilizar con geometrias de diferente tipo (ej., linea-poligono).</li>
+</ol>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

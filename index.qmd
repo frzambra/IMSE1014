@@ -1,0 +1,71 @@
+---
+title: "Introducción a la Tecnología de Información Geográfica (IMSE1014)"
+subtitle: "Ingeniería en Medio Ambiente"
+author: "Dr. Francisco Zambrano"
+lang: es
+theme: default
+format:
+  html:
+    number-sections: true
+    number-depth: 2
+    smooth-scroll: true
+    code-fold: true
+    toc: true
+    html-math-method: katex
+---
+
+![](logo_medioambiente.jpeg){width=10%}
+![](logo_hemera.jpg){width=30%}
+
+## Reseña
+
+En este repositorio se pone a disposición de los alumnos de la carrera de `Ingeniería en Medio Ambiente` de la Universidad Mayor, las clases, laboratorios y material que se utilizará en la asignatura de `Introducción a la Tecnología de Información Geográfica`. Este repositorio está creado con [quarto](https://quarto.org/) por medio del software `R`.
+
+Este curso está adaptado del material de [FOSS4G course curriculum for GST 101 - Introduction to Geospatial Technology](https://github.com/FOSS4GAcademy/GST101FOSS4GLabs), de acuerdo a las disposiciones de la Licencia Creative Commons 3.0.   
+
+## Clases
+
+1. [Presentación curso](clases/clase1/01_intro_curso.html)
+2. [Introducción a los SIG](clases/clase1/02_intro_SIG.html)
+3. [Introducción a QGIS](clases/clase1/03_intro_qgis.html)\
+4. [Modelos de datos geoespaciales](clases/clase2/04_modelos_datos_SIG.html)
+5. [Proyecciones y Sistemas de Referencia de Coordenadas](clases/clase3/05_SRC.html)
+6. [Creación de mapas con datos geoespaciales](clases/clase4/06_visualizacion.html)
+7. [Análisis Espacial con Datos Vectoriales](clases/clase5/Tecnicas_analsis_geoespaciales.html)
+<!-- 7. [Teledetección e imágenes aéreas](clases/clase5/07_teledeteccion.html) -->
+
+## Talleres
+
+1. Taller 1: Aplicaciones SIG en Medio Ambiente (Campus Virtual)
+2. [Taller 2: Modelos de datos geoespaciales](talleres/taller2/Taller2-Modelos_de_datos_geoespaciales.html)
+3. [Taller 3: Tablas de atributos](talleres/taller3/Taller3-Tabla_de_atributos.html)
+4. Taller 4: Coordenadas (Campus Virtual)
+5. [Taller 5: Sistemas de Referencias de Coordenadas (SRC)](talleres/taller4/Taller4_SRC.html)
+6. [Taller 6: Creación de un mapa entregable](talleres/taller6/Taller6_mapa.html)
+7. [Taller 7: Operaciones Espaciales con Datos Vectoriales (Campus Virtual)](talleres/taller7/taller7_ops_vectoriales.html)
+7. Taller 8: Operaciones Espaciales con Datos Vectoriales (parte 2) (Campus Virtual)
+<!-- 5. Taller 5: creación de mapa (en el campus virtual) -->
+<!-- 6. [Taller 6: Teledeteccón e imagenes de satelite](talleres/taller6/taller6_teledeteccion.html) -->
+
+## Evaluaciones
+
+1. [Evaluación 1](evaluaciones/eva1/eva1.html)
+2. [Proyecto Final](proyecto/proyecto_final.html)
+
+## Software SIG
+
+1. [QGIS](http://www.qgis.org)
+
+## Videos tutoriales
+
+1. [Instalación de QGIS](https://www.youtube.com/watch?v=MtaQXPQSwC4&t=38s)
+
+## Referencias bibliográficas
+
+1. [Una ligera introducción a SIG](https://docs.qgis.org/3.16/es/docs/gentle_gis_introduction/index.html)
+2. [Guia de usuario de QGIS](https://docs.qgis.org/3.16/es/docs/user_manual/)
+3. [Sístemas de Informacíon Geográfica](http://volaya.github.io/libro-sig/). Victor Olaya. 
+
+## License: Creative Commons 3.0 License 
+
+Este trabajo está licenciado bajo la licencia Creative Commons Attribution 3.0.  Para ver una copia de esta licencia visita <http://creativecommons.org/licenses/by/3.0/>. ![](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by.png){width=10%}

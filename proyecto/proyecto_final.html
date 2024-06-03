@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Dr.&nbsp;Francisco Zambrano">
+
+<title>Proyecto Final SIG</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="proyecto_final_files/libs/clipboard/clipboard.min.js"></script>
+<script src="proyecto_final_files/libs/quarto-html/quarto.js"></script>
+<script src="proyecto_final_files/libs/quarto-html/popper.min.js"></script>
+<script src="proyecto_final_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="proyecto_final_files/libs/quarto-html/anchor.min.js"></script>
+<link href="proyecto_final_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="proyecto_final_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="proyecto_final_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="proyecto_final_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="proyecto_final_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#descripción" id="toc-descripción" class="nav-link active" data-scroll-target="#descripción"><span class="header-section-number">1</span> Descripción</a></li>
+  <li><a href="#objetivo" id="toc-objetivo" class="nav-link" data-scroll-target="#objetivo"><span class="header-section-number">2</span> Objetivo</a></li>
+  <li><a href="#datos" id="toc-datos" class="nav-link" data-scroll-target="#datos"><span class="header-section-number">3</span> Datos</a>
+  <ul class="collapse">
+  <li><a href="#raster" id="toc-raster" class="nav-link" data-scroll-target="#raster"><span class="header-section-number">3.1</span> Raster</a></li>
+  <li><a href="#vectoriales" id="toc-vectoriales" class="nav-link" data-scroll-target="#vectoriales"><span class="header-section-number">3.2</span> Vectoriales</a></li>
+  </ul></li>
+  <li><a href="#lo-que-debe-entregar" id="toc-lo-que-debe-entregar" class="nav-link" data-scroll-target="#lo-que-debe-entregar"><span class="header-section-number">4</span> Lo que debe entregar</a>
+  <ul class="collapse">
+  <li><a href="#informe-180-pts" id="toc-informe-180-pts" class="nav-link" data-scroll-target="#informe-180-pts"><span class="header-section-number">4.1</span> Informe (180 pts)</a></li>
+  <li><a href="#presentación-100-pts" id="toc-presentación-100-pts" class="nav-link" data-scroll-target="#presentación-100-pts"><span class="header-section-number">4.2</span> Presentación (100 pts)</a></li>
+  </ul></li>
+  <li><a href="#fechas-de-entrega" id="toc-fechas-de-entrega" class="nav-link" data-scroll-target="#fechas-de-entrega"><span class="header-section-number">5</span> Fechas de entrega</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Proyecto Final SIG</h1>
+<p class="subtitle lead">Caracterización Climática, Vegetacional e Hídrica de una Cuenca</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Dr.&nbsp;Francisco Zambrano </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">16 de mayo de 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="descripción" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Descripción</h1>
+<p>Una de las maneras fundamentales en la toma de decisiones es el poder conocer y comprender las características, limitaciones y potencialidades del territorio; esto con el fin de resolver diversas necesidades presentes en cuanto a estado actual del medio ambiente, impacto del clima, evaluación de los recursos hídricos, cambios en el suelo agrícola, subdivisiones del territorio, etc. Para cualquier proyecto de ingeniería en un territorio determinado (ej. cuenca, región, etc), la primera parte corresponde a su caracterización.</p>
+</section>
+<section id="objetivo" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Objetivo</h1>
+<p>El objetivo del proyecto es utilizar SIG para realizar la caracterización climática, vegetacional e hídrica de una cuenca en Chile.</p>
+</section>
+<section id="datos" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Datos</h1>
+<section id="raster" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="raster"><span class="header-section-number">3.1</span> Raster</h2>
+<ol type="1">
+<li><p><code>Uso de Suelo:</code> debe utilizar los usos de suelos definidos para el año 2022 por el proyecto de “Mapeo Anual de Cobertura y Uso del Suelo en Chile Continental” (<a href="https://chile.mapbiomas.org/proyecto/">MapBiomasChile</a>)</p></li>
+<li><p><code>Elevación:</code> debe utilizar los datos de elevación proporcionados por el <a href="https://www.earthdata.nasa.gov/sensors/srtm">Shuttle Radar Topography Mission (SRTM)</a> a resolución espacial de 90 metros.</p></li>
+<li><p><code>Temperatura promedio anual:</code> debe utilizar los datos de temperatura media anual (1990-2020) estimados por <a href="https://odes-chile.org">ODES</a> desde ERA5-Land (European Reanalysis version 5). Descargar <a href="https://drive.google.com/file/d/1i2kZNPbnQjKRpv6dSHX5VRtl6m-UC8F3/view?usp=sharing">acá</a></p></li>
+<li><p><code>Precipitación total anual:</code> debe utilizar los datos de precipitacion total anual estimados por <a href="https://odes-chile.org">ODES</a> desde ERA5-Land (European Reanalysis version 5). Descargar <a href="https://drive.google.com/file/d/1AU38AdLPWNg0MUY5Gl_YuHaJQAIhOhqx/view?usp=sharing">acá</a></p></li>
+<li><p><code>Evapotranspiración de referencia total anual:</code> debe utilizar los datos de evapotranspiración total anual estimados por <a href="https://odes-chile.org">ODES</a> desde ERA5-Land (European Reanalysis version 5). Descargar <a href="https://drive.google.com/file/d/1c3kq5HDTeni2XXYU8KNAOceirTvZglPN/view?usp=sharing">acá</a></p></li>
+</ol>
+</section>
+<section id="vectoriales" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="vectoriales"><span class="header-section-number">3.2</span> Vectoriales</h2>
+<ol type="1">
+<li><p><code>Cuencas y Subcuencas:</code> debe utilizar los límites de cuencas y subcuencas para Chile. Puede descargarlos desde la <a href="https://www.ide.cl">Infraestructura de Datos Geoespaciales de Chile (IDE)</a></p></li>
+<li><p><code>Principales cauces (Hidrografía):</code> delimitación de los principales cauces de Chile. Puede descargarlos desde la <a href="https://www.ide.cl">Infraestructura de Datos Geoespaciales de Chile (IDE)</a></p></li>
+<li><p><code>Pozos Monitoreo Aguas Subterráneas:</code> ubicación y nivel (profundidad) de los pozos en los que la Dirección General de Aguas (DGA) realiza el monitoreo del nivel piezométrico. Descargar desde <a href="https://drive.google.com/file/d/1jhY5YTtkRCN1AVxaiQ8_kY0vij5yw6Qp/view?usp=sharing">acá</a></p></li>
+</ol>
+</section>
+</section>
+<section id="lo-que-debe-entregar" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Lo que debe entregar</h1>
+<section id="informe-180-pts" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="informe-180-pts"><span class="header-section-number">4.1</span> Informe (180 pts)</h2>
+<p>Debe elaborar un informe breve respecto a la caracterización climática, vegetacional e hídrica en la cuenca asignada. El informe debe contener la siguiente estructura:</p>
+<ol type="1">
+<li><code>Título (10 pts):</code> Una plana con el título y nombres integrantes</li>
+<li><code>Resumen (20 pts):</code> Un resumen de máximo 300 palabras en el qué se aborde el ¿por qué?, ¿cómo? y ¿qué se logró?.</li>
+<li><code>Introducción (20 pts):</code> Máximo una paǵina en dónde se aborde la importancia de realizar una caracterización para la cuenca. Debe incluir al menos tres referencias.<br>
+</li>
+<li><code>Métodos (40 pts):</code> Debe contener las siguientes subsecciones:<br>
+3.1 <code>Área de Estudio:</code> Debe crear un mapa en el que se muestre la topografía, los límites de las cuencas y subcuencas, los principales ríos de la cuenca y la ubicación de los pozos. Además, debe contener un mapa de ubicación en dónde se pueda identificar la ubicación de la cuenca respecto a Chile. 3.1. <code>Datos (10 pts):</code> debe dar una descripción de las caractéristicas de los datos utilizados.<br>
+3.2. <code>Procedimiento (30 pts):</code>. debe describir los procesos SIG utilizados.</li>
+<li><code>Resultados (70 pts):</code> Debe contener las siguientes subsecciones:<br>
+4.1. <code>Caracterización climática (30 pts):</code> Debe realizar tres mapas en los que se puedan apreciar claramente las variación espacial de temperatura, precipitación y evapotranaspiración en la cuenca. En cada mapa se debe poder apreciar la variación de la topografía. Cada mapa debe tener los límites de la cuenca y sus subcuencas con las correspondientes etiquetas. La delimitación de los cauces y la ubicación de los pozos.<br>
+4.2. <code>Caracterización vegetacional (20 pts):</code> Debe realiza un mapa de uso de suelo para la cuenca en el que se puedan identificar cada uno de los tipos de uso de suelos definidos en (<a href="https://chile.mapbiomas.org/proyecto/">MapBiomasChile</a>). En el mapa se debe poder apreciar la variación de la topografía. El mapa debe tener los límites de la cuenca y sus subcuencas con las correspondientes etiquetas. La delimitación de los cauces con sus etiquetas y la ubicación de los pozos.<br>
+4.3. <code>Nivel de los pozos (20 pts):</code> debe contener un gráfico en donde se muestre la variación anual promedio de los niveles de los pozos en cada subcuenca de la cuenca.</li>
+<li><code>Conclusión (20 pts):</code> En un párrafo debe poder resumir las principales características climáticas, vegetacionales e hídricas de la cuenca.</li>
+</ol>
+<p><code>Nota:</code> Cada mapa debe llevar una leyenda y debe describirse en el texto las principales características de lo que muestra el mapa.</p>
+</section>
+<section id="presentación-100-pts" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="presentación-100-pts"><span class="header-section-number">4.2</span> Presentación (100 pts)</h2>
+<p>Debe realizar una presentación con máximo 15 diapósitivas. Debe tener la siguientes esctructura:</p>
+<ol type="1">
+<li>Título</li>
+<li>Contexto</li>
+<li>Métodos</li>
+<li>Resultados</li>
+<li>Conclusión</li>
+</ol>
+<p>La duración de la presentación debe ser entre 10 (mínimo) a 15 minutos (máximo).</p>
+</section>
+</section>
+<section id="fechas-de-entrega" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Fechas de entrega</h1>
+<p><code>Informe:</code> Lunes 17 de junio 2024 hasta las 23:59.<br>
+<code>Presentación:</code> Lunes 24 de junio en el horario de clases.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

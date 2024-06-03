@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Dr.&nbsp;Francisco Zambrano">
+
+<title>Prueba 1: Práctico con QGIS</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="eva1_files/libs/clipboard/clipboard.min.js"></script>
+<script src="eva1_files/libs/quarto-html/quarto.js"></script>
+<script src="eva1_files/libs/quarto-html/popper.min.js"></script>
+<script src="eva1_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="eva1_files/libs/quarto-html/anchor.min.js"></script>
+<link href="eva1_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="eva1_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="eva1_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="eva1_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="eva1_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#contexto" id="toc-contexto" class="nav-link active" data-scroll-target="#contexto"><span class="header-section-number">1</span> Contexto</a></li>
+  <li><a href="#objetivo" id="toc-objetivo" class="nav-link" data-scroll-target="#objetivo"><span class="header-section-number">2</span> Objetivo</a></li>
+  <li><a href="#datos" id="toc-datos" class="nav-link" data-scroll-target="#datos"><span class="header-section-number">3</span> Datos</a></li>
+  <li><a href="#lo-que-debe-realizar" id="toc-lo-que-debe-realizar" class="nav-link" data-scroll-target="#lo-que-debe-realizar"><span class="header-section-number">4</span> Lo que debe realizar</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Prueba 1: Práctico con QGIS</h1>
+<p class="subtitle lead">Introducción a la Tecnología de Información Geográfica</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Dr.&nbsp;Francisco Zambrano </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">15 de abril de 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="contexto" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Contexto</h1>
+<p>Como Ingeniero en Medio Ambiente está trabajando en un proyecto en una determinada región (en el campus virtual se le indicará cuál). El proyecto considera la evaluación de posibles lugares para la instalación de estaciones para medición de velocidad y dirección de viento. Usted está iniciando el proyecto, en esta etapa debe preparar la información con la que trabajará durante todo el transcurso del proyecto.</p>
+<p>Para el proyecto se trabajará con datos de estaciones climáticas actuales, límites regionales de Chile y datos de velocidad del viento. Le entregaron datos para todo Chile, con multiples atributos y en diferentes sistemas de referencia de coordenadas (SRC), los que debe procesar, modificar, reproyectar y guardar en un archivo tipo base de datos.</p>
+</section>
+<section id="objetivo" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Objetivo</h1>
+<p>Lograr generar un archivo GeoPackage con todas las capas de información procesadas, modificadas y reproyectadas para la región asignada de acuerdo a lo solicitado.</p>
+</section>
+<section id="datos" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Datos</h1>
+<p>Para el proyecto cuenta con los siguientes datos:</p>
+<ul>
+<li><code>Velocidad del viento:</code> archivo raster con una capa de información, correspondiente a valores de velocidad de viento promedio entre 1981-2010 para el mes de abril.</li>
+<li><code>Limites regionales de Chile:</code> archivo vectorial con los límites de las dieciseis regiona de Chile</li>
+<li><code>EMAS</code>: Estaciones Meteorológicas Automáticas ubicadas en Chile</li>
+</ul>
+<p>Los datos los debe descargar desde <a href="https://drive.google.com/drive/folders/1EHPHkEOL-MG0Z7fuyjrWPHXhEdMTTpWV?usp=sharing">acá</a></p>
+</section>
+<section id="lo-que-debe-realizar" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Lo que debe realizar</h1>
+<p>Para la región asignada, de acuerdoa lo que se le indica en el campus virtual, debe hacer lo siguiente:</p>
+<ol type="1">
+<li>(10pts) Debe extraer los límites de la región en una capa nueva. Debe contener sólo la región asignada.</li>
+<li>(5 pts) A la capa resultante anterior le debe modificar la tabla de atributos y dejar sólo dos atributos: 1) un <code>ID</code> y 2) el nombre de la región.</li>
+<li>(25 pts) A la capa resultante anterior le debe agregar un atributo que corresponda al área en unidades de hectáreas.</li>
+<li>(10 pts) Respecto a la capa EMASs, debe extraer las EMAS de la región asignada en una capa nueva. Por lo que debe contener, sólo las EMAS que se encuentran en el interior de la región asignada.</li>
+<li>(5 pts) La capa resultante anterior la debe modificar de forma que tenga sólo dos atributos, el <code>Id</code> y <code>estacion</code>.</li>
+<li>(25 pts) A la capa resultante anterior le debe agregar dos atributos, la latitud y la longitud en grados decimales.</li>
+<li>(25 pts) Todas las capas (EMAS, límites, viento) correspondinete a la región asignada, las debe reproyectar a sistema de referencia de coordenadas esféricas datum WGS84.</li>
+<li>(15 pts) Todas las capas resultantes de la pregunta anterior (EMAS, límites, viento) las debe guardar en un archivo en formato GeoPackage nombrado como <code>prueba1_{nombre_region}.gpkg</code>. El GeoPackage debe contener tres capas:</li>
+</ol>
+<ol type="1">
+<li>EMAS seleccionadas para su región con los cambios realizados de acuerdo a como se solicita</li>
+<li>Polígono con los limites de la región asignada con los cambios de acuerdo a como se solicita.</li>
+<li>Capa raster de velocidad del viento promedio 1981-2010 para el mes de abril.</li>
+</ol>
+<p>Nota: No debe subir más información que la solicitada, en caso contrario sólo se revisará un sólo archivo.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

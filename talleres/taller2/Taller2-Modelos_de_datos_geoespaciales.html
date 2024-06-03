@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Dr.&nbsp;Francisco Zambrano">
+
+<title>Taller 2: Modelos de datos geoespaciales</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Taller2-Modelos_de_datos_geoespaciales_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Taller2-Modelos_de_datos_geoespaciales_files/libs/quarto-html/quarto.js"></script>
+<script src="Taller2-Modelos_de_datos_geoespaciales_files/libs/quarto-html/popper.min.js"></script>
+<script src="Taller2-Modelos_de_datos_geoespaciales_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Taller2-Modelos_de_datos_geoespaciales_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Taller2-Modelos_de_datos_geoespaciales_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Taller2-Modelos_de_datos_geoespaciales_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Taller2-Modelos_de_datos_geoespaciales_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Taller2-Modelos_de_datos_geoespaciales_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Taller2-Modelos_de_datos_geoespaciales_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">1</span> Introducción</a></li>
+  <li><a href="#datos" id="toc-datos" class="nav-link" data-scroll-target="#datos"><span class="header-section-number">2</span> Datos</a></li>
+  <li><a href="#actividad-1-vista-general-de-la-interfaz" id="toc-actividad-1-vista-general-de-la-interfaz" class="nav-link" data-scroll-target="#actividad-1-vista-general-de-la-interfaz"><span class="header-section-number">3</span> Actividad 1: Vista general de la interfaz</a>
+  <ul class="collapse">
+  <li><a href="#el-navegador" id="toc-el-navegador" class="nav-link" data-scroll-target="#el-navegador"><span class="header-section-number">3.1</span> El Navegador</a></li>
+  <li><a href="#barras-de-herramientas" id="toc-barras-de-herramientas" class="nav-link" data-scroll-target="#barras-de-herramientas"><span class="header-section-number">3.2</span> Barras de herramientas</a></li>
+  <li><a href="#panel-de-capas" id="toc-panel-de-capas" class="nav-link" data-scroll-target="#panel-de-capas"><span class="header-section-number">3.3</span> Panel de capas</a></li>
+  <li><a href="#la-barra-de-estado" id="toc-la-barra-de-estado" class="nav-link" data-scroll-target="#la-barra-de-estado"><span class="header-section-number">3.4</span> La barra de estado</a></li>
+  <li><a href="#el-lienzo-del-mapa" id="toc-el-lienzo-del-mapa" class="nav-link" data-scroll-target="#el-lienzo-del-mapa"><span class="header-section-number">3.5</span> El lienzo del mapa</a></li>
+  <li><a href="#barra-de-localización" id="toc-barra-de-localización" class="nav-link" data-scroll-target="#barra-de-localización"><span class="header-section-number">3.6</span> Barra de localización</a></li>
+  </ul></li>
+  <li><a href="#actividad-2-aprenda-a-trabajar-con-el-navegador-de-qgis" id="toc-actividad-2-aprenda-a-trabajar-con-el-navegador-de-qgis" class="nav-link" data-scroll-target="#actividad-2-aprenda-a-trabajar-con-el-navegador-de-qgis"><span class="header-section-number">4</span> Actividad 2: Aprenda a trabajar con el navegador de QGIS</a></li>
+  <li><a href="#actividad-3-familiarizarse-con-los-modelos-de-datos-geoespaciales" id="toc-actividad-3-familiarizarse-con-los-modelos-de-datos-geoespaciales" class="nav-link" data-scroll-target="#actividad-3-familiarizarse-con-los-modelos-de-datos-geoespaciales"><span class="header-section-number">5</span> Actividad 3: familiarizarse con los modelos de datos geoespaciales</a></li>
+  <li><a href="#actividad-4-visualización-de-datos-geoespaciales-en-el-lienzo-de-qgis" id="toc-actividad-4-visualización-de-datos-geoespaciales-en-el-lienzo-de-qgis" class="nav-link" data-scroll-target="#actividad-4-visualización-de-datos-geoespaciales-en-el-lienzo-de-qgis"><span class="header-section-number">6</span> Actividad 4: Visualización de datos geoespaciales en el Lienzo de QGIS</a>
+  <ul class="collapse">
+  <li><a href="#datos-vectoriales" id="toc-datos-vectoriales" class="nav-link" data-scroll-target="#datos-vectoriales"><span class="header-section-number">6.1</span> Datos vectoriales</a></li>
+  <li><a href="#datos-raster" id="toc-datos-raster" class="nav-link" data-scroll-target="#datos-raster"><span class="header-section-number">6.2</span> Datos raster</a></li>
+  </ul></li>
+  <li><a href="#conclusión" id="toc-conclusión" class="nav-link" data-scroll-target="#conclusión"><span class="header-section-number">7</span> Conclusión</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Taller 2: Modelos de datos geoespaciales</h1>
+<p class="subtitle lead">Introducción a la Tecnología de Información Geográfica (IMSE1014)</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Dr.&nbsp;Francisco Zambrano </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">18 de marzo de 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="introducción" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introducción</h1>
+<p><strong>Objetivo:</strong> Explorar y comprender los modelos de datos geoespaciales</p>
+<p>Los sistemas de información geográfica modelan el mundo real con representaciones de objetos como lagos, carreteras y pueblos. Los modelos de datos geoespaciales son los medios utilizados para representar estas características. Se componen de dos partes: objetos espaciales y atributos que, cuando se combinan, crean un modelo de realidad.</p>
+<p><img src="img/gdm-1.png" class="img-fluid"></p>
+<p>Dos partes del modelo de datos geoespaciales.</p>
+<p>Hay dos modelos principales de datos geoespaciales: vectorial y ráster.</p>
+<ul>
+<li><p><code>Modelo de datos vectoriales:</code> mejor para modelar objetos discretos. Los datos vectoriales se presentan en tres formas: <code>punto</code>, <code>línea</code> y <code>polígono</code>.</p></li>
+<li><p><code>Modelo de datos ráster:</code> este modelo es el mejor para modelar objetos continuos. Un ráster está compuesto por una matriz de celdas contiguas, con cada celda (píxel) que tiene un único valor numérico.</p></li>
+</ul>
+<p>Este taller presentará a los estudiantes la interfaz QGIS, que se utiliza durante todo el curso.</p>
+<p>Es importante aprender los conceptos en este taller ya que los talleres futuros requerirán las habilidades cubiertas en este taller.</p>
+<p>Este laboratorio incluye las siguientes tareas:</p>
+<ul>
+<li><code>Actividad 1:</code> conocer la interfaz de QGIS</li>
+<li><code>Actividad 2:</code> aprenda a trabajar con el panel navegador QGIS.</li>
+<li><code>Actividad 3:</code> familiarizarse con los modelos de datos geoespaciales.</li>
+<li><code>Actividad 4:</code> visualización de datos geoespaciales en el lienzo de QGIS.</li>
+</ul>
+</section>
+<section id="datos" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Datos</h1>
+<p>Para el taller utilizará modelos de datos geoespaciales de tipo vectorial y raster.</p>
+<ul>
+<li><code>datos vectoriales</code>: desde la IDE del Ministerio de Medio Ambiente (https://www.ide.cl/index.php/medio-ambiente) debe descargar las siguientes capas:
+<ul>
+<li><code>cuencas BNA</code>: delimitación de las cuencas hidrográficas de Chile. <a href="https://drive.google.com/file/d/1z8rhLNND6MiYZv8RkJ4YYNh3ZG6xxfu9/view?usp=sharing">Descargar acá</a></li>
+<li><code>estaciones de calidad de aire</code>: estaciones de monitoreo del Sistema de Información Nacional de Calidad de aire (SINCA) . <a href="https://drive.google.com/file/d/13V_CXbPpmJ4UFuuCanOqQhRp8qF38HWc/view?usp=sharing">Descargar acá</a></li>
+<li><code>sendero de Chile</code>: Conjunto de rutas que atraviesan el país, contribuyendo a la protección de la naturaleza, a través de la generación de un espacio de acceso público. Esta información se encuentra para todo el país. <a href="https://drive.google.com/file/d/1PDV3zeYpf7q7ptT7866-4vcADAOuzdMR/view?usp=sharing">Descargar acá</a></li>
+<li><code>data_vectorial_taller2.gpkg</code>: archivo en formato geopackage. <a href="https://drive.google.com/file/d/11NrNLnHUGE-K42JgtH0AQVbyLYRYDpfZ/view?usp=sharing">Descargar acá</a>.</li>
+</ul></li>
+<li><code>datos raster</code>:
+<ul>
+<li><code>imágen aérea:</code> descargue la siguiente imágen <a href="https://shorturl.at/aQY06" class="uri">https://shorturl.at/aQY06</a></li>
+<li><code>precipitación acumulada mensual Chile Febrero 2024</code>: <a href="https://drive.google.com/file/d/1GlCMeCdGzBzlMRnfzhdgGpXN5qgMYT4I/view?usp=sharing">Descargar acá</a></li>
+<li><code>temperatura promedio mensual Chile Febrero 2024</code>: <a href="https://drive.google.com/file/d/1cOB3X1tIpqGb6ov1aVeJ_E_H_w01mxiB/view?usp=sharing">Descargar acá</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="actividad-1-vista-general-de-la-interfaz" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Actividad 1: Vista general de la interfaz</h1>
+<p>Exploraremos la interfaz de usuario de QGIS, de forma que se familiarice con los menús, barras de herramientas, lienzo del mapa y lista de capas, que forman la estructura básica de la interfaz.</p>
+<p><img src="img/partes_interfaz_qgis.png" class="img-fluid"></p>
+<p>Los elementos identificados en la figura superior son:</p>
+<ol type="1">
+<li>Navegador</li>
+<li>Barras de herramientas</li>
+<li>Panel de capas</li>
+<li>Barra de estado</li>
+<li>Lienzo del mapa</li>
+<li>Barra de localización</li>
+</ol>
+<section id="el-navegador" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="el-navegador"><span class="header-section-number">3.1</span> El Navegador</h2>
+<p>El Navegador de QGIS es un panel que le permite navegar fácilmente por su base de datos. Puede acceder a archivos vectoriales comunes (ej. archivos shape de ESRI o MapInfo), bases de datos (ej. PostGIS, Oracle, Spatialite o MYSQL Spatial) y conexiones WMS/WFS. &gt;Nota: Si alguna de estas herramientas no está visible en su pantalla, pruebe activando algunas barras de herramientas que estén actualmente ocultas. Tenga también presente que si no hay espacio suficiente en la pantalla una barra de herramientas se puede acortar ocultando alguna de sus herramientas. Puede ver las herramientas ocultas haciendo clic en el botón con una flecha derecha en cualquier barra de herramientas que se encuentre colapsada. Puede ver un consejo con el nombre de cualquier herramienta manteniendo el ratón sobre la herramienta un instante.</p>
+</section>
+<section id="barras-de-herramientas" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="barras-de-herramientas"><span class="header-section-number">3.2</span> Barras de herramientas</h2>
+<p>Sus conjuntos de herramientas más utilizadas se pueden convertir en barras de herramientas para un acceso más rápido. Por ejemplo, la barra de herramientas <code>Proyecto</code> le permite guardar, abrir, imprimir e iniciar un nuevo proyecto. Puede fácilmente personalizar la interfaz para ver sólo las herramientas que use más a menudo, añadiendo o eliminando barras de herramientas según necesite mediante el menú -&gt;Ver -&gt; Barras de herramientas.</p>
+<p>Incluso si no son visibles en una barra de herramientas, todas sus herramientas estan disponibles a través de los menús. Por ejemplo, si elimina la barra de herramientas Archivo (que contiene el botón Guardar), aún podrá guardar su mapa al hacer clic en el menú -&gt;Proyecto y luego en -&gt;Guardar.</p>
+</section>
+<section id="panel-de-capas" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="panel-de-capas"><span class="header-section-number">3.3</span> Panel de capas</h2>
+<p>En el panel de capas puede ver una lista, en cualquier momento, de todas las capas que están disponibles.</p>
+<p>Expandiendo los elementos colapsados (haciendo clic en la flecha o símbolo más a su lado) se obtiene más información sobre el aspecto actual de la capa.</p>
+<p>Un clic derecho sobre una capa mostrará un menú con muchas opciones extra. ¡Pronto estará usando algunas de ellas, así que écheles un vistazo!</p>
+<blockquote class="blockquote">
+<p>Nota: Una capa vectorial es un conjunto de datos, normalmente de un tipo específico de objetos, tales como carreteras, árboles, etc. Una capa vectorial puede consistir en puntos, líneas o polígonos.</p>
+</blockquote>
+</section>
+<section id="la-barra-de-estado" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="la-barra-de-estado"><span class="header-section-number">3.4</span> La barra de estado</h2>
+<p>Muestra información sobre el mapa actual. También le permite ajustar la escala del mapa y ver las coordenadas del cursor del ratón en el mapa.</p>
+</section>
+<section id="el-lienzo-del-mapa" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="el-lienzo-del-mapa"><span class="header-section-number">3.5</span> El lienzo del mapa</h2>
+<p>Aquí es donde se muestra el mapa con las distintas capas/temas.</p>
+</section>
+<section id="barra-de-localización" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="barra-de-localización"><span class="header-section-number">3.6</span> Barra de localización</h2>
+<p>Dentro de esta barra puede acceder a casi todos los objetos de QGIS: capas, características de capa, algoritmos, marcadores espaciales, etc. Verifique todas las diferentes opciones en la sección Configuración del localizador en el Manual del usuario de QGIS.</p>
+</section>
+</section>
+<section id="actividad-2-aprenda-a-trabajar-con-el-navegador-de-qgis" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Actividad 2: Aprenda a trabajar con el navegador de QGIS</h1>
+<p>En esta tarea, se familiarizará con el navegador QGIS. El primer paso para trabajar en un proyecto con conjuntos de datos geoespaciales es organizar su espacio de trabajo. Es importante que organicemos los conjuntos de datos lógicamente en la computadora y los hagamos fáciles de encontrar. En esta tarea, obtendrá una copia de los datos del taller y explorará cómo se organizan los datos utilizando el navegador QGIS.</p>
+<ol type="1">
+<li><code>Navegador:</code> Panel superior izquierdo</li>
+</ol>
+<p>La interfaz para el navegador QGIS es simple y limpia (se muestra en la figura a continuación).</p>
+<p><img src="img/navegador.png" class="img-fluid"></p>
+<p>El Árbol de archivos se muestra a la izquierda, que muestra los archivos y carpetas de su computadora. (NOTA: su máquina puede tener un conjunto y un número de unidades diferentes enumerados aquí. Esto está bien).</p>
+<p>Los iconos en la parte superior permiten agregar una capa al panel de capas, actualizar la lista de archivos, aplicar filtros, comprimir los árboles y activar el control de propiedades.</p>
+<p><img src="img/navegador-icons.png" class="img-fluid"></p>
+<ol start="2" type="1">
+<li><p><code>Árbol de archivos</code>. Haga clic en la flecha a la izquierda de la unidad C:. Ahora verá todas las subcarpetas directamente debajo de la carpeta C: /.</p></li>
+<li><p>Expanda la carpeta del taller donde almacenó sus datos en el Árbol de archivos haciendo clic en las flechas a la izquierda de cada carpeta. Ahora verá el contenido de la carpeta <code>taller2/data</code> para el laboratorio (que se muestra en la figura a continuación).</p></li>
+</ol>
+<p><img src="img/navegador_taller2-data.png" class="img-fluid"></p>
+<p>Tómese un momento para leer los nombres de los archivos. Hay tres carpetas y varios archivos listados con diferentes íconos. El icono <img src="img/vectorial-icon.png" class="img-fluid"> indica que el conjunto de datos es una capa vectorial. Este <img src="img/raster-icon.png" class="img-fluid"> icono se usa para representar datos ráster, pero también se usa para otros archivos, como los archivos XML.</p>
+</section>
+<section id="actividad-3-familiarizarse-con-los-modelos-de-datos-geoespaciales" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Actividad 3: familiarizarse con los modelos de datos geoespaciales</h1>
+<p>Ahora que está familiarizado con el diseño básico del navegador QGIS, exploraremos algunos datos geoespaciales.</p>
+<ol type="1">
+<li>Echemos un vistazo más de cerca a estos datos actualmente enumerados en el navegador QGIS.</li>
+<li>Seleccione la capa <code>Cuencas_BNA.shp</code> en el Árbol de archivos. Activa el control de propiedades <img src="img/icon_crt_prop.png" class="img-fluid"> y selecciona la pestaña de metadatos. Esto le brinda información básica sobre el conjunto de datos.</li>
+</ol>
+<p>Notará que el tipo de almacenamiento es el archivo de formato ESRI Shapefile. La ventana de visualización también le dice que tiene un tipo de polígono de geometría y tiene 139 objetos (que se muestran en la figura a continuación).</p>
+<p><img src="img/metadatos.png" class="img-fluid"></p>
+<p>Además de los modelos de datos (vector y ráster), debemos comprender los formatos de archivo. Algunos formatos de archivo están diseñados para almacenar datos vectoriales y otros, datos ráster. Los <code>shapefiles</code> son archivos de formato vectorial. De hecho, son probablemente el formato de archivo vectorial más común.</p>
+<p>Un shapefile individual solo puede contener un tipo de geometría (polígono, línea o punto). Un shapefile es en realidad una colección de archivos en la computadora con un nombre común, pero con diferentes extensiones.</p>
+<ol start="3" type="1">
+<li><p>Ahora seleccione <code>EstacionesdeCalidaddeAire.shp</code>. Verá que esto también es un ESRI Shapefile pero que es un conjunto de datos de puntos con 153 objetos.</p></li>
+<li><p>Seleccione <code>Sendero_de_Chile.shp</code>. Este es un Shapefile ESRI con geometría de línea y 304 objetos.</p></li>
+<li><p>Seleccione <code>Cuencas_BNA.shp</code> nuevamente y haga clic en la pestaña Vista previa. Esto le muestra las características espaciales de este conjunto de datos SIG (que se muestra en la figura a continuación)</p></li>
+</ol>
+<p><img src="img/vista_previa.png" class="img-fluid"></p>
+<ol start="6" type="1">
+<li>Haga clic en la pestaña Atributos. Esto le muestra el otro componente del modelo de datos, los atributos. Cada fila corresponde a una entidad u objeto de tipo polígono. Las columnas son cosas que sabemos sobre los polígonos, como el nombre de la cuenca o la superficie (ver la figura a continuación).</li>
+</ol>
+<p><img src="img/atributos.png" class="img-fluid"></p>
+<ol start="7" type="1">
+<li>Seleccione el conjunto de datos <code>3727d67a-8ca7-46e1-9e7e-74087101cce1.tif</code>. Haga clic en la pestaña Vista previa. Este es un ejemplo de un dataset ráster. Como una fotografía, está compuesta de celdas (pixeles). Este raster es una imagen satelital de un sector agrícola en la provincia de Talagante, Región Metropolitana (que se muestra en la figura a continuación).</li>
+</ol>
+<p><img src="img/raster_sentinel2.png" class="img-fluid"></p>
+<p>Veamos los formatos de archivo con más detalle.</p>
+<ol start="8" type="1">
+<li><p>Seleccione la carpeta <code>taller2/data</code> en el árbol de archivos y explore las subcarpetas. Si tienes activado el <code>Control de propiedades</code> se mostrará todo lo que está disponible cuando se selecciona una carpeta (ver figura a continuación).</p></li>
+<li><p>Ahora la ventana de visualización le muestra lo que vería en el Explorador de Windows.</p></li>
+</ol>
+<p><img src="img/lista-archivos.png" class="img-fluid"></p>
+<p>Centrarse en los archivos de la carpeta <code>Cuencas_BNA</code>. Observe que el Árbol de archivos muestra por ejemplo el Shapefile como <code>Cuencas_BNA.shp</code>, mientras que la Ventana de visualización muestra cinco (o más) archivos llamados <code>Cuencas_BNA</code>. Estos son todos los archivos que componen el Shapefile. El árbol de archivos simplifica la vista de sus datos mostrándole solo el archivo <code>.shp</code>. Para obtener más información sobre los archivos de formato ESRI, consulte este enlace http://en.wikipedia.org/wiki/Shapefile</p>
+</section>
+<section id="actividad-4-visualización-de-datos-geoespaciales-en-el-lienzo-de-qgis" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Actividad 4: Visualización de datos geoespaciales en el Lienzo de QGIS</h1>
+<p>Ahora que sabe cómo se almacenan los conjuntos de datos geoespaciales en su computadora, veamos qué aspecto tienen los datos que contienen. La siguiente sección le presentará como visualizar datos en el lienzo de QGIS Desktop.</p>
+<ol type="1">
+<li>QGIS tiene tres secciones principales: el (1) Navegador, (3) Panel Capas y el (5) lienzo del mapa.</li>
+</ol>
+<p><img src="img/partes_interfaz_qgis.png" class="img-fluid"></p>
+<ol start="2" type="1">
+<li>La interfaz de QGIS la puede configurar a su gusto, por ejemplo puede cerrar algunos paneles. Por ejemplo, para cerrar el navegador localice el panel del navegador y haga clic en el pequeño botón <code>X</code> en la esquina superior derecha para cerrar el panel (consulte la figura a continuación).</li>
+</ol>
+<p><img src="img/navegador-close.png" class="img-fluid"></p>
+<p>Los paneles se pueden acoplar y desacoplar desde la ventana del escritorio QGIS. Para desacoplar un panel, haga clic y arrastre la barra de título superior del panel (descrita en la figura a continuación) y arrástrelo lejos de los lados. Cuando suelte el botón del mouse, el panel estará flotando libremente.</p>
+<p><img src="img/capas-move.png" class="img-fluid"></p>
+<p>Para acoplar un panel flotante, haga clic y arrastre la barra de título, y arrastre el panel hacia el lado izquierdo o derecho del escritorio QGIS hasta que aparezca un rectángulo debajo del panel. Suelte el botón del mouse para acoplar el panel (la acción de acoplamiento se muestra en la figura a continuación).</p>
+<p><img src="img/acoplamiento.png" class="img-fluid"></p>
+<p>Con la interfaz de escritorio QGIS personalizada, agreguemos algunos datos.</p>
+<section id="datos-vectoriales" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="datos-vectoriales"><span class="header-section-number">6.1</span> Datos vectoriales</h2>
+<p>QGIS tiene distintas maneras de agregar datos para cada modelo de datos geoespaciales principales (vector y ráster). Vamos a agregar la capa vectorial de las cuencas hidrográficas de Chile.</p>
+<ol start="3" type="1">
+<li>Puede cargar una capa utiliznando el Administrador de fuentes de datos. Haga clic en el boton <img src="img/ads.png" class="img-fluid"> y luego seleccione el tipo de modelo de datos vectorial.</li>
+</ol>
+<p><img src="img/ads_manager.png" class="img-fluid"></p>
+<ol start="4" type="1">
+<li><p>Esto abre la ventana Agregar capa vectorial. Agreguemos uno de los archivos de forma ESRI, que es un conjunto de datos basado en archivos.</p></li>
+<li><p>Mantenga el tipo de fuente “Archivo”, que es el predeterminado. Luego haga clic en el boton explorar <img src="img/explorar-icon.png" class="img-fluid"></p></li>
+<li><p>Se abre la ventana Abrir una capa vectorial compatible con GDAL/OGR. (NOTA: GDAL/OGR es un proyecto FOSS4G con el único propósito de leer y escribir archivos de datos vectoriales y raster geoespaciales). La ventana está predeterminada para todos los archivos. Cuando exploró los datos de taller en el navegador de QGIS, notó que hay varios shapefiles en la carpeta de datos del taller. Tómese un momento para ver las otras opciones disponibles. Haga clic en el cuadro desplegable <code>Todos los archivos</code> y cambie a ESRI Shapefiles (como se muestra en la figura a continuación).</p></li>
+</ol>
+<p><img src="img/tipos_archivos_vetcoriales.png" class="img-fluid"></p>
+<ol start="7" type="1">
+<li><p>Una vez que haya terminado de explorar, asegúrese de que todavía esté configurado en ESRI Shapefiles. Esto filtra lo que puede ver en la carpeta del taller para que solo vea los shapefiles.</p></li>
+<li><p>Seleccione <code>Cuencas_BNA.shp</code> y haga clic en Abrir (consulte la figura a continuación).</p></li>
+</ol>
+<p><img src="img/abrir_vectorial_op2.png" class="img-fluid"></p>
+<ol start="9" type="1">
+<li>Ahora regrese a la ventana <code>Agregar capa vectorial</code> y haga clic en <code>Abrir</code> para agregar los datos a QGIS (consulte la figura a continuación).</li>
+</ol>
+<p><img src="img/abrir_vectorial_op2_2.png" class="img-fluid"></p>
+<ol start="10" type="1">
+<li>Ahora verá <code>Cuencas_BNA</code> en el <code>Panel de Capas</code> y los objetos del mapa que se muestran en el <code>lienzo</code> de QGIS. Las capas vectoriales SIG vendrán con colores aleatorios. Aprenderá a cambiar el estilo de capa en un taller futuro.</li>
+</ol>
+<p><img src="img/capa_vectorial_al_lienzo.png" class="img-fluid"></p>
+<ol start="11" type="1">
+<li>Examinemos los atributos. Haga clic derecho en la capa de las cuencas en el <code>Panel de Capas</code>. Esto abre un menú contextual. Seleccione Abrir tabla de atributos (se muestra en la figura a continuación).</li>
+</ol>
+<p><img src="img/abrir_tabla_atributos.png" class="img-fluid"></p>
+<ol start="12" type="1">
+<li>Se abre la tabla de atributos. Recuerda que exploró este conjunto de datos con el <code>Navegador</code> de QGIS, tiene 139 entidades espaciales (139 polígonos). La tabla de atributos tiene 139 registros correspondientes. Hay columnas con el código de la cuenca (COD_CUEN), nombre de la cuenca (NOM_CUEN) y área en kilometros cuadrados (Area_km2). Cierre la tabla de atributos haciendo clic en el botón X en la esquina superior derecha.</li>
+</ol>
+<p><img src="img/tabla_atributos_metropolitana.png" class="img-fluid"></p>
+<ol start="13" type="1">
+<li><p>Otra forma de interactuar con las características espaciales y los atributos es el botón <img src="img/identify-button-icon.png" class="img-fluid"> Identificar objetos espaciales.</p></li>
+<li><p>Haga clic en el botón <img src="img/identify-button-icon.png" class="img-fluid"></p></li>
+<li><p>Haga clic en una de las entidades en el mapa. El panel Identificar resultados (que se muestra en la figura a continuación) le muestra los atributos de la función en la que hizo clic. &gt;Nota: El panel de resultados Identificar puede estar inicialmente acoplado o flotante.</p></li>
+</ol>
+<p><img src="img/identify-button-metropolitana.png" class="img-fluid"></p>
+<ol start="16" type="1">
+<li>Repita el mismo procedimiento y agregue las demas capas vectoriales</li>
+</ol>
+<ul>
+<li>EstacionesdeCalidaddeAire.shp</li>
+<li>Sendero_de_Chile.shp</li>
+</ul>
+<ol start="17" type="1">
+<li><p>Con el navegador de QGIS explore el archvio de tipo <code>geopackage</code> que tiene extensión “.gpkg”, <code>data_vectorial_taller2.gpkg</code>“. Este tipo de archivo corresponde al formato”Geopackage” <a href="https://en.wikipedia.org/wiki/GeoPackage" class="uri">https://en.wikipedia.org/wiki/GeoPackage</a>.</p></li>
+<li><p>Haga clic en la flecha junto al archivo <code>data_vectorial_taller2.gpkg</code></p></li>
+</ol>
+<p><img src="img/geopackage1.png" class="img-fluid"></p>
+<ol start="19" type="1">
+<li>Este tipo de archivo corresponde a una forma de base de datos y permite almacenar formatos de datos vectoriales y raster en el mismo archivo. En este caso se ve que contiene toda las capas vecotriales en un solo archivo.</li>
+</ol>
+</section>
+<section id="datos-raster" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="datos-raster"><span class="header-section-number">6.2</span> Datos raster</h2>
+<p>Ahora aprenderá cómo agregar datos Raster a QGIS.</p>
+<ol type="1">
+<li><p>Utilice el Administrador de fuentes de datos para cargar los datos. Haga clic en el boton <img src="img/ads.png" class="img-fluid"> y luego seleccione el tipo de modelo de datos raster.</p></li>
+<li><p>Se abre la ventana <code>Administrador de fuentes de datos ráster</code> admitidos por GDAL/OGR (que se muestra en la figura siguiente). Este es un flujo de trabajo muy similar a la adición de datos vectoriales.</p></li>
+</ol>
+<p><img src="img/load-raster.png" class="img-fluid"></p>
+<ol start="3" type="1">
+<li><p>QGIS utiliza <code>GDAL/OGR</code> para abrir archivos de tipo vectoriales y también raster.</p></li>
+<li><p>El filtro de datos ráster de la ventana está configurado para <code>Todos los archivos</code> de manera predeterminada, para que vea todo el contenido de la carpeta (Figura siguiente).</p></li>
+</ol>
+<p><img src="img/load-raster2.png" class="img-fluid"></p>
+<ol start="5" type="1">
+<li><p>Establezca el filtro en <code>Geo Tiff</code> (¡Además, tenga en cuenta cuántos formatos leerá!) En SIG hay muchos más tipos de archivos ráster que vectoriales.</p></li>
+<li><p>Abra el archivo <code>3727d67a-8ca7-46e1-9e7e-74087101cce1.tif</code>, corresponde a una imágen aérea de la región Metropolitana.</p></li>
+<li><p>Este raster cubre una parte del centro de la ciudad de Santiago. Haga clic con el botón derecho en el conjunto de datos <code>3727d67a-8ca7-46e1-9e7e-74087101cce1</code> en el panel de capas y elija Zoom a la capa para hacer zoom en la extensión espacial de este ráster (como se muestra en la figura a continuación).</p></li>
+</ol>
+<p><img src="img/zoom-a-la-capa.png" class="img-fluid"></p>
+<ol start="8" type="1">
+<li>Debería ver algo como en la figura siguiente</li>
+</ol>
+<p><img src="img/sentinel2_zoom.png" class="img-fluid"></p>
+<ol start="9" type="1">
+<li><p>Ahora vamos a cargar otro tipo de datos raster, unos que tienen datos de precipitación y temperatura para Chile.</p></li>
+<li><p>Abra el administrador de fuentes de datos, luego seleccione <code>raster</code> y en <code>tipo de fuente</code> seleccione <code>Protocolo: HTTP, cloud, etc,..</code></p></li>
+<li><p>En el campo al lado dónde dice <code>URI</code> copie la URL del archivo almacenado en la nube https://chelsa-chile.s3.amazonaws.com/monthly/pre/CHELSA_pr_v2.1_20190601.tif.</p></li>
+</ol>
+<p><img src="img/data_raster_cloud1.png" class="img-fluid"></p>
+<ol start="12" type="1">
+<li>Haga clic en añadir, ahora se debe haber agregado una nueva capa.</li>
+</ol>
+<p><img src="img/data_raster_cloud2.png" class="img-fluid"></p>
+<ol start="13" type="1">
+<li><p>Repita los mismo pasos para agregar los datos raster de temperatura https://chelsa-chile.s3.amazonaws.com/monthly/tas/CHELSA_tas_v2.1_20190601.tif</p></li>
+<li><p>Explore las características de los datos raster.</p></li>
+</ol>
+</section>
+</section>
+<section id="conclusión" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Conclusión</h1>
+<p>En este taller exploró conjuntos de datos que utilizan los dos modelos de datos geoespaciales comunes: vectorial y ráster. También ha utilizado el navegador QGIS para obtener una vista previa de los conjuntos de datos. En futuros talleres, aprenderá a usar QGIS para hacer mapas y realizar análisis.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
