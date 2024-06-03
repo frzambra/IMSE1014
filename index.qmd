@@ -31,7 +31,8 @@ Este curso está adaptado del material de [FOSS4G course curriculum for GST 101 
 4. [Modelos de datos geoespaciales](clases/clase2/04_modelos_datos_SIG.html)
 5. [Proyecciones y Sistemas de Referencia de Coordenadas](clases/clase3/05_SRC.html)
 6. [Creación de mapas con datos geoespaciales](clases/clase4/06_visualizacion.html)
-7. [Análisis Espacial con Datos Vectoriales](clases/clase5/Tecnicas_analsis_geoespaciales.html)
+7. [Operaciones espaciales con datos vectoriales](clases/clase5/Tecnicas_analsis_geoespaciales.html)
+8. [Operaciones espaciales con datos rasters](clases/clase6/Tecnicas_analsis_geoespaciales_rasters.html)
 <!-- 7. [Teledetección e imágenes aéreas](clases/clase5/07_teledeteccion.html) -->
 
 ## Talleres
